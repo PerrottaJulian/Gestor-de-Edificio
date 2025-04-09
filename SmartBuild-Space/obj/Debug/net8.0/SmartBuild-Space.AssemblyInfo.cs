@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SmartBuild-Space")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+835d5b75b751bd692d5770a57b887f4d9694762b")]
 [assembly: System.Reflection.AssemblyProductAttribute("SmartBuild-Space")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SmartBuild-Space")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

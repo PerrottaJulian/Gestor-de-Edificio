@@ -1,7 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Admin\\dev-home\\SmartBuild-Space\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{03662322-BD15-455F-AEE6-B1CC03927718}|SmartBuild-Space\\SmartBuild-Space.csproj|c:\\users\\admin\\dev-home\\smartbuild-space\\smartbuild-space\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{03662322-BD15-455F-AEE6-B1CC03927718}|SmartBuild-Space\\SmartBuild-Space.csproj|solutionrelative:smartbuild-space\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,8 +14,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\dev-home\\SmartBuild-Space\\SmartBuild-Space\\Program.cs",
+              "RelativeDocumentMoniker": "SmartBuild-Space\\Program.cs",
+              "ToolTip": "C:\\Users\\Admin\\dev-home\\SmartBuild-Space\\SmartBuild-Space\\Program.cs",
+              "RelativeToolTip": "SmartBuild-Space\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-09T23:43:35.678Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
