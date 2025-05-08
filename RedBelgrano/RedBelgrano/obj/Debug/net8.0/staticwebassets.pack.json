@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\RedBelgrano.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\jperrotta\\dev\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\wwwroot\\css\\Login.css",
+      "PackagePath": "staticwebassets\\css\\Login.css"
+    },
+    {
       "Id": "C:\\Users\\jperrotta\\dev\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

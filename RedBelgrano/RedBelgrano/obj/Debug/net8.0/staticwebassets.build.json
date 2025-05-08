@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "4OAVPxh99mrtA6PRSex2w+Pqlg2ouIkDiYqk2r1bTpg=",
+  "Hash": "6hANe0GVoQh/N0lwOE+a3qCgcoepAC63hRQIjoaMGxM=",
   "Source": "RedBelgrano",
   "BasePath": "_content/RedBelgrano",
   "Mode": "Default",
@@ -53,6 +53,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\jperrotta\\dev\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\RedBelgrano.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\jperrotta\\dev\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\wwwroot\\css\\Login.css",
+      "SourceId": "RedBelgrano",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\jperrotta\\dev\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\wwwroot\\",
+      "BasePath": "_content/RedBelgrano",
+      "RelativePath": "css/Login.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Login.css"
     },
     {
       "Identity": "C:\\Users\\jperrotta\\dev\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\wwwroot\\css\\site.css",

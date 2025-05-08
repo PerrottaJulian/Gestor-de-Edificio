@@ -1,0 +1,49 @@
+﻿
+body {
+    background: linear-gradient(to bottom, #F0F2F4, #B5DAFF);
+}
+
+h1 {
+    text-align: center;
+    font-size: 3rem;
+    background: linear-gradient(to right, #2B9FEA 40%, #FFFF02 90%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800; /* ExtraBold */
+
+    margin-top: 6vh;
+    margin-bottom: 10vh;
+}
+
+.form-container {
+    display:flex; /*Mejorar clase¿*/
+}
+
+form {
+    width: 100%; /* Hace que el formulario ocupe el 100% del contenedor */
+    max-width: 500px;
+    box-shadow: -3px 3px 0 #A7A7A7;
+    border-radius: 8px;
+
+}
+
+.form-header {
+    background-color: #75AADB;
+    padding: 16px;
+    border-radius: 8px 8px 0px 0px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 100;
+    color: white
+}
+
+.form-body {
+    background-color: white;
+    padding: 6% 4%;
+    border-radius: 0px 0px 8px 8px;
+    font-family: 'Roboto', sans-serif;
+    font-size:small;
+    font-weight:bold;
+}
