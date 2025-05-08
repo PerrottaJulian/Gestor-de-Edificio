@@ -1,6 +1,34 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model RedBelgrano.DataViewModel.UsuarioLoginVM
 @{
+    Layout = null;
 }
 
+<html>
+<head><title></title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+</head>
+<body>
+
+    <main class="container">
+        <h1 class="">RED BELGRANO (LOGIN)</h1>
+
+        <form asp-controller="Login" asp-action="Login" method="post">
+
+            <label for="tipo" >Tipo de Usuario</label>
+            <select asp-for="tipo" class="form-select mb-3" id="tipo">
+                <option value="residente">Residente</option>
+                <option value="admin">Administrador</option>
+                <option value="encargado">Encargado</option>
+            </select>
+
+            <input class="form-control mb-3" type="number" placeholder="dni" required asp-for="dni" />
+            <input class="form-control mb-3" type="password" placeholder="Contraseña" required asp-for="clave" />
+
+            <button type="submit" class="btn btn-danger" >Ingresar</button>
+        </form>
+    </main>
+    
+
+</body>
+</html>
