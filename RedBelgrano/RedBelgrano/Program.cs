@@ -1,8 +1,12 @@
+using Microsoft.EntityFrameworkCore;
+using RedBelgrano.Context;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddDbContext<>
+builder.Services.AddDbContext<AppDBContext>(x => 
+ x.UseSqlServer(builder.Configuration.GetConnectionString("AzureDbConection") ) );
 
 builder.Services.AddControllersWithViews();
 
