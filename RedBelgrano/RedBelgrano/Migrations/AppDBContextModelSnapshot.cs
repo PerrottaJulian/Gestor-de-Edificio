@@ -73,7 +73,7 @@ namespace RedBelgrano.Migrations
                 {
                     b.HasBaseType("RedBelgrano.Models.Usuario");
 
-                    b.ToTable("UsuarioPersona", (string)null);
+                    b.ToTable("UsuarioResidente", (string)null);
                 });
 
             modelBuilder.Entity("RedBelgrano.Models.UsuarioAdmin", b =>

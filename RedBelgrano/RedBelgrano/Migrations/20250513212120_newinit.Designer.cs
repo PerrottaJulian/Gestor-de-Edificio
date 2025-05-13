@@ -11,8 +11,8 @@ using RedBelgrano.Context;
 namespace RedBelgrano.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    [Migration("20250513165849_init")]
-    partial class init
+    [Migration("20250513212120_newinit")]
+    partial class newinit
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -76,7 +76,7 @@ namespace RedBelgrano.Migrations
                 {
                     b.HasBaseType("RedBelgrano.Models.Usuario");
 
-                    b.ToTable("UsuarioPersona", (string)null);
+                    b.ToTable("UsuarioResidente", (string)null);
                 });
 
             modelBuilder.Entity("RedBelgrano.Models.UsuarioAdmin", b =>

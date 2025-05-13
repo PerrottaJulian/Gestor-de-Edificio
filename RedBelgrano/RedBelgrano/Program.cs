@@ -5,8 +5,19 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddDbContext<AppDBContext>(x => 
- x.UseSqlServer(builder.Configuration.GetConnectionString("AzureDbConection") ) );
+var connection = String.Empty;
+if (builder.Environment.IsDevelopment())
+{
+    builder.Configuration.AddEnvironmentVariables().AddJsonFile("appsettings.Development.json");
+    connection = builder.Configuration.GetConnectionString("AzureDbConection");
+}
+else
+{
+    connection = Environment.GetEnvironmentVariable("AzureDbConection");
+}
+
+builder.Services.AddDbContext<AppDBContext>(options =>
+    options.UseSqlServer(connection));
 
 builder.Services.AddControllersWithViews();
 

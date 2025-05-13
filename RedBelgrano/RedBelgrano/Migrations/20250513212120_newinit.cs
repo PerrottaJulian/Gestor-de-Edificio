@@ -5,7 +5,7 @@
 namespace RedBelgrano.Migrations
 {
     /// <inheritdoc />
-    public partial class init : Migration
+    public partial class newinit : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -62,16 +62,16 @@ namespace RedBelgrano.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "UsuarioPersona",
+                name: "UsuarioResidente",
                 columns: table => new
                 {
                     usuarioId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_UsuarioPersona", x => x.usuarioId);
+                    table.PrimaryKey("PK_UsuarioResidente", x => x.usuarioId);
                     table.ForeignKey(
-                        name: "FK_UsuarioPersona_Usuario_usuarioId",
+                        name: "FK_UsuarioResidente_Usuario_usuarioId",
                         column: x => x.usuarioId,
                         principalTable: "Usuario",
                         principalColumn: "usuarioId",
@@ -89,7 +89,7 @@ namespace RedBelgrano.Migrations
                 name: "UsuarioEncargado");
 
             migrationBuilder.DropTable(
-                name: "UsuarioPersona");
+                name: "UsuarioResidente");
 
             migrationBuilder.DropTable(
                 name: "Usuario");

@@ -17,6 +17,7 @@ namespace RedBelgrano.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Usuario>().UseTptMappingStrategy();
 
             modelBuilder.Entity<Usuario>(t =>
             {
@@ -24,13 +25,11 @@ namespace RedBelgrano.Context
                 t.Property(x => x.usuarioId)
                  .UseIdentityColumn()
                  .ValueGeneratedOnAdd();
-
-
             });
 
             modelBuilder.Entity<UsuarioAdmin>().ToTable("UsuarioAdmin");
             modelBuilder.Entity<UsuarioEncargado>().ToTable("UsuarioEncargado");
-            modelBuilder.Entity<UsuarioResidente>().ToTable("UsuarioPersona");
+            modelBuilder.Entity<UsuarioResidente>().ToTable("UsuarioResidente");
         }
 
 
