@@ -24,7 +24,7 @@
        
         <h1 class="titulo">RED BELGRANO</h1>
         
-        <div class="form-container border border-1  border-danger">
+        <div class="form-container align-content-center justify-content-center">
             <form asp-controller="Login" asp-action="Login" method="post">
 
                 <div class="form-header">
@@ -32,17 +32,30 @@
                 </div>
 
                 <div class="form-body">
-                    <label for="tipo">Tipo de Usuario</label>
-                    <select asp-for="tipo" class="form-select mb-3" id="tipo">
-                        <option value="residente">Residente</option>
-                        <option value="admin">Administrador</option>
-                        <option value="encargado">Encargado</option>
-                    </select>
 
-                    <input class="form-control mb-3" type="number" placeholder="dni" required asp-for="dni" />
-                    <input class="form-control mb-3" type="password" placeholder="Contraseña" required asp-for="clave" />
+                    <div class="control" >
+                        <label for="tipo">Tipo de Usuario</label>
+                        <select asp-for="tipo" class="form-select mb-3" id="tipo">
+                            <option value="residente">Residente</option>
+                            <option value="admin">Administrador</option>
+                            <option value="encargado">Encargado</option>
+                        </select>
+                    </div>
 
-                    <button type="submit" class="btn btn-danger">Ingresar</button>
+                    <div class="control">
+                        <label for="dni">Documento</label>
+                        <input class="form-control mb-3" type="number" id="dni" placeholder="dni" required asp-for="dni" />
+                    </div>
+
+                    <div class="control">
+                        <label for="clave">Contraseña</label>
+                        <input class="form-control mb-3" type="password" id="clave" placeholder="Contraseña" required asp-for="clave" />
+                    </div>
+
+                    <div class="form-button-container text-center ">
+                        <button type="submit" class="btn btn-danger">Ingresar</button>
+                    </div>
+
                 </div>
 
             </form>
