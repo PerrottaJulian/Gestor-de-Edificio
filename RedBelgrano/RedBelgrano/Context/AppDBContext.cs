@@ -10,14 +10,16 @@ namespace RedBelgrano.Context
 
         }
 
-        public DbSet<UsuarioAdmin> UsuariosAdmin { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
+
+        /*public DbSet<UsuarioAdmin> UsuariosAdmin { get; set; }
         public DbSet<UsuarioEncargado> UsuariosEncargados { get; set; }
-        public DbSet<UsuarioResidente> UsuariosResidentes { get; set; }
+        public DbSet<UsuarioResidente> UsuariosResidentes { get; set; }*/
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Usuario>().UseTptMappingStrategy();
+            //modelBuilder.Entity<Usuario>().UseTptMappingStrategy();
 
             modelBuilder.Entity<Usuario>(t =>
             {
@@ -27,9 +29,10 @@ namespace RedBelgrano.Context
                  .ValueGeneratedOnAdd();
             });
 
-            modelBuilder.Entity<UsuarioAdmin>().ToTable("UsuarioAdmin");
+            modelBuilder.Entity<Usuario>().ToTable("Usuario");
+            /*modelBuilder.Entity<UsuarioAdmin>().ToTable("UsuarioAdmin");
             modelBuilder.Entity<UsuarioEncargado>().ToTable("UsuarioEncargado");
-            modelBuilder.Entity<UsuarioResidente>().ToTable("UsuarioResidente");
+            modelBuilder.Entity<UsuarioResidente>().ToTable("UsuarioResidente");*/
         }
 
 
