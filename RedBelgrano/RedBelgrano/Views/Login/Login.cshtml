@@ -8,6 +8,8 @@
     <title>Red Belgrano - Ingreso</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="~/css/Login.css" asp-append-version="true" />
+
+    <!--Enlace para Poppins-->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap" rel="stylesheet">
     
     <!-- Enlace para Montserrat -->
@@ -36,9 +38,9 @@
                     <div class="control" >
                         <label for="tipo">Tipo de Usuario</label>
                         <select asp-for="tipo" class="form-select mb-3" id="tipo">
-                            <option value="residente">Residente</option>
-                            <option value="admin">Administrador</option>
-                            <option value="encargado">Encargado</option>
+                            <option value="Residente">Residente</option>
+                            <option value="Administrador">Administrador</option>
+                            <option value="Encargado">Encargado</option>
                         </select>
                     </div>
 
@@ -52,11 +54,20 @@
                         <input class="form-control mb-3" type="password" id="clave" placeholder="Contraseña" required asp-for="clave" />
                     </div>
 
-                    <div class="form-button-container text-center ">
+                    <div class="form-button-container text-center mb-3 ">
                         <button type="submit" class="btn btn-danger">Ingresar</button>
                     </div>
 
+                    @if (ViewData["Mensaje"] != null)
+                    {
+                        <div class="alert alert-danger" role="alert">
+                            @ViewData["Mensaje"]
+                        </div>
+                    }
+
                 </div>
+
+                
 
             </form>
         </div>

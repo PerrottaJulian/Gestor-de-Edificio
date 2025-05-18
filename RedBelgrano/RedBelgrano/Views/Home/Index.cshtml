@@ -8,3 +8,10 @@
 </div>
 
 <a asp-controller="Login" asp-action="Login" class="link-info" > Ir a Login </a>
+
+@if(TempData["MenssajeError"] != null )
+{
+    <div class="alert alert-danger">
+        @TempData["MensajeError"]
+    </div>
+}
