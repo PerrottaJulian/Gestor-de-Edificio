@@ -2,8 +2,10 @@
 using Microsoft.EntityFrameworkCore;
 using RedBelgrano.Context;
 using RedBelgrano.Models;
-using System.Security.Principal;
-using System.Timers;
+
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace RedBelgrano.Controllers
 {
@@ -16,27 +18,56 @@ namespace RedBelgrano.Controllers
         }
 
         [HttpGet]
-        public IActionResult Login()
+        public IActionResult IniciarSesion()
         {
             ViewBag.seeNavbar = false;
             return View();
         }
+
         [HttpPost]
         public async Task<IActionResult> Login(Usuario _usuario)
         {
-            Usuario? usuario = await 
-                db.Usuarios.Where(u => 
-                 u.dni == _usuario.dni &&
-                 u.clave.Equals(_usuario.clave) && 
-                 u.tipo.Equals(_usuario.tipo) )
-                .FirstOrDefaultAsync();
+            Usuario? usuario = null;
+            try
+            {
+                usuario = await db.Usuarios.Where(u =>
+                             u.dni == _usuario.dni &&
+                             u.clave.Equals(_usuario.clave) &&
+                             u.tipo.Equals(_usuario.tipo))
+                            .FirstOrDefaultAsync();
+
+            }catch (Exception ex)
+            {
+                ViewData["Mensaje"] = $"Ocurrio un Error Inesperado\n{ex.Message}";
+            }
 
             if (usuario == null)
             {
                 ViewData["Mensaje"] = "No se encontro Usuario";
                 
-                return View();
+                return View("IniciarSesion");
             }
+
+            List<Claim> claims = new List<Claim>() //En caso de necesitar mas data del usuario, poner mas claims
+            {
+                new Claim(ClaimTypes.Name, usuario.nombre)
+                //Para identificar el rol, usar ClaimTypes.Role, usuario.Tipo
+            };
+
+            ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+            AuthenticationProperties properties = new AuthenticationProperties()
+            {
+                AllowRefresh = true,
+            };
+
+            await HttpContext.SignInAsync(
+                CookieAuthenticationDefaults.AuthenticationScheme,
+                new ClaimsPrincipal(claimsIdentity),
+                properties
+                );
+
+            /*para futuro cerrar sesion:
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme); //poner en el HomeController*/
 
             Console.WriteLine("Ingreso el Usuario: " + usuario.nombre );
             return RedirectToAction("Index", "Home");

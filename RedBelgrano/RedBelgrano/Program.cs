@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using RedBelgrano.Context;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,9 +19,19 @@ else
 
 builder.Services.AddDbContext<AppDBContext>(options =>
     options.UseSqlServer(connection));
-
 builder.Services.AddControllersWithViews();
 
+//Autenticacion
+builder.Services
+    .AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/Login/IniciarSesion";
+        options.ExpireTimeSpan = TimeSpan.FromMinutes(10);
+    } );
+
+
+//BUILD
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -36,10 +47,11 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication(); //Usar Auntenticacion
 app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Login}/{action=IniciarSesion}/{id?}"); //Volver a cambiar, para que el inicio sea el Home/Index. Ahora se cambia por cuestiones de testeo
 
 app.Run();

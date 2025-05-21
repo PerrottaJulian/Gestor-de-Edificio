@@ -1,13 +1,20 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@using System.Security.Claims;
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
 
-<a asp-controller="Login" asp-action="Login" class="link-info" > Ir a Login </a>
+@if (User.Identity!.IsAuthenticated)
+{
+    <h1> BIENVENIDO! @User.Identity.Name </h1>
+}
+
+<a asp-controller="Login" asp-action="IniciarSesion" class="link-info" > Ir a Login </a>
+
 
 @if(TempData["MenssajeError"] != null )
 {
