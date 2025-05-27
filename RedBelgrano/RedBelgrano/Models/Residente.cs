@@ -15,8 +15,8 @@ namespace RedBelgrano.Models
         public char departamento { get; set; }
         public int tipoRId { get; set; }
         public int estadoId { get; set; }
-        public DateTime fechaIngreso { get; set; }
-        public DateTime fechaBaja { get; set; }
+        public DateTime? fechaIngreso { get; set; }
+        public DateTime? fechaBaja { get; set; }
 
 
     }
