@@ -21,7 +21,16 @@ namespace RedBelgrano.Controllers
 
         public IActionResult Index()
         {
-            ViewBag.seeNavbar = false;
+
+            if (User.Identity!.IsAuthenticated)
+            {
+                ViewBag.seeNavbar = true;
+            }
+            else
+            {
+                ViewBag.seeNavbar = false;
+            }
+            
             //PrimerUsuario();
             return View();
         }

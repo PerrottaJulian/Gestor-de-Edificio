@@ -10,7 +10,10 @@
 
 @if (User.Identity!.IsAuthenticated)
 {
+ 
+    
     <h1> BIENVENIDO! @User.Identity.Name </h1>
+    
 }
 
 <a asp-controller="Login" asp-action="IniciarSesion" class="link-info" > Ir a Login </a>

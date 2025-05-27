@@ -11,6 +11,7 @@ namespace RedBelgrano.Controllers
         {
             db = _context;
         }
+
         public IActionResult Index()
         {
             return View();
