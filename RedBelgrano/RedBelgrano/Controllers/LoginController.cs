@@ -21,7 +21,17 @@ namespace RedBelgrano.Controllers
         public IActionResult IniciarSesion()
         {
             ViewBag.seeNavbar = false;
-            return View();
+
+            if (User.Identity!.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+
+            }else
+            {
+                return View();
+
+            }
+
         }
 
         [HttpPost]
