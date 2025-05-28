@@ -1,5 +1,60 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@model RedBelgrano.DataViewModel.AñadirResidenteVM;
+
+
+
+<main class="container">
+
+    <h2>Añadir Residente</h2>
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <form asp-controller="Residentes" asp-action="Nuevo" method="post">
+        
+        <div>
+            <input type="text" placeholder="Nombre" asp-for="nombre" />
+            <span asp-validation-for="nombre" class="text-danger"></span>
+
+            <input type="text" placeholder="Apellido" asp-for="apellido" />
+            <span asp-validation-for="apellido" class="text-danger"></span>
+        </div>
+
+        <div>
+
+        </div>
+
+        <div>
+            <input type="number" placeholder="DNI" asp-for="dni" />
+            <span asp-validation-for="dni" class="text-danger"></span>
+        </div>
+
+        <div>
+            <input type="text"  placeholder="Email" asp-for="email" />
+            <span asp-validation-for="email" class="text-danger"></span>
+
+            <input type="number"  placeholder="Telefono" asp-for="telefono" />
+            <span asp-validation-for="telefono" class="text-danger"></span>
+        </div>
+
+        <div>
+            <input type="number"  placeholder="Piso" asp-for="piso" />
+            <span asp-validation-for="piso" class="text-danger"></span>
+
+            <input type="text"  placeholder="Dpto." asp-for="departamento" />
+            <span asp-validation-for="departamento" class="text-danger"></span>
+        </div>
+
+        <select asp-for="tipoRId" asp-items="ViewBag.Tipos" class="form-select"> </select>
+
+        <select asp-for="estadoId" asp-items="ViewBag.Estados"  class="form-select"> </select>
+
+        <button class="btn-success" type="submit">Añadir Residente</button>
+
+    </form>
+
+</main>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
