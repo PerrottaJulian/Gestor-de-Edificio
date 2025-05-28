@@ -50,7 +50,13 @@ namespace RedBelgrano.Context
                 t.Property(x => x.estadoId).IsRequired();
 
                 t.Property(x => x.fechaIngreso).HasDefaultValueSql("GETDATE()");
+
+                t.HasOne(r => r.tipoResidente).WithMany(tr => tr.Residentes).HasForeignKey(r => r.tipoRId);
+                t.HasOne(r => r.estadoResidente).WithMany(er => er.Residentes).HasForeignKey(r => r.estadoId);
+
             });
+
+            
 
             modelBuilder.Entity<Usuario>().ToTable("Usuario");
             modelBuilder.Entity<Residente>().ToTable("Residente");

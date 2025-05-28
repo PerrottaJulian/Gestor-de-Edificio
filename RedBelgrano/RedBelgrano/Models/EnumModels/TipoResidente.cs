@@ -7,5 +7,7 @@ namespace RedBelgrano.Models.EnumModels
         [Key]
         public int tipoRId { get; set; }
         public string tipo {  get; set; }
+
+        public ICollection<Residente>? Residentes { get; set; }
     }
 }

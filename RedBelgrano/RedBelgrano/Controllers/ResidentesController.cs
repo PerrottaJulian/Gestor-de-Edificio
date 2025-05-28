@@ -18,9 +18,21 @@ namespace RedBelgrano.Controllers
             db = _context;
         }
 
-        public /*async Task<*/IActionResult/*>*/ Index()
+        public async Task<IActionResult> Index()
         {
-            //await ObtenerEstados();
+            var residentes = await db.Residentes
+                .Include(r => r.tipoResidente)
+                .Include(r => r.estadoResidente)
+                .ToListAsync();
+
+            foreach(var residente in residentes)
+            {
+                Console.WriteLine(residente.nombre + " " + residente.apellido + " "+ residente.dni);
+                Console.WriteLine("TIPO: "+ residente.tipoResidente.tipo);
+                Console.WriteLine("ESTADO: " + residente.estadoResidente.estado);
+
+            }
+
             return View();
         }
 
@@ -85,14 +97,14 @@ namespace RedBelgrano.Controllers
         }
 
 
-        public async Task<SelectList> ObtenerTipos()
+        private async Task<SelectList> ObtenerTipos()
         {
             var tipos = await db.TipoResidente.ToListAsync();
             return new SelectList(tipos, "tipoRId", "tipo");
 
         }
 
-        public async Task<SelectList> ObtenerEstados()
+        private async Task<SelectList> ObtenerEstados()
         {
             var estados = await db.EstadoResidente.ToListAsync();
             return new SelectList(estados, "estadoId", "estado");
