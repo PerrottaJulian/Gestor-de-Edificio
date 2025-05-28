@@ -35,7 +35,7 @@ namespace RedBelgrano.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(Usuario _usuario)
+        public async Task<IActionResult> IniciarSesion(Usuario _usuario)
         {
             Usuario? usuario = null;
             try
@@ -49,13 +49,13 @@ namespace RedBelgrano.Controllers
             }catch (Exception ex)
             {
                 ViewData["Mensaje"] = $"Ocurrio un Error Inesperado\n{ex.Message}";
+                return View();
             }
 
             if (usuario == null)
             {
                 ViewData["Mensaje"] = "No se encontro Usuario";
-                
-                return View("IniciarSesion");
+                return View();
             }
 
             List<Claim> claims = new List<Claim>() //En caso de necesitar mas data del usuario, poner mas claims
