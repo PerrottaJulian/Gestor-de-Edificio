@@ -104,7 +104,29 @@ namespace RedBelgrano.Controllers
 
         }
 
+        //Dar de baja
+        [HttpPost]
+        public async Task<IActionResult> DarDeBaja(int id)
+        {
+            Residente? residente = db.Residentes.Find(id);
 
+            try
+            {
+                if(residente != null && residente.fechaBaja == null)
+                {
+                    await db.Database.ExecuteSqlInterpolatedAsync($"UPDATE Residente SET fechaBaja = GETDATE() WHERE residenteId = {residente.residenteId}");
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+
+            return RedirectToAction("Index", "Residentes");
+
+        }
+
+        //Obtener datos
         private async Task<SelectList> ObtenerTipos()
         {
             var tipos = await db.TipoResidente.ToListAsync();

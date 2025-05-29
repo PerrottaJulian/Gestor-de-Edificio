@@ -17,7 +17,7 @@
 </style>
 
 <div class="table-responsive">
-    <table class="table  table-bordered table-striped"> <!--AGREGAR BOTON PARA DAR DE BAJA Y PARA VER DETALLE, SUMAR VISTA DE DETALLE O PEQUEÑO PANEL-->
+    <table class="table  table-bordered table-striped"> <!--AGREGAR CONFIRMACION PARA DAR DE BAJA-->
 
         <caption> RESIDENTES </caption>
         <thead>
@@ -40,21 +40,36 @@
 
             @foreach(Residente residente in Model)
             {
-                <tr> <!--AGREGAR IF PARA DADOS DE BAJA-->
-                    <td>@residente.nombre</td>
-                    <td>@residente.dni</td>
-                    <td>@residente.email</td>
-                    <td>@residente.telefono</td>
-                    <td>@residente.tipoResidente?.tipo</td>
-                    <td>@residente.estadoResidente?.estado</td>
-                    <td>@residente.piso</td>
-                    <td>@residente.departamento</td>
-                    <td>@residente.fechaIngreso</td>
-                    @if(residente.fechaBaja != null)
-                    {
-                        <td>@residente.fechaBaja</td>
-                    }
-                </tr>
+                @if(residente.fechaBaja == null)
+                {
+                    
+                    <tr> 
+                        <td>@residente.nombre</td>
+                        <td>@residente.dni</td>
+                        <td>@residente.email</td>
+                        <td>@residente.telefono</td>
+                        <td>@residente.tipoResidente?.tipo</td>
+                        <td>@residente.estadoResidente?.estado</td>
+                        <td>@residente.piso</td>
+                        <td>@residente.departamento</td>
+                        <td>@residente.fechaIngreso</td>
+
+                        @if(residente.fechaBaja != null)
+                        {
+                            <td>@residente.fechaBaja</td>
+                        }
+
+                        <td>
+                        
+                            <form asp-action="DarDeBaja" asp-controller="Residentes" method="post">
+                                <input type="hidden" name="id" value="@residente.residenteId" />
+                                <button type="submit" class="btn btn-danger">Dar de Baja</button>
+                            </form>
+
+                        </td>
+                    </tr>
+                }
+
             }
         
         </tbody>
