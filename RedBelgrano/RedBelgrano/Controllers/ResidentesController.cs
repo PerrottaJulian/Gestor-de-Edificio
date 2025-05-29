@@ -8,7 +8,7 @@ using RedBelgrano.Models;
 
 namespace RedBelgrano.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class ResidentesController : Controller
     {
         public AppDBContext db;
@@ -20,12 +20,20 @@ namespace RedBelgrano.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var residentes = await db.Residentes
-                .Include(r => r.tipoResidente)
-                .Include(r => r.estadoResidente)
-                .ToListAsync();
+            List<Residente> residentes = [];
+            try
+            { 
+                residentes = await db.Residentes
+                    .Include(r => r.tipoResidente)
+                    .Include(r => r.estadoResidente)
+                    .ToListAsync();
+            }
+            catch (Exception ex) 
+            {
+                Console.WriteLine(ex.ToString());
+            }
 
-            foreach(var residente in residentes)
+            foreach (var residente in residentes)
             {
                 Console.WriteLine(residente.nombre + " " + residente.apellido + " "+ residente.dni);
                 Console.WriteLine("TIPO: "+ residente.tipoResidente.tipo);
@@ -33,7 +41,7 @@ namespace RedBelgrano.Controllers
 
             }
 
-            return View();
+            return View(residentes);
         }
 
         public async Task<IActionResult> Nuevo()

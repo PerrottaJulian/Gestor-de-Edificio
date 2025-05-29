@@ -1,3 +1,63 @@
-﻿
+﻿@model List<Residente>
 <!--RESIDENTEEEESSSSSS-->
 <a class="btn btn-dark" asp-controller="Residentes" asp-action="Nuevo" >Añadir Residente</a>
+
+<style>
+    caption {
+        caption-side: top;
+        text-align: center;
+        font-weight: bold;
+        font-size: 1.2em;
+        padding: 0.5em;
+        color: black;
+        border-right: solid #dee2e6 1px;
+        border-left: solid #dee2e6 1px;
+        border-top: solid #dee2e6 1px;
+    }
+</style>
+
+<div class="table-responsive">
+    <table class="table  table-bordered table-striped"> <!--AGREGAR BOTON PARA DAR DE BAJA Y PARA VER DETALLE, SUMAR VISTA DE DETALLE O PEQUEÑO PANEL-->
+
+        <caption> RESIDENTES </caption>
+        <thead>
+
+            <tr>
+                <th>Nombre</th>
+                <th>DNI</th>
+                <th>Email</th>
+                <th>Telefono</th>
+                <th>Tipo</th>
+                <th>Estado</th>
+                <th>Piso</th>
+                <th>Departamento</th>
+                <th>FechaIngreso</th>
+            
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @foreach(Residente residente in Model)
+            {
+                <tr> <!--AGREGAR IF PARA DADOS DE BAJA-->
+                    <td>@residente.nombre</td>
+                    <td>@residente.dni</td>
+                    <td>@residente.email</td>
+                    <td>@residente.telefono</td>
+                    <td>@residente.tipoResidente?.tipo</td>
+                    <td>@residente.estadoResidente?.estado</td>
+                    <td>@residente.piso</td>
+                    <td>@residente.departamento</td>
+                    <td>@residente.fechaIngreso</td>
+                    @if(residente.fechaBaja != null)
+                    {
+                        <td>@residente.fechaBaja</td>
+                    }
+                </tr>
+            }
+        
+        </tbody>
+    
+    </table>
+</div>
