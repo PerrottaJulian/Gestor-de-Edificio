@@ -42,8 +42,8 @@
             {
                 @if(residente.fechaBaja == null)
                 {
-                    
-                    <tr> 
+
+                    <tr onclick="location.href='@Url.Action("Detalle", "Residentes", new { id = residente.residenteId })'" style="cursor:pointer;" >
                         <td>@residente.nombre</td>
                         <td>@residente.dni</td>
                         <td>@residente.email</td>
@@ -58,15 +58,7 @@
                         {
                             <td>@residente.fechaBaja</td>
                         }
-
-                        <td>
-                        
-                            <form asp-action="DarDeBaja" asp-controller="Residentes" method="post">
-                                <input type="hidden" name="id" value="@residente.residenteId" />
-                                <button type="submit" class="btn btn-danger">Dar de Baja</button>
-                            </form>
-
-                        </td>
+                        <!--Poner boton de Eliminar en la vista Detalle-->
                     </tr>
                 }
 

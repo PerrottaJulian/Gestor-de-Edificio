@@ -50,13 +50,15 @@ namespace RedBelgrano.Controllers
             {
                 ViewBag.Tipos = await ObtenerTipos();
                 ViewBag.Estados = await ObtenerEstados();
+                return View();
             }
             catch (Exception ex) 
             {
                 Console.WriteLine(ex);
+                return RedirectToAction("Index", "Residentes");
             }
 
-            return View();
+            
         }
 
         [HttpPost]
@@ -104,9 +106,22 @@ namespace RedBelgrano.Controllers
 
         }
 
+        //Detalle
+        public async Task<IActionResult> Detalle(int id)
+        {
+            Residente? residente = await db.Residentes.FindAsync(id);
+
+            if (residente == null)
+            {
+                return NotFound();
+            }
+
+            return View(residente);
+        }
+
         //Dar de baja
         [HttpPost]
-        public async Task<IActionResult> DarDeBaja(int id)
+        public async Task<IActionResult> DarDeBaja(int id) //poner boton en la vista Detalle
         {
             Residente? residente = db.Residentes.Find(id);
 
@@ -125,6 +140,8 @@ namespace RedBelgrano.Controllers
             return RedirectToAction("Index", "Residentes");
 
         }
+
+
 
         //Obtener datos
         private async Task<SelectList> ObtenerTipos()
