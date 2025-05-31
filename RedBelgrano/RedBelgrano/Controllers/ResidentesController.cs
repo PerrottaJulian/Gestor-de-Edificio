@@ -109,7 +109,10 @@ namespace RedBelgrano.Controllers
         //Detalle
         public async Task<IActionResult> Detalle(int id)
         {
-            Residente? residente = await db.Residentes.FindAsync(id);
+            Residente? residente = await db.Residentes
+                                    .Include(r => r.tipoResidente)
+                                    .Include(r => r.estadoResidente)
+                                    .FirstOrDefaultAsync(r => r.residenteId == id);
 
             if (residente == null)
             {
