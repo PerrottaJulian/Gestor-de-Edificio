@@ -44,6 +44,7 @@ namespace RedBelgrano.Controllers
             return View(residentes);
         }
 
+        //Nuevo
         public async Task<IActionResult> Nuevo()
         {
             try
@@ -98,7 +99,18 @@ namespace RedBelgrano.Controllers
                 estadoId = nuevo_residente.estadoId,
             };
 
+            Usuario usuarioResidente = new Usuario
+            {
+                tipo = "Residente",
+                dni = nuevo_residente.dni,
+                nombre = nuevo_residente.nombre + " " + nuevo_residente.apellido,
+                email = nuevo_residente.email,
+                clave = nuevo_residente.dni.ToString(), // El DNI es la contraseña inicial
+            };
+
+
             await db.Residentes.AddAsync(residente);
+            await db.Usuarios.AddAsync(usuarioResidente);
             await db.SaveChangesAsync();
 
             return RedirectToAction("Index", "Residentes");
@@ -125,7 +137,7 @@ namespace RedBelgrano.Controllers
         //Dar de baja
         [HttpPost]
         public async Task<IActionResult> DarDeBaja(int id) //poner boton en la vista Detalle
-        {
+         {
             Residente? residente = db.Residentes.Find(id);
 
             try
@@ -144,7 +156,44 @@ namespace RedBelgrano.Controllers
 
         }
 
+        // Modificar
+        public async Task<IActionResult> Modificar(int id)
+        {
+            Residente? residente = null;
+            try
+            {
+                residente = db.Residentes.Find(id);
+                ViewBag.Tipos = await ObtenerTipos();
+                ViewBag.Estados = await ObtenerEstados();
 
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+
+
+            if (residente == null) return NotFound();
+
+            return View(residente);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Modificar(Residente residente)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Residentes.Update(residente);
+                await db.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                ViewBag.Tipos = await ObtenerTipos();
+                ViewBag.Estados = await ObtenerEstados();
+                return View(residente.residenteId);
+            }
+        }
 
         //Obtener datos
         private async Task<SelectList> ObtenerTipos()
