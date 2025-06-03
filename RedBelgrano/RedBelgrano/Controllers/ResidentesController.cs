@@ -8,7 +8,7 @@ using RedBelgrano.Models;
 
 namespace RedBelgrano.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class ResidentesController : Controller
     {
         public AppDBContext db;
@@ -99,6 +99,7 @@ namespace RedBelgrano.Controllers
                 estadoId = nuevo_residente.estadoId,
             };
 
+            //Crea un Nuevo Usuario de tipo Residente automaticamente
             Usuario usuarioResidente = new Usuario
             {
                 tipo = "Residente",

@@ -6,6 +6,7 @@ using RedBelgrano.Models;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using RedBelgrano.DataViewModel;
 
 namespace RedBelgrano.Controllers
 {
@@ -80,7 +81,7 @@ namespace RedBelgrano.Controllers
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme); //poner en el HomeController*/
 
             Console.WriteLine("Ingreso el Usuario: " + usuario.nombre );
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Residentes");
 
             
         }
