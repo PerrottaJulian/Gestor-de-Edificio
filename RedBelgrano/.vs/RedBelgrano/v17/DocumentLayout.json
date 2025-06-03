@@ -3,8 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\jperrotta\\dev\\Gestor-de-Edificio\\RedBelgrano\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|c:\\users\\jperrotta\\dev\\gestor-de-edificio\\redbelgrano\\redbelgrano\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|solutionrelative:redbelgrano\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|c:\\users\\jperrotta\\dev\\gestor-de-edificio\\redbelgrano\\redbelgrano\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|solutionrelative:redbelgrano\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|c:\\users\\jperrotta\\dev\\gestor-de-edificio\\redbelgrano\\redbelgrano\\wwwroot\\css\\home.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|solutionrelative:redbelgrano\\wwwroot\\css\\home.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|c:\\users\\jperrotta\\dev\\gestor-de-edificio\\redbelgrano\\redbelgrano\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|solutionrelative:redbelgrano\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,8 +22,36 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\jperrotta\\dev\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "RedBelgrano\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\jperrotta\\dev\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "RedBelgrano\\Controllers\\HomeController.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAgwBUAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T11:58:32.248Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\jperrotta\\dev\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "RedBelgrano\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\jperrotta\\dev\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "RedBelgrano\\Views\\Home\\Index.cshtml",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAACIAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-03T11:58:02.711Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
@@ -34,15 +70,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "LoginController.cs",
-              "DocumentMoniker": "C:\\Users\\jperrotta\\dev\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Controllers\\LoginController.cs",
-              "RelativeDocumentMoniker": "RedBelgrano\\Controllers\\LoginController.cs",
-              "ToolTip": "C:\\Users\\jperrotta\\dev\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Controllers\\LoginController.cs",
-              "RelativeToolTip": "RedBelgrano\\Controllers\\LoginController.cs",
-              "ViewState": "AQIAACEAAAAAAAAAAAAowDkAAAAeAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T16:20:07.855Z",
+              "DocumentIndex": 1,
+              "Title": "Home.css",
+              "DocumentMoniker": "C:\\Users\\jperrotta\\dev\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\wwwroot\\css\\Home.css",
+              "RelativeDocumentMoniker": "RedBelgrano\\wwwroot\\css\\Home.css",
+              "ToolTip": "C:\\Users\\jperrotta\\dev\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\wwwroot\\css\\Home.css",
+              "RelativeToolTip": "RedBelgrano\\wwwroot\\css\\Home.css",
+              "ViewState": "AQIAAFcAAAAAAAAAAAAQwIcAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-06-03T15:25:59.627Z",
               "EditorCaption": ""
             }
           ]
