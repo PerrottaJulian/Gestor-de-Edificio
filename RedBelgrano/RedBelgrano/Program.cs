@@ -52,6 +52,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Residentes}/{action=Index}/{id?}"); //Volver a cambiar, para que el inicio sea el Home/Index. Ahora se cambia por cuestiones de testeo
+    pattern: "{controller=Home}/{action=Index}/{id?}"); //Volver a cambiar, para que el inicio sea el Home/Index. Ahora se cambia por cuestiones de testeo
 
 app.Run();
