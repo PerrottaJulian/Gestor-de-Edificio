@@ -19,6 +19,11 @@ namespace RedBelgrano.Context
         public DbSet<TipoResidente> TipoResidente { get; set; }
         public DbSet<EstadoResidente> EstadoResidente { get; set; }
 
+        //Transacciones
+        public DbSet<Transaccion> Transacciones { get; set; }
+        public DbSet<TipoTransaccion> TipoTransaccion { get; set; }
+
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //base.OnModelCreating(modelBuilder);
@@ -56,6 +61,22 @@ namespace RedBelgrano.Context
 
             });
 
+            modelBuilder.Entity<Transaccion>(t =>
+            {
+                t.HasKey(x => x.transaccionId);
+                t.Property(x => x.transaccionId).UseIdentityColumn().ValueGeneratedOnAdd();
+
+                t.Property(x => x.monto).IsRequired();
+                t.Property(x => x.detalle).HasColumnType("nvarchar(max)");
+
+                t.Property(x => x.administradorId).IsRequired();
+
+                t.Property(x => x.fecha).HasDefaultValueSql("GETDATE()");
+
+                t.HasOne(t => t.administrador).WithMany(u => u.Transacciones).HasForeignKey(t => t.administradorId);
+                t.HasOne(t => t.tipoTransaccion).WithMany(tt => tt.Transacciones).HasForeignKey(t => t.tipoId);
+
+            });
             
 
             modelBuilder.Entity<Usuario>().ToTable("Usuario");
