@@ -65,8 +65,10 @@ namespace RedBelgrano.Controllers
 
             List<Claim> claims = new List<Claim>() //Poner mas claims
             {
-                new Claim(ClaimTypes.Name, usuario.nombre)
-                //Para identificar el rol, usar ClaimTypes.Role, usuario.Tipo
+                new Claim(ClaimTypes.NameIdentifier, usuario.usuarioId.ToString()),
+                new Claim(ClaimTypes.Name, usuario.nombre),
+                new Claim(ClaimTypes.Role, usuario.tipo),
+                new Claim(ClaimTypes.Email, usuario.email),
             };
 
             ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
