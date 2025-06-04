@@ -47,14 +47,14 @@ namespace RedBelgrano.Controllers
             else
             {
                 // No se pudo obtener (usuario no logueado o claim mal formado)
-                return View();
+                return View("Error"); //cambiar por: cubrir todo el metodo en un try-catch, y aqui hacer un throw
             }
 
             Transaccion transaccion = new Transaccion() 
             {
                 monto = nueva_transaccion.monto,
                 detalle = nueva_transaccion.detalle,
-                administradorId = User.FindFirst
+                administradorId = usuarioId,
             };    
 
             return View("Index");
