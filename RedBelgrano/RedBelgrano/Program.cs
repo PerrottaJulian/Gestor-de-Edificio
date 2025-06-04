@@ -34,6 +34,9 @@ builder.Services
 //BUILD
 var app = builder.Build();
 
+//Despertar Base de Datos Azure
+
+
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {

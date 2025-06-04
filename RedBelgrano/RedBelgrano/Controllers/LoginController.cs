@@ -19,16 +19,20 @@ namespace RedBelgrano.Controllers
         }
 
         [HttpGet]
-        public IActionResult IniciarSesion()
+        public  IActionResult IniciarSesion()
         {
             ViewBag.seeNavbar = false;
 
             if (User.Identity!.IsAuthenticated)
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Residentes");
 
             }else
             {
+                //await Despertador(); //Espera a que la base de datos se despierte, para que luego no haya problemas ni errores de timeout
+                //usar una flag estatica para que solo se haga una vez
+
+
                 return View();
 
             }
@@ -59,7 +63,7 @@ namespace RedBelgrano.Controllers
                 return View();
             }
 
-            List<Claim> claims = new List<Claim>() //En caso de necesitar mas data del usuario, poner mas claims
+            List<Claim> claims = new List<Claim>() //Poner mas claims
             {
                 new Claim(ClaimTypes.Name, usuario.nombre)
                 //Para identificar el rol, usar ClaimTypes.Role, usuario.Tipo
@@ -84,6 +88,23 @@ namespace RedBelgrano.Controllers
             return RedirectToAction("Index", "Residentes");
 
             
+        }
+
+
+
+
+        //Despertar base de datos
+        public async Task Despertador()
+        {
+            try
+            {
+                await db.Database.ExecuteSqlRawAsync("SELECT 1");
+                await Console.Out.WriteLineAsync("SE DESPERTO");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al despertar la base: " + ex.Message);
+            }
         }
 
     }
