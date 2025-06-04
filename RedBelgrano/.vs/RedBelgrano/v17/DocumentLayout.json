@@ -32,35 +32,9 @@
               "RelativeDocumentMoniker": "RedBelgrano\\Controllers\\FinanzasController.cs",
               "ToolTip": "C:\\Users\\jperrotta\\dev\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Controllers\\FinanzasController.cs",
               "RelativeToolTip": "RedBelgrano\\Controllers\\FinanzasController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAkAAAA",
+              "ViewState": "AQIAABwAAAAAAAAAAAAwwDUAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-04T13:32:47.888Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Transaccion.cs",
-              "DocumentMoniker": "C:\\Users\\jperrotta\\dev\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Models\\Transaccion.cs",
-              "RelativeDocumentMoniker": "RedBelgrano\\Models\\Transaccion.cs",
-              "ToolTip": "C:\\Users\\jperrotta\\dev\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Models\\Transaccion.cs",
-              "RelativeToolTip": "RedBelgrano\\Models\\Transaccion.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAnAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-04T13:32:58.881Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\jperrotta\\dev\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Views\\Finanzas\\Index.cshtml",
-              "RelativeDocumentMoniker": "RedBelgrano\\Views\\Finanzas\\Index.cshtml",
-              "ToolTip": "C:\\Users\\jperrotta\\dev\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Views\\Finanzas\\Index.cshtml",
-              "RelativeToolTip": "RedBelgrano\\Views\\Finanzas\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-04T13:32:59.863Z",
               "EditorCaption": ""
             },
             {
@@ -78,6 +52,32 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{e506b91c-c606-466a-90a9-123d1d1e12b3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Transaccion.cs",
+              "DocumentMoniker": "C:\\Users\\jperrotta\\dev\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Models\\Transaccion.cs",
+              "RelativeDocumentMoniker": "RedBelgrano\\Models\\Transaccion.cs",
+              "ToolTip": "C:\\Users\\jperrotta\\dev\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Models\\Transaccion.cs",
+              "RelativeToolTip": "RedBelgrano\\Models\\Transaccion.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAA8AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-04T13:32:58.881Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\jperrotta\\dev\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Views\\Finanzas\\Index.cshtml",
+              "RelativeDocumentMoniker": "RedBelgrano\\Views\\Finanzas\\Index.cshtml",
+              "ToolTip": "C:\\Users\\jperrotta\\dev\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Views\\Finanzas\\Index.cshtml",
+              "RelativeToolTip": "RedBelgrano\\Views\\Finanzas\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-04T13:32:59.863Z",
+              "EditorCaption": ""
             }
           ]
         },
