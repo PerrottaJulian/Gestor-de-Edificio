@@ -35,8 +35,6 @@ namespace RedBelgrano.Controllers
 
             //string? UsuarioIdString = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             var claim = User.FindFirst(ClaimTypes.NameIdentifier);
-            //de prueba
-            var nombre = User.Identity.Name;
 
             int usuarioId;
 
