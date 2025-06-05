@@ -145,7 +145,7 @@ namespace RedBelgrano.Controllers
             {
                 if(residente != null && residente.fechaBaja == null)
                 {
-                    await db.Database.ExecuteSqlInterpolatedAsync($"UPDATE Residente SET fechaBaja = GETDATE() WHERE residenteId = {residente.residenteId}");
+                    await db.Database.ExecuteSqlInterpolatedAsync($"EXEC DarResidenteDeBaja @residenteId = {residente.residenteId}");
                 }
             }
             catch(Exception ex)
