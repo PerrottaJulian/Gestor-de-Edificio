@@ -101,7 +101,7 @@ p {
 
 .titulo-inferior {
     font-family: 'Poppins', sans-serif;
-    font-size: clamp(1.5rem, 4vw, 3rem);
+    font-size: clamp(1.2rem, 2.5vw, 2rem);
     font-weight: 600;
     color: #333;
 }

@@ -32,7 +32,6 @@ namespace RedBelgrano.Controllers
                 //await Despertador(); //Espera a que la base de datos se despierte, para que luego no haya problemas ni errores de timeout
                 //usar una flag estatica para que solo se haga una vez
 
-
                 return View();
 
             }
@@ -41,6 +40,7 @@ namespace RedBelgrano.Controllers
 
         [HttpPost]
         public async Task<IActionResult> IniciarSesion(Usuario _usuario)
+        
         {
             Usuario? usuario = null;
             try
