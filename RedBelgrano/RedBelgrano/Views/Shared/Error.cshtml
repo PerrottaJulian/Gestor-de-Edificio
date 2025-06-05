@@ -5,5 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1 class="text-danger">Ocurrió un error</h1>
-<p>Algo salió mal. Por favor, intentá más tarde.</p>
+@model Exception
+
+<h1 class="text-danger">Ocurrió un error inesperado</h1>
+<p>@Model.Message</p>

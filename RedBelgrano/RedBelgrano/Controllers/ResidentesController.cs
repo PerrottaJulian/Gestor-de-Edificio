@@ -12,7 +12,7 @@ namespace RedBelgrano.Controllers
     public class ResidentesController : Controller
     {
         public AppDBContext db;
-
+       
         public ResidentesController(AppDBContext _context)
         {
             db = _context;
@@ -31,14 +31,6 @@ namespace RedBelgrano.Controllers
             catch (Exception ex) 
             {
                 Console.WriteLine(ex.ToString());
-            }
-
-            foreach (var residente in residentes)
-            {
-                Console.WriteLine(residente.nombre + " " + residente.apellido + " "+ residente.dni);
-                Console.WriteLine("TIPO: "+ residente.tipoResidente.tipo);
-                Console.WriteLine("ESTADO: " + residente.estadoResidente.estado);
-
             }
 
             return View(residentes);
@@ -167,10 +159,13 @@ namespace RedBelgrano.Controllers
                 ViewBag.Tipos = await ObtenerTipos();
                 ViewBag.Estados = await ObtenerEstados();
 
+                if (residente == null) throw new Exception("Residente no Existente");
+
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                return MiRouter.Error(this,ex);
+                //return View("Error", ex);
             }
 
 
