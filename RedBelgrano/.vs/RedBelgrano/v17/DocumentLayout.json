@@ -1,16 +1,7 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\jperrotta\\dev\\Gestor-de-Edificio\\RedBelgrano\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|c:\\users\\jperrotta\\dev\\gestor-de-edificio\\redbelgrano\\redbelgrano\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|solutionrelative:redbelgrano\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|c:\\users\\jperrotta\\dev\\gestor-de-edificio\\redbelgrano\\redbelgrano\\models\\mirouter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|solutionrelative:redbelgrano\\models\\mirouter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "WorkspaceRootPath": "C:\\Users\\Admin\\dev-home\\SmartBuild-Space\\RedBelgrano\\",
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -18,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -35,31 +26,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{e506b91c-c606-466a-90a9-123d1d1e12b3}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\jperrotta\\dev\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "RedBelgrano\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\jperrotta\\dev\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "RedBelgrano\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-05T14:23:29.007Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MiRouter.cs",
-              "DocumentMoniker": "C:\\Users\\jperrotta\\dev\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Models\\MiRouter.cs",
-              "RelativeDocumentMoniker": "RedBelgrano\\Models\\MiRouter.cs",
-              "ToolTip": "C:\\Users\\jperrotta\\dev\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Models\\MiRouter.cs",
-              "RelativeToolTip": "RedBelgrano\\Models\\MiRouter.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-05T14:14:42.387Z"
             }
           ]
         },
@@ -69,11 +35,11 @@
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             }
           ]
         },

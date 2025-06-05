@@ -4,6 +4,7 @@ using RedBelgrano.Models;
 using System.Diagnostics;
 
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace RedBelgrano.Controllers
 {
@@ -20,7 +21,6 @@ namespace RedBelgrano.Controllers
 
         public IActionResult Index()
         {
-
             if (User.Identity!.IsAuthenticated)
             {
                 ViewBag.seeNavbar = true;
