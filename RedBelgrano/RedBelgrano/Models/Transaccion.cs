@@ -7,7 +7,7 @@ namespace RedBelgrano.Models
     {
         [Key]
         public int transaccionId { get; set; }
-        public double monto { get; set; }
+        public decimal monto { get; set; }
         public string? detalle {  get; set; }
 
         public int administradorId { get; set; }

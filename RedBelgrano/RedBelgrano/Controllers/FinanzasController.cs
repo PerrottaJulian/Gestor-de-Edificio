@@ -15,10 +15,9 @@ namespace RedBelgrano.Controllers
         {
             db = dBContext; 
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            ViewBag.tipos = ObtenerTipos();
-            //ViewBag.reserva = ObtenerReserva();
+            ViewBag.Tipos = await ObtenerTipos();
 
             return View();
         }
@@ -27,17 +26,18 @@ namespace RedBelgrano.Controllers
         public async Task<IActionResult> AñadirTransaccion(AñadirTransaccionVM nueva_transaccion)
         {
 
-            
-
             if(!ModelState.IsValid)
             {
-                ViewBag.tipos = ObtenerTipos();
+                ViewBag.tipos = await ObtenerTipos();
 
                 return View("Index",nueva_transaccion);
             }
 
             //string? UsuarioIdString = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             var claim = User.FindFirst(ClaimTypes.NameIdentifier);
+            //de prueba
+            var nombre = User.Identity.Name;
+
             int usuarioId;
 
             if (claim != null && int.TryParse(claim.Value, out int _usuarioId))
@@ -55,18 +55,23 @@ namespace RedBelgrano.Controllers
                 monto = nueva_transaccion.monto,
                 detalle = nueva_transaccion.detalle,
                 administradorId = usuarioId,
-            };    
+            };
 
-            return View("Index");
+            await db.Transacciones.AddAsync(transaccion);
+            await db.SaveChangesAsync();
+
+
+
+            return RedirectToAction("Index");
         }
 
-
+        //IMPLEMENTAR OBTENER TRANSACCIONES
 
         //Obtener datos
         private async Task<SelectList> ObtenerTipos()
         {
             var tipos = await db.TipoTransaccion.ToListAsync();
-            return new SelectList(tipos, "tipoRId", "tipo");
+            return new SelectList(tipos, "tipoTId", "nombre");
         }
 
 
