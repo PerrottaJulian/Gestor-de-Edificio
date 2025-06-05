@@ -21,6 +21,9 @@ namespace RedBelgrano.Models
 
         public string clave { get; set; }
 
+        //colecciones de un usuario
+        public ICollection<Transaccion> Transacciones { get; set; }
+
         public void cambiarClave(string NuevaClave)
         {
 

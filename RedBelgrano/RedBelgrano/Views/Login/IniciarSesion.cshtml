@@ -10,14 +10,15 @@
     <link rel="stylesheet" type="text/css" href="~/css/Login.css" asp-append-version="true" />
 
     <!--Enlace para Poppins-->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:wght@500;700;800&family=Work+Sans:ital@0;1&display=swap" rel="stylesheet">
+
     <!-- Enlace para Montserrat -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
 
     <!-- Enlace para Roboto -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
-
 
 </head>
 <body>
@@ -28,7 +29,7 @@
         
         <div class="form-container align-content-center justify-content-center">
 
-            <form asp-controller="Login" asp-action="IniciarSesion" method="post">
+            <form asp-controller="Login" asp-action="IniciarSesion" method="post" id="miform" onsubmit="mostrarSpinner()" >
 
                 <div class="form-header">
                     <h3>Iniciar Sesion</h3>
@@ -38,7 +39,7 @@
 
                     <div class="control" >
                         <label for="tipo">Tipo de Usuario</label>
-                        <select asp-for="tipo" class="form-select mb-3" id="tipo">
+                        <select asp-for="tipo" class="form-select" id="tipo">
                             <option value="Residente">Residente</option>
                             <option value="Administrador">Administrador</option>
                             <option value="Encargado">Encargado</option>
@@ -47,16 +48,19 @@
 
                     <div class="control">
                         <label for="dni">Documento</label>
-                        <input class="form-control mb-3" type="number" id="dni" placeholder="dni" required asp-for="dni" />
+                        <input class="form-control" type="number" id="dni" placeholder="dni" required asp-for="dni" />
                     </div>
 
                     <div class="control">
                         <label for="clave">Contraseña</label>
-                        <input class="form-control mb-3" type="password" id="clave" placeholder="Contraseña" required asp-for="clave" />
+                        <input class="form-control" type="password" id="clave" placeholder="Contraseña" required asp-for="clave" />
                     </div>
 
-                    <div class="form-button-container text-center mb-3 ">
-                        <button type="submit" class="btn btn-danger">Ingresar</button>
+                    <div class="form-button-container text-center">
+                        <button type="submit" id="btnGuardar" class="">
+                            <span id="textoBtn">Guardar</span>
+                            <span id="spinnerBtn" class="spinner" style="display: none;"></span>
+                        </button>
                     </div>
 
                     @if (ViewData["Mensaje"] != null)
@@ -79,4 +83,25 @@
     
 
 </body>
+
+<script>
+    function mostrarSpinner() {
+        const btn = document.getElementById('btnGuardar');
+        const texto = document.getElementById('textoBtn');
+        const spinner = document.getElementById('spinnerBtn');
+
+        btn.disabled = true;
+        texto.style.display = 'none';
+        spinner.style.display = 'inline-block';
+    }
+</script>
+
+@* <script>
+    document.getElementById("miform").addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+        }
+    });
+</script> *@
+
 </html>
