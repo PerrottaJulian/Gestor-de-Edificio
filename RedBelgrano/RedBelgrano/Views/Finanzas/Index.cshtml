@@ -2,7 +2,22 @@
     FINANZAS
 *@
 
-@model RedBelgrano.DataViewModel.AñadirTransaccionVM
+@model RedBelgrano.DataViewModel.TransaccionesVM
+
+<style>
+    caption {
+        caption-side: top;
+        text-align: center;
+        font-weight: bold;
+        font-size: 1.2em;
+        padding: 0.5em;
+        color: black;
+        border-right: solid #dee2e6 1px;
+        border-left: solid #dee2e6 1px;
+        border-top: solid #dee2e6 1px;
+    }
+</style>
+
 
 <form asp-action="AñadirTransaccion" method="post">
     <div>
@@ -17,22 +32,63 @@
     </div>
 
     <div>
-        <label asp-for="detalle"></label>
-        <textarea rows="5" cols="40" asp-for="detalle" class="form-control"></textarea>
-        <span asp-validation-for="detalle" class="text-danger"></span>
-
-    </div>
-
-    <div>
         <label asp-for="tipoId"></label>
         <select asp-for="tipoId" asp-items="ViewBag.Tipos" class="form-select"> </select>
         <span asp-validation-for="tipoId" class="text-danger"></span>
 
     </div>
 
+    <div>
+        <label asp-for="detalle"></label>
+        <textarea rows="5" cols="40" asp-for="detalle" class="form-control"></textarea>
+        <span asp-validation-for="detalle" class="text-danger"></span>
+
+    </div>
 
     <button type="submit" class="btn btn-primary">Añadir</button>
 </form>
+
+
+<hr />
+<hr />
+
+<div class="table-responsive">
+    <table class="table table-bordered table-striped">
+
+        <caption> Transacciones </caption>
+        <thead>
+
+            <tr>
+                <th>ID</th>
+                <th>Tipo</th>
+                <th>Monto</th>
+                <th>Ingresada Por</th>     
+                <th>Detalle</th>
+                <th>Fecha</th>
+
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @foreach (Transaccion transaccion in Model.transaccions)
+            {
+                <tr style="cursor:pointer;">
+
+                    <td>@transaccion.transaccionId</td>
+                    <td>@transaccion.tipoTransaccion.nombre</td>
+                    <td>@transaccion.monto</td>
+                    <td>@transaccion.administrador.nombre</td>
+                    <td>@transaccion.detalle</td>
+                    <td>@transaccion.fecha</td>
+                
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+</div>
 
 
 @section Scripts {
