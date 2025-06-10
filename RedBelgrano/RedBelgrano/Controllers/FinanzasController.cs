@@ -18,19 +18,21 @@ namespace RedBelgrano.Controllers
         public async Task<IActionResult> Index()
         {
             ViewBag.Tipos = await ObtenerTipos();
+            ViewBag.Reserva = ObtenerReservasTotales();
 
-            return View();
+            TransaccionesVM vm = await InicializarVM();
+
+            return View(vm);
         }
 
         [HttpPost]
-        public async Task<IActionResult> AñadirTransaccion(AñadirTransaccionVM nueva_transaccion)
+        public async Task<IActionResult> AñadirTransaccion(TransaccionesVM nueva_transaccion)
         {
 
             if(!ModelState.IsValid)
             {
                 ViewBag.tipos = await ObtenerTipos();
-
-                return View("Index",nueva_transaccion);
+                return RedirectToAction("Index");
             }
 
             //string? UsuarioIdString = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
@@ -52,6 +54,7 @@ namespace RedBelgrano.Controllers
             {
                 monto = nueva_transaccion.monto,
                 detalle = nueva_transaccion.detalle,
+                tipoId = nueva_transaccion.tipoId,
                 administradorId = usuarioId,
             };
 
@@ -63,7 +66,18 @@ namespace RedBelgrano.Controllers
             return RedirectToAction("Index");
         }
 
-        //IMPLEMENTAR OBTENER TRANSACCIONES
+        //OBTENER TRANSACCIONES //Inicializar lista de transacciones
+
+        private async Task<TransaccionesVM> InicializarVM()
+        {
+            return new TransaccionesVM()
+            {
+                transacciones = await db.Transacciones
+                                    .Include(t => t.tipoTransaccion)
+                                    .Include(t => t.administrador)
+                                    .ToListAsync()
+            };
+        }
 
         //Obtener datos
         private async Task<SelectList> ObtenerTipos()
@@ -71,6 +85,17 @@ namespace RedBelgrano.Controllers
             var tipos = await db.TipoTransaccion.ToListAsync();
             return new SelectList(tipos, "tipoTId", "nombre");
         }
+
+        private double ObtenerReservasTotales()
+        {
+            decimal data = db.Database.SqlQueryRaw<decimal>("EXEC ObtenerReservasTotales").AsEnumerable().FirstOrDefault();
+
+            return Convert.ToDouble(data);
+          
+            
+        }
+        
+        
 
 
     }

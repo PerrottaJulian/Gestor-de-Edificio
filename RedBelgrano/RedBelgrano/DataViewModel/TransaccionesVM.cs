@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace RedBelgrano.DataViewModel
 {
-    public class AñadirTransaccionVM
+    public class TransaccionesVM
     {
         [Required(ErrorMessage = "El monto es obligatorio")]
         [Range(0.0, 9999999.99, ErrorMessage = "El monto debe ser mayor a 0")]
@@ -17,5 +17,7 @@ namespace RedBelgrano.DataViewModel
 
         [Required(ErrorMessage = "El tipo es obligatorio")]
         public int tipoId { get; set; }
+
+        public List<Transaccion> transacciones { get; set; } = new();
     }
 }

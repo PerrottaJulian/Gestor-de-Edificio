@@ -7,6 +7,8 @@
 <p> <strong>Departamento:</strong> @Model.piso @Model.departamento </p>
 <p> <strong>Estado:</strong> @Model.estadoResidente.estado </p>
 
+<!--AGREGAR CONFIRMACION PARA DAR DE BAJA-->
+
 <form asp-controller="Residentes" asp-action="DarDeBaja" method="post">
     <input type="hidden" name="id" value="@Model.residenteId" />
     <button type="submit" class="btn btn-danger">Eliminar</button>
