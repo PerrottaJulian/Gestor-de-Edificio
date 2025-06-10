@@ -18,7 +18,8 @@ namespace RedBelgrano.Controllers
         public async Task<IActionResult> Index()
         {
             ViewBag.Tipos = await ObtenerTipos();
-            //await ObtenerReservasTotales();
+            ViewBag.Reserva = ObtenerReservasTotales();
+
             TransaccionesVM vm = await InicializarVM();
 
             return View(vm);
@@ -85,10 +86,13 @@ namespace RedBelgrano.Controllers
             return new SelectList(tipos, "tipoTId", "nombre");
         }
 
-        private async Task ObtenerReservasTotales()
+        private double ObtenerReservasTotales()
         {
-            var data =  await db.Database.ExecuteSqlRawAsync("EXEC ObtenerReservasTotales");
-            Console.WriteLine(data);
+            decimal data = db.Database.SqlQueryRaw<decimal>("EXEC ObtenerReservasTotales").AsEnumerable().FirstOrDefault();
+
+            return Convert.ToDouble(data);
+          
+            
         }
         
         

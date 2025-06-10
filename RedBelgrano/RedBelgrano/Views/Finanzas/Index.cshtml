@@ -19,6 +19,12 @@
 </style>
 
 
+<h1> FINANZAS</h1>
+
+<hr />
+
+<h6> Reservas: @ViewBag.Reserva</h6>
+
 <form asp-action="AñadirTransaccion" method="post">
     <div>
         <label asp-for="monto" class="form-label"></label>
@@ -52,7 +58,7 @@
 <hr />
 <hr />
 
-<div class="table-responsive">
+<div class="">
     <table class="table table-bordered table-striped">
 
         <caption> Transacciones </caption>
@@ -77,9 +83,9 @@
 
                     <td>@transaccion.transaccionId</td>
                     <td>@transaccion.tipoTransaccion.nombre</td>
-                    <td>@transaccion.monto</td>
+                    <td>$@transaccion.monto</td>
                     <td>@transaccion.administrador.nombre</td>
-                    <td>@transaccion.detalle</td>
+                    <td style="max-width: 200px; white-space: nowrap; text-overflow:ellipsis;overflow: hidden;">@transaccion.detalle</td>
                     <td>@transaccion.fecha</td>
                 
                 </tr>
