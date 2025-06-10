@@ -1,13 +1,21 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\jperrotta\\dev\\Gestor-de-Edificio\\RedBelgrano\\",
+  "WorkspaceRootPath": "C:\\Users\\Admin\\dev-home\\SmartBuild-Space\\RedBelgrano\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|c:\\users\\jperrotta\\dev\\gestor-de-edificio\\redbelgrano\\redbelgrano\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|c:\\users\\admin\\dev-home\\smartbuild-space\\redbelgrano\\redbelgrano\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|solutionrelative:redbelgrano\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|c:\\users\\admin\\dev-home\\smartbuild-space\\redbelgrano\\redbelgrano\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|solutionrelative:redbelgrano\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|c:\\users\\admin\\dev-home\\smartbuild-space\\redbelgrano\\redbelgrano\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|solutionrelative:redbelgrano\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|c:\\users\\jperrotta\\dev\\gestor-de-edificio\\redbelgrano\\redbelgrano\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|c:\\users\\admin\\dev-home\\smartbuild-space\\redbelgrano\\redbelgrano\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|solutionrelative:redbelgrano\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -18,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,26 +46,52 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\dev-home\\SmartBuild-Space\\RedBelgrano\\RedBelgrano\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "RedBelgrano\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\Admin\\dev-home\\SmartBuild-Space\\RedBelgrano\\RedBelgrano\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "RedBelgrano\\Controllers\\HomeController.cs",
+              "ViewState": "AQIAABIAAAAAAAAAAAAgwCoAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-10T21:25:53.888Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\dev-home\\SmartBuild-Space\\RedBelgrano\\RedBelgrano\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "RedBelgrano\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\dev-home\\SmartBuild-Space\\RedBelgrano\\RedBelgrano\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "RedBelgrano\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAAC8AAAAAAAAAAAAAAEIAAACLAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-10T21:13:44.749Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "LoginController.cs",
-              "DocumentMoniker": "C:\\Users\\jperrotta\\dev\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Controllers\\LoginController.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\dev-home\\SmartBuild-Space\\RedBelgrano\\RedBelgrano\\Controllers\\LoginController.cs",
               "RelativeDocumentMoniker": "RedBelgrano\\Controllers\\LoginController.cs",
-              "ToolTip": "C:\\Users\\jperrotta\\dev\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Controllers\\LoginController.cs",
+              "ToolTip": "C:\\Users\\Admin\\dev-home\\SmartBuild-Space\\RedBelgrano\\RedBelgrano\\Controllers\\LoginController.cs",
               "RelativeToolTip": "RedBelgrano\\Controllers\\LoginController.cs",
-              "ViewState": "AQIAACkAAAAAAAAAAAA9wEkAAAAMAAAA",
+              "ViewState": "AQIAAE4AAAAAAAAAAAAowGMAAABeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-10T16:28:23.096Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Usuario.cs",
-              "DocumentMoniker": "C:\\Users\\jperrotta\\dev\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Models\\Usuario.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\dev-home\\SmartBuild-Space\\RedBelgrano\\RedBelgrano\\Models\\Usuario.cs",
               "RelativeDocumentMoniker": "RedBelgrano\\Models\\Usuario.cs",
-              "ToolTip": "C:\\Users\\jperrotta\\dev\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Models\\Usuario.cs",
+              "ToolTip": "C:\\Users\\Admin\\dev-home\\SmartBuild-Space\\RedBelgrano\\RedBelgrano\\Models\\Usuario.cs",
               "RelativeToolTip": "RedBelgrano\\Models\\Usuario.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAqAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-10T16:45:12.68Z",
               "EditorCaption": ""
@@ -70,11 +104,11 @@
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             }
           ]
         },

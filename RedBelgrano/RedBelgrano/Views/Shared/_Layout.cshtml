@@ -33,7 +33,7 @@
                     </button>
 
                     <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                        <ul class="navbar-nav flex-grow-1">
+                        <ul class="navbar-nav flex-grow-1  ">
                             <!--Lista de navegacion-->
 
                             <li class="nav-item ">
@@ -53,6 +53,24 @@
                                 <a class="nav-link @(currentController == "Comunidad" ? "text-warning" : "text-dark")" asp-area="" asp-controller="Comunidad" asp-action="Index">Comunidad</a>
                             </li>
                         </ul>
+
+                        <!-- Cerrar Sesión alineado a la derecha -->
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item d-flex align-items-center">
+                                <div class="d-flex flex-column align-items-end justify-content-center" style="height: 100%;">
+                                    @if(User.Identity.Name != null)
+                                    {
+                                        <span class="nav-link px-2 pt-0 pb-1 text-secondary">
+                                            @User.Identity.Name
+                                        </span>
+                                    }
+                                    <a class="nav-link px-2 pt-0 pb-0 text-dark" asp-area="" asp-controller="Home" asp-action="CerrarSesion">
+                                        Cerrar Sesión
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+
                     </div>
                 </div>
 
@@ -60,17 +78,18 @@
         }
 
     </header>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+   @*  <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2025 - RedBelgrano - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
-    </footer>
+    </footer> *@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

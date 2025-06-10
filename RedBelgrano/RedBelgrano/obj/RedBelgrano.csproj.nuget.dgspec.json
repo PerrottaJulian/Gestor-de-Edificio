@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jperrotta\\dev\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\RedBelgrano.csproj": {}
+    "C:\\Users\\Admin\\dev-home\\SmartBuild-Space\\RedBelgrano\\RedBelgrano\\RedBelgrano.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jperrotta\\dev\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\RedBelgrano.csproj": {
+    "C:\\Users\\Admin\\dev-home\\SmartBuild-Space\\RedBelgrano\\RedBelgrano\\RedBelgrano.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jperrotta\\dev\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\RedBelgrano.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\dev-home\\SmartBuild-Space\\RedBelgrano\\RedBelgrano\\RedBelgrano.csproj",
         "projectName": "RedBelgrano",
-        "projectPath": "C:\\Users\\jperrotta\\dev\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\RedBelgrano.csproj",
-        "packagesPath": "C:\\Users\\jperrotta\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jperrotta\\dev\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\obj\\",
+        "projectPath": "C:\\Users\\Admin\\dev-home\\SmartBuild-Space\\RedBelgrano\\RedBelgrano\\RedBelgrano.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\dev-home\\SmartBuild-Space\\RedBelgrano\\RedBelgrano\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\jperrotta\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -84,7 +80,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

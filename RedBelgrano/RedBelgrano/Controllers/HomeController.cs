@@ -5,6 +5,8 @@ using System.Diagnostics;
 
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
 
 namespace RedBelgrano.Controllers
 {
@@ -34,6 +36,12 @@ namespace RedBelgrano.Controllers
             return View();
         }
 
+        public async Task<IActionResult> CerrarSesion()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+
+            return RedirectToAction("Index");
+        }
 
         private void PrimerUsuario()
         {
