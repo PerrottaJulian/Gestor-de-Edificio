@@ -67,7 +67,6 @@ namespace RedBelgrano.Controllers
         }
 
         //OBTENER TRANSACCIONES //Inicializar lista de transacciones
-
         private async Task<TransaccionesVM> InicializarVM()
         {
             return new TransaccionesVM()

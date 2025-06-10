@@ -19,6 +19,7 @@ else
 
 builder.Services.AddDbContext<AppDBContext>(options =>
     options.UseSqlServer(connection));
+
 builder.Services.AddControllersWithViews();
 
 //Autenticacion
@@ -56,5 +57,9 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}"); //Volver a cambiar, para que el inicio sea el Home/Index. Ahora se cambia por cuestiones de testeo
+
+// Mapear endpoints de API también (PARA FUTURO, DESPERTADOR DE BASE DE DATOS)
+//app.MapControllers();
+
 
 app.Run();

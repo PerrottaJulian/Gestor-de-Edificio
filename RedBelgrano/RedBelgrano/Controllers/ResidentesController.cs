@@ -101,7 +101,6 @@ namespace RedBelgrano.Controllers
                 clave = nuevo_residente.dni.ToString(), // El DNI es la contraseña inicial
             };
 
-
             await db.Residentes.AddAsync(residente);
             await db.Usuarios.AddAsync(usuarioResidente);
             await db.SaveChangesAsync();
@@ -155,9 +154,9 @@ namespace RedBelgrano.Controllers
             Residente? residente = null;
             try
             {
-                residente = db.Residentes.Find(id);
                 ViewBag.Tipos = await ObtenerTipos();
                 ViewBag.Estados = await ObtenerEstados();
+                residente = db.Residentes.Find(id);
 
                 if (residente == null) throw new Exception("Residente no Existente");
 

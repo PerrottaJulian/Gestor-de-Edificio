@@ -2,9 +2,9 @@
 {
     public class UsuarioLoginVM
     {
-        public string tipo;
-        public int dni;
-        public string clave; 
+        public string tipo { get; set; }
+        public int dni{ get; set; }
+        public string clave { get; set; }
 
     }
 }

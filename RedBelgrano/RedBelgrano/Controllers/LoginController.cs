@@ -39,36 +39,49 @@ namespace RedBelgrano.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> IniciarSesion(Usuario _usuario)
+        public async Task<IActionResult> IniciarSesion(UsuarioLoginVM _usuario)
         
         {
             Usuario? usuario = null;
+            Usuario? usuario_encontrado = null;
             try
             {
-                usuario = await db.Usuarios.Where(u =>
+                usuario_encontrado = await db.Usuarios.Where(u =>
                              u.dni == _usuario.dni &&
-                             u.clave.Equals(_usuario.clave) &&
+                             //u.clave.Equals(_usuario.clave) &&
                              u.tipo.Equals(_usuario.tipo))
                             .FirstOrDefaultAsync();
-
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 ViewData["Mensaje"] = $"Ocurrio un Error Inesperado\n{ex.Message}";
                 return View();
             }
 
-            if (usuario == null)
+            if (usuario_encontrado == null)
             {
                 ViewData["Mensaje"] = "No se encontro Usuario";
                 return View();
             }
 
-            List<Claim> claims = new List<Claim>() //Poner mas claims
+            //Verifica si la contraseña (encriptada) es correcta 
+            if(!usuario_encontrado.VerificarClave(_usuario.clave))
+            {
+                ViewData["Mensaje"] = "Contraseña Incorrecta";
+                return View();
+            }
+
+            usuario = usuario_encontrado;
+
+            //Claims, para guardar la data de el usuario entrante
+
+            List<Claim> claims = new List<Claim>() 
             {
                 new Claim(ClaimTypes.NameIdentifier, usuario.usuarioId.ToString()),
                 new Claim(ClaimTypes.Name, usuario.nombre),
                 new Claim(ClaimTypes.Role, usuario.tipo),
                 new Claim(ClaimTypes.Email, usuario.email),
+
             };
 
             ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
@@ -96,7 +109,7 @@ namespace RedBelgrano.Controllers
 
 
         //Despertar base de datos
-        public async Task Despertador()
+        /*public async Task Despertador()
         {
             try
             {
@@ -107,7 +120,7 @@ namespace RedBelgrano.Controllers
             {
                 Console.WriteLine("Error al despertar la base: " + ex.Message);
             }
-        }
+        }*/
 
     }
 }
