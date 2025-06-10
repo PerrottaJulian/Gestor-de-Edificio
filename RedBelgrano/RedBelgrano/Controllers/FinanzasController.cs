@@ -18,6 +18,7 @@ namespace RedBelgrano.Controllers
         public async Task<IActionResult> Index()
         {
             ViewBag.Tipos = await ObtenerTipos();
+            //await ObtenerReservasTotales();
             TransaccionesVM vm = await InicializarVM();
 
             return View(vm);
@@ -64,9 +65,18 @@ namespace RedBelgrano.Controllers
             return RedirectToAction("Index");
         }
 
-        //OBTENER TRANSACCIONES
+        //OBTENER TRANSACCIONES //Inicializar lista de transacciones
 
-
+        private async Task<TransaccionesVM> InicializarVM()
+        {
+            return new TransaccionesVM()
+            {
+                transacciones = await db.Transacciones
+                                    .Include(t => t.tipoTransaccion)
+                                    .Include(t => t.administrador)
+                                    .ToListAsync()
+            };
+        }
 
         //Obtener datos
         private async Task<SelectList> ObtenerTipos()
@@ -75,17 +85,13 @@ namespace RedBelgrano.Controllers
             return new SelectList(tipos, "tipoTId", "nombre");
         }
 
-        //Iniciarlizar lista de transacciones
-        private async Task<TransaccionesVM> InicializarVM()
+        private async Task ObtenerReservasTotales()
         {
-            return new TransaccionesVM()
-            {
-                transaccions = await db.Transacciones
-                                    .Include(t => t.tipoTransaccion)
-                                    .Include(t => t.administrador)
-                                    .ToListAsync()
-            };
+            var data =  await db.Database.ExecuteSqlRawAsync("EXEC ObtenerReservasTotales");
+            Console.WriteLine(data);
         }
+        
+        
 
 
     }

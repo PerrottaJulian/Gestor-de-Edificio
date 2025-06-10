@@ -18,6 +18,6 @@ namespace RedBelgrano.DataViewModel
         [Required(ErrorMessage = "El tipo es obligatorio")]
         public int tipoId { get; set; }
 
-        public List<Transaccion> transaccions { get; set; } = new();
+        public List<Transaccion> transacciones { get; set; } = new();
     }
 }
