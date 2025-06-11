@@ -7,13 +7,19 @@ namespace RedBelgrano.Models
     {
         [Key]
         public int transaccionId { get; set; }
+
+        public int tipoId { get; set; }
+        public TipoTransaccion tipoTransaccion { get; set; }
+
         public decimal monto { get; set; }
         public string? detalle {  get; set; }
 
         public int administradorId { get; set; }
         public Usuario administrador { get; set; }
-        public int tipoId { get; set; }
-        public TipoTransaccion tipoTransaccion { get; set; }
+
+        public int categoriaId { get; set; }
+        public CategoriaTransaccion categoria { get; set; }
+        
         public DateTime fecha { get; set; }
 
     }

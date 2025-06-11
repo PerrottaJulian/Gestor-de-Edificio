@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RedBelgrano.Context;
 
@@ -11,9 +12,11 @@ using RedBelgrano.Context;
 namespace RedBelgrano.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    partial class AppDBContextModelSnapshot : ModelSnapshot
+    [Migration("20250611124533_addCategoriaTransaccion")]
+    partial class addCategoriaTransaccion
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -24,17 +27,17 @@ namespace RedBelgrano.Migrations
 
             modelBuilder.Entity("RedBelgrano.Models.EnumModels.CategoriaTransaccion", b =>
                 {
-                    b.Property<int>("categoriaId")
+                    b.Property<int>("cateogriaId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("categoriaId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("cateogriaId"));
 
                     b.Property<string>("nombre")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("categoriaId");
+                    b.HasKey("cateogriaId");
 
                     b.ToTable("CategoriaTransaccion");
                 });

@@ -13,10 +13,17 @@ namespace RedBelgrano.DataViewModel
         public decimal monto { get; set; }
 
         [Required(ErrorMessage = "El detalle es obligatorio")]
+        [Display(Name = "Detalle")]
         public string? detalle { get; set; }
 
+        [Display(Name = "Tipo")]
         [Required(ErrorMessage = "El tipo es obligatorio")]
         public int tipoId { get; set; }
+
+
+        [Display(Name = "Categoria")]
+        [Required(ErrorMessage = "La categoria es obligatoria ")]
+        public int categoriaId { get; set; }
 
         public List<Transaccion> transacciones { get; set; } = new();
     }

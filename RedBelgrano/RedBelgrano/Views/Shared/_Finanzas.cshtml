@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@* @ViewData["Title"] - *@ Red Belgrano</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/RedBelgrano.styles.css" asp-append-version="true" />
+    <!--Enlace para Poppins-->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap" rel="stylesheet">
+
+</head>
+<body class="m-0"> <!--correccion suplementaria a error en margin bottom, chequear dps las clases-->
+    @{
+        var currentController = ViewContext.RouteData.Values["controller"].ToString();
+        var currentAction = ViewContext.RouteData.Values["action"]?.ToString();
+    }
+    <header>
+
+        <!--Copia de la Navbar general, buscar mejor solucion, porque se necesita aplicar los cambios que se hagan a ella aca-->
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow "> 
+
+            <div class="container-fluid">
+
+                <a class="navbar-brand " asp-area="" asp-controller="Home" asp-action="Index">RedBelgrano</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1  ">
+                        <!--Lista de navegacion-->
+
+                        <li class="nav-item ">
+                            <!--Residentes-->
+                            <a class="nav-link @(currentController == "Residentes" ? "text-warning" : "text-dark")" asp-area="" asp-controller="Residentes" asp-action="Index">Residentes</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <!--Finanzas-->
+                            <a class="nav-link @(currentController == "Finanzas" ? "text-warning" : "text-dark")" asp-area="" asp-controller="Finanzas" asp-action="Index">Finanzas</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <!--Ticket-->
+                            <a class="nav-link @(currentController == "Ticket" ? "text-warning" : "text-dark")" asp-area="" asp-controller="Ticket" asp-action="Index">Ticket</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <!--Comunidad-->
+                            <a class="nav-link @(currentController == "Comunidad" ? "text-warning" : "text-dark")" asp-area="" asp-controller="Comunidad" asp-action="Index">Comunidad</a>
+                        </li>
+                    </ul>
+
+                    <!-- Cerrar Sesión alineado a la derecha -->
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item d-flex align-items-center">
+                            <div class="d-flex flex-column align-items-end justify-content-center" style="height: 100%;">
+                                @if (User.Identity.Name != null)
+                                {
+                                    <span class="nav-link px-2 pt-0 pb-1 text-secondary">
+                                        @User.Identity.Name
+                                    </span>
+                                }
+                                <a class="nav-link px-2 pt-0 pb-0 text-dark" asp-area="" asp-controller="Home" asp-action="CerrarSesion">
+                                    Cerrar Sesión
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+
+        </nav>
+        
+    </header>
+
+    
+
+    <div class="d-flex border border-danger">
+
+        <!-- Sidebar con botón de colapso -->
+        <div class="d-flex flex-column bg-dark" style="width: 15vw;" id="sidebar-container">
+            <button class="btn btn-outline-secondary m-2 d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-expanded="false" aria-controls="sidebarMenu">
+                Menú Finanzas
+            </button>
+
+            <div class="collapse d-md-block" style="max-width: 90%; word-wrap: break-word; overflow-wrap: break-word; white-space: normal;" id="sidebarMenu">
+                <h5 class="mb-3 ps-3 pt-2 text-light">Finanzas</h5>
+
+                <ul class="nav nav-pills flex-column">
+                    <li class="nav-item">
+                        <a sty class="nav-link " asp-controller="Finanzas" asp-action="Index">Resumen</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Finanzas" asp-action="Movimientos">Movimientos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Finanzas" asp-action="Reportes">Reportes</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="flex-grow-1 p-3">
+            <main role="main" class="">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+
+    @*  <footer class="border-top footer text-muted">
+    <div class="container">
+    &copy; 2025 - RedBelgrano - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </div>
+    </footer> *@
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

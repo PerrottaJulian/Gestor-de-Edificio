@@ -22,6 +22,7 @@ namespace RedBelgrano.Context
         //Transacciones
         public DbSet<Transaccion> Transacciones { get; set; }
         public DbSet<TipoTransaccion> TipoTransaccion { get; set; }
+        public DbSet<CategoriaTransaccion> CategoriaTransaccion { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

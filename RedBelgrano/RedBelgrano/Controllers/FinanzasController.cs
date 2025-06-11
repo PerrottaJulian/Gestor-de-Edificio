@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿  using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using RedBelgrano.Context;
@@ -18,20 +18,28 @@ namespace RedBelgrano.Controllers
         public async Task<IActionResult> Index()
         {
             ViewBag.Tipos = await ObtenerTipos();
+            ViewBag.Categorias = await ObtenerCategorias();
             ViewBag.Reserva = ObtenerReservasTotales();
+
+            Console.Clear();
+
 
             TransaccionesVM vm = await InicializarVM();
 
             return View(vm);
         }
 
+        //Añadir
         [HttpPost]
         public async Task<IActionResult> AñadirTransaccion(TransaccionesVM nueva_transaccion)
         {
 
             if(!ModelState.IsValid)
             {
-                ViewBag.tipos = await ObtenerTipos();
+                ViewBag.Tipos = await ObtenerTipos();
+                ViewBag.Categorias = await ObtenerCategorias();
+                ViewBag.Reserva = ObtenerReservasTotales();
+
                 return RedirectToAction("Index");
             }
 
@@ -56,6 +64,7 @@ namespace RedBelgrano.Controllers
                 detalle = nueva_transaccion.detalle,
                 tipoId = nueva_transaccion.tipoId,
                 administradorId = usuarioId,
+                categoriaId = nueva_transaccion.categoriaId,
             };
 
             await db.Transacciones.AddAsync(transaccion);
@@ -74,15 +83,28 @@ namespace RedBelgrano.Controllers
                 transacciones = await db.Transacciones
                                     .Include(t => t.tipoTransaccion)
                                     .Include(t => t.administrador)
+                                    .Include(t => t.categoria)
+                                    .OrderByDescending(t => t.fecha)
                                     .ToListAsync()
             };
         }
 
-        //Obtener datos
+        //INFORMACION PARA GRAFICOS
+
+
+
+
+        //Obtener datos varios
         private async Task<SelectList> ObtenerTipos()
         {
             var tipos = await db.TipoTransaccion.ToListAsync();
             return new SelectList(tipos, "tipoTId", "nombre");
+        }
+
+        private async Task<SelectList> ObtenerCategorias()
+        {
+            var categorias = await db.CategoriaTransaccion.ToListAsync();
+            return new SelectList(categorias, "categoriaId", "nombre");
         }
 
         private double ObtenerReservasTotales()

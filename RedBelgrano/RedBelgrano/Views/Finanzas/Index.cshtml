@@ -1,7 +1,11 @@
-﻿@*
+﻿
+@*
     FINANZAS
 *@
 
+@{
+    Layout = "~/Views/Shared/_Finanzas.cshtml";
+}
 @model RedBelgrano.DataViewModel.TransaccionesVM
 
 <style>
@@ -41,7 +45,12 @@
         <label asp-for="tipoId"></label>
         <select asp-for="tipoId" asp-items="ViewBag.Tipos" class="form-select"> </select>
         <span asp-validation-for="tipoId" class="text-danger"></span>
+    </div>
 
+    <div>
+        <label asp-for="categoriaId"></label>
+        <select asp-for="categoriaId" asp-items="ViewBag.Categorias" class="form-select"> </select>
+        <span asp-validation-for="categoriaId" class="text-danger"></span>
     </div>
 
     <div>
@@ -70,6 +79,7 @@
                 <th>Monto</th>
                 <th>Ingresada Por</th>     
                 <th>Detalle</th>
+                <th>Detalle</th>
                 <th>Fecha</th>
 
             </tr>
@@ -86,6 +96,7 @@
                     <td>$@transaccion.monto</td>
                     <td>@transaccion.administrador.nombre</td>
                     <td style="max-width: 200px; white-space: nowrap; text-overflow:ellipsis;overflow: hidden;">@transaccion.detalle</td>
+                    <td>@transaccion.categoria.nombre</td>
                     <td>@transaccion.fecha</td>
                 
                 </tr>
