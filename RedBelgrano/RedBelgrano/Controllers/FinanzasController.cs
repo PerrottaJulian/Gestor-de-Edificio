@@ -11,26 +11,32 @@ using System.Text.RegularExpressions;
 
 namespace RedBelgrano.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class FinanzasController : Controller
     {
         private AppDBContext db;
-        public FinanzasController(AppDBContext dBContext) 
+        public FinanzasController(AppDBContext dBContext)
         {
-            db = dBContext; 
+            db = dBContext;
         }
 
         //VISTA DE INICIO
         public async Task<IActionResult> Inicio()
         {
-            ViewBag.Reserva = ObtenerReservasTotales();
-            ViewBag.BalanceMes = await ObtenerBalanceMesActual();
+            InicioTransaccionesVM vm = new InicioTransaccionesVM()
+            {
+                Reserva =  ObtenerReservasTotales(),
+                BalanceMes = await ObtenerBalanceMesActual(),
+                IngresosMes = await ObtenerIngresosMesActual(),
+                GastosMes = await ObtenerGastosMesActual(),
+                UltimaTransaccion = await ObtenerUltima(),
+            };
 
-            return View();
+            return View(vm);
         }
 
         //VISTA DE LISTADO
-        public async Task<IActionResult> Transacciones ()
+        public async Task<IActionResult> Transacciones()
         {
             List<Transaccion> transacciones = await db.Transacciones
                                     .Include(t => t.tipoTransaccion)
@@ -48,7 +54,7 @@ namespace RedBelgrano.Controllers
             //Datos para los select del formulario
             ViewBag.Tipos = await ObtenerTipos();
             ViewBag.Categorias = await ObtenerCategorias();
-            
+
             return View();
         }
 
@@ -118,7 +124,7 @@ namespace RedBelgrano.Controllers
             return View();
         }
 
-        
+
 
         //INFORMACION PARA GRAFICOS
 
@@ -143,8 +149,8 @@ namespace RedBelgrano.Controllers
             decimal data = db.Database.SqlQueryRaw<decimal>("EXEC ObtenerReservasTotales").AsEnumerable().FirstOrDefault();
 
             return Convert.ToDouble(data);
-          
-            
+
+
         }
 
         private async Task ObtenerTransaccionesPorTipo() //funciona bien
@@ -159,14 +165,14 @@ namespace RedBelgrano.Controllers
                 .OrderByDescending(x => x.Total)
                 .ToListAsync();
 
-            foreach(var item in transaccionesPorTipo)
+            foreach (var item in transaccionesPorTipo)
             {
                 Console.WriteLine(item);
-            } 
-        } 
+            }
+        }
 
         private async Task ObtenerBalanceDeMeses() //tambien funciona bien
-        { 
+        {
             var netoPorMes = await db.Transacciones
                 .Select(t => new  //Convierte cada transacción en un objeto simplificado con: El año y mes de la transacción y el monto , negativo si es gasto
                 {
@@ -182,7 +188,7 @@ namespace RedBelgrano.Controllers
                  2025    2 - 800*/
 
                 .GroupBy(t => new { t.Año, t.Mes })/*  Grupo 1(Año = 2025, Mes = 1): [1000, -200],
-                                                       Grupo 2(Año = 2025, Mes = 2): [500, -800]*/
+                                                       Grupo 2(Año = 2025, Mes = 2): [500, -800]   */
                 .Select(g => new
                 {
                     Año = g.Key.Año,
@@ -198,21 +204,26 @@ namespace RedBelgrano.Controllers
             }
         }
 
-        private async Task<BalanceMensual?> ObtenerBalanceMesActual() //otro que funciona bien
+        /// <summary>
+        /// ///////////////////////////////////////////////////////////////////////////
+        /// </summary>
+
+        // Datos de Mes Actual
+        private async Task<RegistroMensualVM?> ObtenerBalanceMesActual() //otro que funciona bien
         {
-            BalanceMensual? balance = await db.Transacciones
+            RegistroMensualVM? balance = await db.Transacciones
                 .Select(t => new  //Convierte cada transacción en un objeto simplificado con: El año y mes de la transacción y el monto , negativo si es gasto
                 {
                     Año = t.fecha.Year,
                     Mes = t.fecha.Month,
                     Monto = t.tipoTransaccion.nombre == "Gasto" ? -t.monto : t.monto
-                }) 
+                })
                 .GroupBy(t => new { t.Año, t.Mes })
-                .Select(g => new BalanceMensual
+                .Select(g => new RegistroMensualVM
                 {
                     Año = g.Key.Año,
                     Mes = g.Key.Mes,
-                    TotalNeto = g.Sum(t => t.Monto)
+                    Total = g.Sum(t => t.Monto)
                 })
                 .Where(g => g.Mes == DateTime.Now.Month && g.Año == DateTime.Now.Year) //Se seleccina el mes actual
                 .FirstOrDefaultAsync();
@@ -220,6 +231,58 @@ namespace RedBelgrano.Controllers
             return balance;
         }
 
+        private async Task<RegistroMensualVM> ObtenerIngresosMesActual() //funca
+        {
+            RegistroMensualVM? ingresos = await db.Transacciones
+                .Select(t => new 
+                { 
+                    Año = t.fecha.Year,
+                    Mes = t.fecha.Month,
+                    Monto = t.tipoTransaccion.nombre == "Ingreso" ? t.monto : 0
+                })
+                .GroupBy(t => new { t.Año, t.Mes })
+                .Select(g => new RegistroMensualVM
+                {
+                    Año = g.Key.Año,
+                    Mes = g.Key.Mes,
+                    Total = g.Sum(t => t.Monto)
+                })
+                .Where(g => g.Mes == DateTime.Now.Month && g.Año == DateTime.Now.Year) //Se seleccina el mes actual
+                .FirstOrDefaultAsync();
+
+            return ingresos;
+        }
+
+        private async Task<RegistroMensualVM> ObtenerGastosMesActual() //funca
+        {
+            RegistroMensualVM? gastos = await db.Transacciones
+                .Select(t => new
+                {
+                    Año = t.fecha.Year,
+                    Mes = t.fecha.Month,
+                    Monto = t.tipoTransaccion.nombre == "Gasto" ? t.monto : 0
+                })
+                .GroupBy(t => new { t.Año, t.Mes })
+                .Select(g => new RegistroMensualVM
+                {
+                    Año = g.Key.Año,
+                    Mes = g.Key.Mes,
+                    Total = g.Sum(t => t.Monto)
+                })
+                .Where(g => g.Mes == DateTime.Now.Month && g.Año == DateTime.Now.Year) //Se seleccina el mes actual
+                .FirstOrDefaultAsync();
+
+            return gastos;
+        }
+
+        private async Task<Transaccion> ObtenerUltima()
+        {
+            Transaccion? ultima = await db.Transacciones
+                .OrderByDescending(t => t.fecha)
+                .FirstOrDefaultAsync();
+
+            return ultima;
+        }
 
     }
 }

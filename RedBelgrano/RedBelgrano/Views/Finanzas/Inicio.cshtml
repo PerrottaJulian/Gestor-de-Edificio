@@ -7,12 +7,50 @@
     Layout = "~/Views/Shared/_Finanzas.cshtml";
 }
 
+@model RedBelgrano.DataViewModel.InicioTransaccionesVM;
+
 <h1> FINANZAS</h1>
 
 <br/>
 
-<h6> Reservas: $@ViewBag.Reserva</h6>
-<h6> Balance Del Mes: $@ViewBag.BalanceMes.TotalNeto</h6>
+<h6> Reservas: $@Model.Reserva </h6>
+<h6> Balance Del Mes: $@Model.BalanceMes.Total </h6>
+<h6> Ingresos Del Mes: $@Model.IngresosMes.Total </h6>
+<h6> Gastos Del Mes: $@Model.GastosMes.Total </h6>
+
+<div>
+    <h6> Ultima Transaccion: </h6>
+    <table class="table table-bordered">
+
+        <thead>
+
+            <tr>
+                <th>ID</th>
+                
+                <th>Monto</th>
+                
+                <th>Detalle</th>
+                
+                <th>Fecha</th>
+
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <tr onclick="location.href='@Url.Action("Detalle", "Finanzas", new { id = @Model.UltimaTransaccion?.transaccionId })'" style="cursor:pointer;">
+
+                <td>@Model.UltimaTransaccion.transaccionId</td>
+                <td>$@Model.UltimaTransaccion.monto</td>
+                <td style="max-width: 200px; white-space: nowrap; text-overflow:ellipsis;overflow: hidden;">@Model.UltimaTransaccion.detalle</td>
+                <td>@Model.UltimaTransaccion.fecha</td>
+
+            </tr>
+            
+        </tbody>
+    </table>
+</div>
+
 
 
 
