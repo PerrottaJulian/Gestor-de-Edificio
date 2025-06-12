@@ -25,6 +25,6 @@ namespace RedBelgrano.DataViewModel
         [Required(ErrorMessage = "La categoria es obligatoria ")]
         public int categoriaId { get; set; }
 
-        public List<Transaccion> transacciones { get; set; } = new();
+        //public List<Transaccion> transacciones { get; set; } = new();
     }
 }

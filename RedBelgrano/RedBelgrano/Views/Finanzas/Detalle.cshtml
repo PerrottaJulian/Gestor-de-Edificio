@@ -1,0 +1,15 @@
+﻿@*
+   Detalle de Transaccion
+*@
+@model Transaccion
+
+<h3>Detalle de transaccion</h3>
+
+
+<p> <strong>Id:</strong> @Model.transaccionId</p>
+<p> <strong>Tipo:</strong> @Model.tipoTransaccion.nombre</p>
+<p> <strong>Subido por:</strong> @Model.administrador.nombre</p>
+<p> <strong>Categoria:</strong> @Model.categoria.nombre</p>
+<p> <strong>Monto:</strong> $@Model.monto</p>
+<p> <strong>Detalle:</strong> @Model.detalle</p>
+<p> <strong>Fecha:</strong> @Model.fecha</p>

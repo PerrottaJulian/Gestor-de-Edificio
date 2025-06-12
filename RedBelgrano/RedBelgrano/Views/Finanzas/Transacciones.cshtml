@@ -1,0 +1,58 @@
+﻿@model List<Transaccion>;
+@{
+    Layout = "~/Views/Shared/_Finanzas.cshtml";
+}
+
+<style>
+    caption {
+        caption-side: top;
+        text-align: center;
+        font-weight: bold;
+        font-size: 1.2em;
+        padding: 0.5em;
+        color: black;
+        border-right: solid #dee2e6 1px;
+        border-left: solid #dee2e6 1px;
+        border-top: solid #dee2e6 1px;
+    }
+</style>
+
+<div class="">
+    <table class="table table-bordered table-striped">
+
+        <caption> Transacciones </caption>
+        <thead>
+
+            <tr>
+                <th>ID</th>
+                <th>Tipo</th>
+                <th>Monto</th>
+                <th>Ingresada Por</th>
+                <th>Detalle</th>
+                <th>Detalle</th>
+                <th>Fecha</th>
+
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @foreach (Transaccion transaccion in Model)
+            {
+                <tr onclick="location.href='@Url.Action("Detalle", "Finanzas", new { id = transaccion.transaccionId })'" style="cursor:pointer;">
+
+                    <td>@transaccion.transaccionId</td>
+                    <td>@transaccion.tipoTransaccion.nombre</td>
+                    <td>$@transaccion.monto</td>
+                    <td>@transaccion.administrador.nombre</td>
+                    <td style="max-width: 200px; white-space: nowrap; text-overflow:ellipsis;overflow: hidden;">@transaccion.detalle</td>
+                    <td>@transaccion.categoria.nombre</td>
+                    <td>@transaccion.fecha</td>
+
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+</div>

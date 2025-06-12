@@ -1,13 +1,17 @@
-﻿  using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using RedBelgrano.Context;
 using RedBelgrano.DataViewModel;
+using RedBelgrano.Migrations;
 using RedBelgrano.Models;
 using System.Security.Claims;
+using System.Text.RegularExpressions;
 
 namespace RedBelgrano.Controllers
 {
+    [Authorize]
     public class FinanzasController : Controller
     {
         private AppDBContext db;
@@ -15,18 +19,37 @@ namespace RedBelgrano.Controllers
         {
             db = dBContext; 
         }
-        public async Task<IActionResult> Index()
+
+        //VISTA DE INICIO
+        public async Task<IActionResult> Inicio()
         {
+            ViewBag.Reserva = ObtenerReservasTotales();
+            ViewBag.BalanceMes = await ObtenerBalanceMesActual();
+
+            return View();
+        }
+
+        //VISTA DE LISTADO
+        public async Task<IActionResult> Transacciones ()
+        {
+            List<Transaccion> transacciones = await db.Transacciones
+                                    .Include(t => t.tipoTransaccion)
+                                    .Include(t => t.administrador)
+                                    .Include(t => t.categoria)
+                                    .OrderByDescending(t => t.fecha)
+                                    .ToListAsync();
+
+            return View(transacciones);
+        }
+
+        //VISTA DE NUEVA TRANSACCION (FORMULARIO)
+        public async Task<IActionResult> Nueva()
+        {
+            //Datos para los select del formulario
             ViewBag.Tipos = await ObtenerTipos();
             ViewBag.Categorias = await ObtenerCategorias();
-            ViewBag.Reserva = ObtenerReservasTotales();
-
-            Console.Clear();
-
-
-            TransaccionesVM vm = await InicializarVM();
-
-            return View(vm);
+            
+            return View();
         }
 
         //Añadir
@@ -34,13 +57,12 @@ namespace RedBelgrano.Controllers
         public async Task<IActionResult> AñadirTransaccion(TransaccionesVM nueva_transaccion)
         {
 
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 ViewBag.Tipos = await ObtenerTipos();
                 ViewBag.Categorias = await ObtenerCategorias();
-                ViewBag.Reserva = ObtenerReservasTotales();
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Nueva");
             }
 
             //string? UsuarioIdString = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
@@ -58,7 +80,7 @@ namespace RedBelgrano.Controllers
                 return View("Error"); //cambiar por: cubrir todo el metodo en un try-catch, y aqui hacer un throw
             }
 
-            Transaccion transaccion = new Transaccion() 
+            Transaccion transaccion = new Transaccion()
             {
                 monto = nueva_transaccion.monto,
                 detalle = nueva_transaccion.detalle,
@@ -70,24 +92,33 @@ namespace RedBelgrano.Controllers
             await db.Transacciones.AddAsync(transaccion);
             await db.SaveChangesAsync();
 
-
-
-            return RedirectToAction("Index");
+            return RedirectToAction("Transacciones");
         }
 
-        //OBTENER TRANSACCIONES //Inicializar lista de transacciones
-        private async Task<TransaccionesVM> InicializarVM()
+        //VISTA DETALLE DE TRANSACCION
+        public async Task<IActionResult> Detalle(int id)
         {
-            return new TransaccionesVM()
+            Transaccion? transaccion = await db.Transacciones
+                .Include(t => t.tipoTransaccion)
+                .Include(t => t.administrador)
+                .Include(t => t.categoria)
+                .FirstOrDefaultAsync(r => r.transaccionId == id);
+
+            if (transaccion == null)
             {
-                transacciones = await db.Transacciones
-                                    .Include(t => t.tipoTransaccion)
-                                    .Include(t => t.administrador)
-                                    .Include(t => t.categoria)
-                                    .OrderByDescending(t => t.fecha)
-                                    .ToListAsync()
-            };
+                return NotFound();
+            }
+
+            return View(transaccion);
         }
+
+        //VISTA DE GRAFICOS
+        public IActionResult Graficos()
+        {
+            return View();
+        }
+
+        
 
         //INFORMACION PARA GRAFICOS
 
@@ -115,8 +146,79 @@ namespace RedBelgrano.Controllers
           
             
         }
-        
-        
+
+        private async Task ObtenerTransaccionesPorTipo() //funciona bien
+        {
+            var transaccionesPorTipo = await db.Transacciones
+                .GroupBy(t => t.categoria.nombre)
+                .Select(g => new
+                {
+                    Tipo = g.Key,
+                    Total = g.Sum(t => t.monto)
+                })
+                .OrderByDescending(x => x.Total)
+                .ToListAsync();
+
+            foreach(var item in transaccionesPorTipo)
+            {
+                Console.WriteLine(item);
+            } 
+        } 
+
+        private async Task ObtenerBalanceDeMeses() //tambien funciona bien
+        { 
+            var netoPorMes = await db.Transacciones
+                .Select(t => new  //Convierte cada transacción en un objeto simplificado con: El año y mes de la transacción y el monto , negativo si es gasto
+                {
+                    Año = t.fecha.Year,
+                    Mes = t.fecha.Month,
+                    Monto = t.tipoTransaccion.nombre == "Gasto" ? -t.monto : t.monto
+                })
+                /* Resultado Parcial
+                 * Año Mes Monto
+                 2025    1   1000
+                 2025    1 - 200
+                 2025    2   500
+                 2025    2 - 800*/
+
+                .GroupBy(t => new { t.Año, t.Mes })/*  Grupo 1(Año = 2025, Mes = 1): [1000, -200],
+                                                       Grupo 2(Año = 2025, Mes = 2): [500, -800]*/
+                .Select(g => new
+                {
+                    Año = g.Key.Año,
+                    Mes = g.Key.Mes,
+                    TotalNeto = g.Sum(t => t.Monto) //Se suman los montos de los grupos
+                })
+                .OrderBy(x => x.Año).ThenBy(x => x.Mes)
+                .ToListAsync();
+
+            foreach (var item in netoPorMes)
+            {
+                Console.WriteLine(item);
+            }
+        }
+
+        private async Task<BalanceMensual?> ObtenerBalanceMesActual() //otro que funciona bien
+        {
+            BalanceMensual? balance = await db.Transacciones
+                .Select(t => new  //Convierte cada transacción en un objeto simplificado con: El año y mes de la transacción y el monto , negativo si es gasto
+                {
+                    Año = t.fecha.Year,
+                    Mes = t.fecha.Month,
+                    Monto = t.tipoTransaccion.nombre == "Gasto" ? -t.monto : t.monto
+                }) 
+                .GroupBy(t => new { t.Año, t.Mes })
+                .Select(g => new BalanceMensual
+                {
+                    Año = g.Key.Año,
+                    Mes = g.Key.Mes,
+                    TotalNeto = g.Sum(t => t.Monto)
+                })
+                .Where(g => g.Mes == DateTime.Now.Month && g.Año == DateTime.Now.Year) //Se seleccina el mes actual
+                .FirstOrDefaultAsync();
+
+            return balance;
+        }
 
 
     }

@@ -56,7 +56,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Finanzas}/{action=Index}/{id?}"); //Volver a cambiar, para que el inicio sea el Home/Index. Ahora se cambia por cuestiones de testeo
+    pattern: "{controller=Finanzas}/{action=Inicio}/{id?}"); //Volver a cambiar, para que el inicio sea el Home/Index. Ahora se cambia por cuestiones de testeo
 
 // Mapear endpoints de API también (PARA FUTURO, DESPERTADOR DE BASE DE DATOS)
 //app.MapControllers();

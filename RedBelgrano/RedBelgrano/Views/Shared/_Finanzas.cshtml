@@ -42,7 +42,7 @@
 
                         <li class="nav-item">
                             <!--Finanzas-->
-                            <a class="nav-link @(currentController == "Finanzas" ? "text-warning" : "text-dark")" asp-area="" asp-controller="Finanzas" asp-action="Index">Finanzas</a>
+                            <a class="nav-link @(currentController == "Finanzas" ? "text-warning" : "text-dark")" asp-area="" asp-controller="Finanzas" asp-action="Inicio">Finanzas</a>
                         </li>
 
                         <li class="nav-item">
@@ -82,7 +82,7 @@
 
     
 
-    <div class="d-flex border border-danger">
+    <div class="d-flex">
 
         <!-- Sidebar con botón de colapso -->
         <div class="d-flex flex-column bg-dark" style="width: 15vw;" id="sidebar-container">
@@ -94,15 +94,23 @@
                 <h5 class="mb-3 ps-3 pt-2 text-light">Finanzas</h5>
 
                 <ul class="nav nav-pills flex-column">
+
                     <li class="nav-item">
-                        <a sty class="nav-link " asp-controller="Finanzas" asp-action="Index">Resumen</a>
+                        <a sty class="nav-link " asp-controller="Finanzas" asp-action="Inicio">Resumen</a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" asp-controller="Finanzas" asp-action="Movimientos">Movimientos</a>
+                        <a class="nav-link" asp-controller="Finanzas" asp-action="Transacciones">Transacciones</a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" asp-controller="Finanzas" asp-action="Reportes">Reportes</a>
+                        <a class="nav-link" asp-controller="Finanzas" asp-action="Nueva">Nueva Transaccion</a>
                     </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Finanzas" asp-action="Graficos">Graficos</a>
+                    </li>
+
                 </ul>
             </div>
 
