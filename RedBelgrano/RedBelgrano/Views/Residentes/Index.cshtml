@@ -1,6 +1,5 @@
 ﻿@model List<Residente>
 <!--RESIDENTEEEESSSSSS-->
-<a class="btn btn-dark" asp-controller="Residentes" asp-action="Nuevo" >Añadir Residente</a>
 
 <style>
     caption {
@@ -9,15 +8,19 @@
         font-weight: bold;
         font-size: 1.2em;
         padding: 0.5em;
-        color: black;
+        color: white;
         border-right: solid #dee2e6 1px;
         border-left: solid #dee2e6 1px;
         border-top: solid #dee2e6 1px;
+
+        background-color: black
     }
 </style>
 
+<a class="btn btn-primary" asp-controller="Residentes" asp-action="Nuevo">Añadir Residente</a>
+
 <div class="table-responsive">
-    <table class="table table-bordered table-striped"> 
+    <table class="table table-bordered table-light"> 
 
         <caption> RESIDENTES </caption>
         <thead>
