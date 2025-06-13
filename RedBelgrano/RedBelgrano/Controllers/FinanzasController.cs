@@ -125,12 +125,6 @@ namespace RedBelgrano.Controllers
         }
 
 
-
-        //INFORMACION PARA GRAFICOS
-
-
-
-
         //Obtener datos varios
         private async Task<SelectList> ObtenerTipos()
         {
@@ -153,6 +147,12 @@ namespace RedBelgrano.Controllers
 
         }
 
+        /// <summary>
+        /// ///////////////////////////////////////////////////////////////////////////////////////////////
+        /// </summary>
+        /// <returns></returns>
+       
+        //INFORMACION PARA GRAFICOs
         private async Task ObtenerTransaccionesPorTipo() //funciona bien
         {
             var transaccionesPorTipo = await db.Transacciones
@@ -171,7 +171,7 @@ namespace RedBelgrano.Controllers
             }
         }
 
-        private async Task ObtenerBalanceDeMeses() //tambien funciona bien
+        private async Task<IActionResult> ObtenerBalanceDeMeses() //tambien funciona bien
         {
             var netoPorMes = await db.Transacciones
                 .Select(t => new  //Convierte cada transacción en un objeto simplificado con: El año y mes de la transacción y el monto , negativo si es gasto
@@ -202,6 +202,8 @@ namespace RedBelgrano.Controllers
             {
                 Console.WriteLine(item);
             }
+
+            return StatusCode(StatusCodes.Status200OK, netoPorMes);
         }
 
         /// <summary>
