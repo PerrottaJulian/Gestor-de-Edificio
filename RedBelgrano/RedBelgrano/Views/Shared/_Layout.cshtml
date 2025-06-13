@@ -11,8 +11,13 @@
     <link rel="stylesheet" href="~/RedBelgrano.styles.css" asp-append-version="true" />
     <!--Enlace para Poppins-->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap" rel="stylesheet">
+    <!--Enlace para Open Sans-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap" rel="stylesheet">
 
 </head>
+
 <body>
     @{
         var currentController = ViewContext.RouteData.Values["controller"].ToString();
@@ -22,35 +27,41 @@
         
         @if(ViewBag.seeNavbar != false)
         {
-            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow ">
+                <span> <img src="~/images/Logo-Nav.png" alt="Logo" class="nav-logo p" /></span>
+
 
                 <div class="container-fluid">
 
-                    <a class="navbar-brand " asp-area="" asp-controller="Home" asp-action="Index">RedBelgrano</a>
+
+                    <a class="nav-titulo fs-4" asp-area="" asp-controller="Home" asp-action="Index">
+                        Red Belgrano
+                    </a>
+
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
-                    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                        <ul class="navbar-nav flex-grow-1  ">
+                    <div class="mi-navbar navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                        <ul class="navbar-nav flex-grow-1">
                             <!--Lista de navegacion-->
 
                             <li class="nav-item ">
                                 <!--Residentes-->
-                                <a class="nav-link @(currentController == "Residentes" ? "text-warning" : "text-dark")" asp-area="" asp-controller="Residentes" asp-action="Index">Residentes</a>
+                                <a class="nav-link @(currentController == "Residentes" ? "text-warning" : "text-light")" asp-area="" asp-controller="Residentes" asp-action="Index">Residentes</a>
                             </li>
 
                             <li class="nav-item"> <!--Finanzas-->
-                                <a class="nav-link @(currentController == "Finanzas" ? "text-warning" : "text-dark")" asp-area="" asp-controller="Finanzas" asp-action="Index">Finanzas</a>
+                                <a class="nav-link @(currentController == "Finanzas" ? "text-warning" : "text-light")" asp-area="" asp-controller="Finanzas" asp-action="Index">Finanzas</a>
                             </li>
 
                             <li class="nav-item"> <!--Ticket-->
-                                <a class="nav-link @(currentController == "Ticket" ? "text-warning" : "text-dark")" asp-area="" asp-controller="Ticket" asp-action="Index">Ticket</a>
+                                <a class="nav-link @(currentController == "Ticket" ? "text-warning" : "text-light")" asp-area="" asp-controller="Ticket" asp-action="Index">Ticket</a>
                             </li>
 
                             <li class="nav-item"> <!--Comunidad-->
-                                <a class="nav-link @(currentController == "Comunidad" ? "text-warning" : "text-dark")" asp-area="" asp-controller="Comunidad" asp-action="Index">Comunidad</a>
+                                <a class="nav-link @(currentController == "Comunidad" ? "text-warning" : "text-light")" asp-area="" asp-controller="Comunidad" asp-action="Index">Comunidad</a>
                             </li>
                         </ul>
 
@@ -79,7 +90,7 @@
 
     </header>
 
-    <div class="container">
+    <div class="m-4">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>

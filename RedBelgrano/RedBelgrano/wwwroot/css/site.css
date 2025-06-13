@@ -19,5 +19,30 @@ html {
 
 body {
     /*margin-bottom: 60px;*/
-    background: linear-gradient(, #B5DAFF);
+    background: #F0F2F4;
+}
+
+nav {
+    background: #0072BB;
+    max-height:10vh
+}
+
+.mi-navbar {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700;
+    color: white
+}
+
+.nav-titulo{
+    color:white;
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+    
+    text-decoration:none;
+    margin-right: 1vw
+}
+.nav-logo {
+    height:  8vh; /* esto iguala la altura al texto */
+    width: auto;
+    padding: 0
 }
