@@ -151,9 +151,9 @@ namespace RedBelgrano.Controllers
         /// ///////////////////////////////////////////////////////////////////////////////////////////////
         /// </summary>
         /// <returns></returns>
-       
+
         //INFORMACION PARA GRAFICOs
-        private async Task ObtenerTransaccionesPorTipo() //funciona bien
+        public async Task ObtenerTransaccionesPorTipo() //funciona bien
         {
             var transaccionesPorTipo = await db.Transacciones
                 .GroupBy(t => t.categoria.nombre)
@@ -171,7 +171,7 @@ namespace RedBelgrano.Controllers
             }
         }
 
-        private async Task<IActionResult> ObtenerBalanceDeMeses() //tambien funciona bien
+        public async Task<IActionResult> ObtenerBalanceDeMeses() //tambien funciona bien
         {
             var netoPorMes = await db.Transacciones
                 .Select(t => new  //Convierte cada transacción en un objeto simplificado con: El año y mes de la transacción y el monto , negativo si es gasto
@@ -211,7 +211,7 @@ namespace RedBelgrano.Controllers
         /// </summary>
 
         // Datos de Mes Actual
-        private async Task<RegistroMensualVM?> ObtenerBalanceMesActual() //otro que funciona bien
+        public async Task<RegistroMensualVM?> ObtenerBalanceMesActual() //otro que funciona bien
         {
             RegistroMensualVM? balance = await db.Transacciones
                 .Select(t => new  //Convierte cada transacción en un objeto simplificado con: El año y mes de la transacción y el monto , negativo si es gasto
@@ -233,7 +233,7 @@ namespace RedBelgrano.Controllers
             return balance;
         }
 
-        private async Task<RegistroMensualVM> ObtenerIngresosMesActual() //funca
+        public async Task<RegistroMensualVM> ObtenerIngresosMesActual() //funca
         {
             RegistroMensualVM? ingresos = await db.Transacciones
                 .Select(t => new 
@@ -255,7 +255,7 @@ namespace RedBelgrano.Controllers
             return ingresos;
         }
 
-        private async Task<RegistroMensualVM> ObtenerGastosMesActual() //funca
+        public async Task<RegistroMensualVM> ObtenerGastosMesActual() //funca
         {
             RegistroMensualVM? gastos = await db.Transacciones
                 .Select(t => new
@@ -277,7 +277,7 @@ namespace RedBelgrano.Controllers
             return gastos;
         }
 
-        private async Task<Transaccion> ObtenerUltima()
+        public async Task<Transaccion?> ObtenerUltima()
         {
             Transaccion? ultima = await db.Transacciones
                 .OrderByDescending(t => t.fecha)
