@@ -2,9 +2,13 @@
     GRAFICOSSS
 *@
 
+@{
+    Layout = "~/Views/Shared/_Finanzas.cshtml";
+}
+
 <div class="row mt-2">
 
-    <div class="col-sm-6">
+    <div class="col-12 mb-3">
 
         <div class="card" >
             <div class="card-header">Grafico 1</div>
@@ -16,9 +20,9 @@
     </div>
 
 
-    <div class="col-sm-6">
+    <div class="col-12">
 
-        <div class="card">
+        <div class="card mb-3">
             <div class="card-header">Grafico 2</div>
             <div class="card-body">
                 <canvas id="chartTransaccionesPorTipos" style="max-height = 250px" ></canvas>
@@ -40,11 +44,44 @@
                 .then( (response) => {
                     return response.ok? response.json() : Promise.reject(response)
                 })
-                .then( (dataJson) => {
-
+                .then( (dataJson) => 
+                {
                     console.log(dataJson)
 
-                } )
+                    const labels = dataJson.map(item => `${item.año}-${String(item.mes).padStart(2, '0')}`);
+                    const valores = dataJson.map(item => item.totalNeto);
+
+                    console.log(labels)
+                    console.log(valores)
+
+
+                    const data = {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Cantidad',
+                            data: valores,
+                            backgroundColor: 'rgb(0,0,0)',
+                            borderWidth: 1
+                        }]
+                    };
+
+                    const config = {
+                        type: 'bar',
+                        data: data,
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    }
+
+                    const canvasBalancePorMes = document.getElementById("chartBalancePorMes")
+                    const chartBalancePorMes = new Chart(canvasBalancePorMes, config)
+
+                } 
+                )
                 .catch(error => console.error("Error al cargar datos del gráfico:", error));
         }
 
