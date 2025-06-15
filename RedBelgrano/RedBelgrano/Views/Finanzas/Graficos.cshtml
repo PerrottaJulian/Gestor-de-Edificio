@@ -25,12 +25,22 @@
         <div class="card mb-3">
             <div class="card-header">Grafico 2</div>
             <div class="card-body">
-                <canvas id="chartTransaccionesPorTipos" style="max-height = 250px" ></canvas>
+                <canvas id="chartIngresosPorTipo" style="max-height = 250px"></canvas>
             </div>
         </div>
 
     </div>
+    
+    <div class="col-12">
 
+        <div class="card mb-3">
+            <div class="card-header">Grafico 3</div>
+            <div class="card-body">
+                <canvas id="chartGastosPorTipo" style="max-height = 250px"></canvas>
+            </div>
+        </div>
+
+    </div>
 
 </div>
 
@@ -46,14 +56,9 @@
                 })
                 .then( (dataJson) => 
                 {
-                    console.log(dataJson)
 
                     const labels = dataJson.map(item => `${item.año}-${String(item.mes).padStart(2, '0')}`);
                     const valores = dataJson.map(item => item.totalNeto);
-
-                    console.log(labels)
-                    console.log(valores)
-
 
                     const data = {
                         labels: labels,
@@ -85,9 +90,107 @@
                 .catch(error => console.error("Error al cargar datos del gráfico:", error));
         }
 
+        ///////////////
+
+        function ObtenerIngresosPorTipo() {
+
+            fetch("ObtenerIngresosPorTipo")
+                .then((response) => {
+                    return response.ok ? response.json() : Promise.reject(response)
+                })
+                .then((dataJson) => {
+
+                    console.log(dataJson)
+
+                    const labels = dataJson.map(item => item.tipo);
+                    const valores = dataJson.map(item => item.total);
+
+                    const data = {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Cantidades',
+                            data: valores,
+                            backgroundColor: [
+                                'rgb(255, 99, 132)',    // rojo
+                                'rgb(54, 162, 235)',    // azul
+                                'rgb(255, 205, 86)',    // amarillo
+                                'rgb(75, 192, 192)',    // verde agua
+                                'rgb(153, 102, 255)',   // violeta
+                                'rgb(255, 159, 64)',    // naranja
+                                'rgb(201, 203, 207)',   // gris claro
+                                'rgb(0, 200, 83)',      // verde
+                                'rgb(255, 112, 67)'     // coral
+                            ],
+                            hoverOffset: 4
+                        }]
+                    };
+
+                    const config = {
+                        type: 'doughnut',
+                        data: data,
+                    };
+
+                    const canvasIngresosPorTipo = document.getElementById("chartIngresosPorTipo")
+                    const chartIngresosPorTipo = new Chart(canvasIngresosPorTipo, config)
+
+                }
+                )
+                .catch(error => console.error("Error al cargar datos del gráfico:", error));
+        }
+
+        //////////////
+
+        function ObtenerGastosPorTipo() {
+
+            fetch("ObtenerGastosPorTipo")
+                .then((response) => {
+                    return response.ok ? response.json() : Promise.reject(response)
+                })
+                .then((dataJson) => {
+
+                    console.log(dataJson)
+
+                    const labels = dataJson.map(item => item.tipo);
+                    const valores = dataJson.map(item => item.total);
+
+                    const data = {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Cantidades',
+                            data: valores,
+                            backgroundColor: [
+                                'rgb(255, 99, 132)',    // rojo
+                                'rgb(54, 162, 235)',    // azul
+                                'rgb(255, 205, 86)',    // amarillo
+                                'rgb(75, 192, 192)',    // verde agua
+                                'rgb(153, 102, 255)',   // violeta
+                                'rgb(255, 159, 64)',    // naranja
+                                'rgb(201, 203, 207)',   // gris claro
+                                'rgb(0, 200, 83)',      // verde
+                                'rgb(255, 112, 67)'     // coral
+                            ],
+                            hoverOffset: 4
+                        }]
+                    };
+
+                    const config = {
+                        type: 'doughnut',
+                        data: data,
+                    };
+
+                    const canvasGastosPorTipo = document.getElementById("chartGastosPorTipo")
+                    const chartGastosPorTipo = new Chart(canvasGastosPorTipo, config)
+
+                }
+                )
+                .catch(error => console.error("Error al cargar datos del gráfico:", error));
+        }
+
 
         $(document).ready(() => {
             ObtenerBalanceDeMeses()
+            ObtenerIngresosPorTipo()
+            ObtenerGastosPorTipo()
         })
 
     </script>

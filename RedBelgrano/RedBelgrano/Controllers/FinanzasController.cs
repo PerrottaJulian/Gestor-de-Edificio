@@ -153,9 +153,10 @@ namespace RedBelgrano.Controllers
         /// <returns></returns>
 
         //INFORMACION PARA GRAFICOs
-        public async Task ObtenerTransaccionesPorTipo() //funciona bien
+        public async Task<IActionResult> ObtenerIngresosPorTipo() //funciona bien
         {
             var transaccionesPorTipo = await db.Transacciones
+                .Where(t => t.fecha.Year == DateTime.Now.Year && t.tipoTransaccion.nombre.Equals("ingreso") )
                 .GroupBy(t => t.categoria.nombre)
                 .Select(g => new
                 {
@@ -169,11 +170,34 @@ namespace RedBelgrano.Controllers
             {
                 Console.WriteLine(item);
             }
+
+            return Ok(transaccionesPorTipo);
+        }
+        public async Task<IActionResult> ObtenerGastosPorTipo() //funciona bien
+        {
+            var transaccionesPorTipo = await db.Transacciones
+                .Where(t => t.fecha.Year == DateTime.Now.Year && t.tipoTransaccion.nombre.Equals("gasto"))
+                .GroupBy(t => t.categoria.nombre)
+                .Select(g => new
+                {
+                    Tipo = g.Key,
+                    Total = g.Sum(t => t.monto)
+                })
+                .OrderByDescending(x => x.Total)
+                .ToListAsync();
+
+            foreach (var item in transaccionesPorTipo)
+            {
+                Console.WriteLine(item);
+            }
+
+            return Ok(transaccionesPorTipo);
         }
 
         public async Task<IActionResult> ObtenerBalanceDeMeses() //tambien funciona bien
         {
             var netoPorMes = await db.Transacciones
+                .Where(t => t.fecha.Year == DateTime.Now.Year)
                 .Select(t => new  //Convierte cada transacción en un objeto simplificado con: El año y mes de la transacción y el monto , negativo si es gasto
                 {
                     Año = t.fecha.Year,
@@ -198,12 +222,7 @@ namespace RedBelgrano.Controllers
                 .OrderBy(x => x.Año).ThenBy(x => x.Mes)
                 .ToListAsync();
 
-            foreach (var item in netoPorMes)
-            {
-                Console.WriteLine(item);
-            }
-
-            return StatusCode(StatusCodes.Status200OK, netoPorMes);
+            return Ok(netoPorMes);
         }
 
         /// <summary>
