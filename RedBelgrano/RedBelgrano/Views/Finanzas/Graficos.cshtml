@@ -8,35 +8,46 @@
 
 <div class="row mt-2">
 
-    <div class="col-12 mb-3">
+    <div class="col-6 mb-3">
+
+        <div class="card">
+            <div class="card-header"> Crecimiento de la reserva </div>
+            <div class="card-body">
+                <canvas id="chartCrecimientoReserva" style="max-height: 250px"></canvas>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-6 mb-3">
 
         <div class="card" >
-            <div class="card-header">Grafico 1</div>
+            <div class="card-header"> Balance Mensual Durante el año @DateTime.Now.Year </div>
             <div class="card-body">
-                <canvas id="chartBalancePorMes" style="max-height = 250px" ></canvas>
+                <canvas id="chartBalancePorMes" style="max-height: 250px" ></canvas>
             </div>
         </div>
 
     </div>
 
 
-    <div class="col-12">
+    <div class="col-6">
 
         <div class="card mb-3">
-            <div class="card-header">Grafico 2</div>
+            <div class="card-header"> Comparativa de Ingresos  </div>
             <div class="card-body">
-                <canvas id="chartIngresosPorTipo" style="max-height = 250px"></canvas>
+                <canvas id="chartIngresosPorTipo" style="max-height: 250px"></canvas>
             </div>
         </div>
 
     </div>
     
-    <div class="col-12">
+    <div class="col-6">
 
         <div class="card mb-3">
-            <div class="card-header">Grafico 3</div>
+            <div class="card-header">Comparativa de Gastos</div>
             <div class="card-body">
-                <canvas id="chartGastosPorTipo" style="max-height = 250px"></canvas>
+                <canvas id="chartGastosPorTipo" style="max-height: 250px"></canvas>
             </div>
         </div>
 
@@ -126,8 +137,9 @@
                     };
 
                     const config = {
-                        type: 'doughnut',
+                        type: 'polarArea',
                         data: data,
+                        options: {}
                     };
 
                     const canvasIngresosPorTipo = document.getElementById("chartIngresosPorTipo")
@@ -186,11 +198,51 @@
                 .catch(error => console.error("Error al cargar datos del gráfico:", error));
         }
 
+        ////////////////
+
+        function ObtenerCrecimientoDeReserva()
+        {
+            fetch("ObtenerCrecimientoDeReserva")
+                .then((response) => {
+                    return response.ok ? response.json() : Promise.reject(response)
+                })
+                .then((dataJson) => {
+
+                    console.log(dataJson)
+
+                    const labels = dataJson.map(item => `${item.año}-${String(item.mes).padStart(2, '0')}`);
+                    const valores = dataJson.map(item => item.saldo);
+
+                    const data = {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Saldo',
+                            data: valores,
+                            fill: false,
+                            borderColor: 'rgb(75, 192, 192)',
+                            tension: 0.1
+                        }]
+                    };
+
+                    const config = {
+                        type: 'line',
+                        data: data,
+                    };
+
+                    const canvasCrecimientoReserva = document.getElementById("chartCrecimientoReserva")
+                    const chartCrecimientoReserva = new Chart(canvasCrecimientoReserva, config)
+
+                }
+                )
+                .catch(error => console.error("Error al cargar datos del gráfico:", error));
+        }
+
 
         $(document).ready(() => {
             ObtenerBalanceDeMeses()
             ObtenerIngresosPorTipo()
             ObtenerGastosPorTipo()
+            ObtenerCrecimientoDeReserva()
         })
 
     </script>

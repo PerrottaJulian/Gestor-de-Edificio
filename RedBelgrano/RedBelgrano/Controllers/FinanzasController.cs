@@ -23,6 +23,9 @@ namespace RedBelgrano.Controllers
         //VISTA DE INICIO
         public async Task<IActionResult> Inicio()
         {
+            Console.Clear();
+            await ObtenerCrecimientoDeReserva();
+
             InicioTransaccionesVM vm = new InicioTransaccionesVM()
             {
                 Reserva =  ObtenerReservasTotales(),
@@ -223,6 +226,45 @@ namespace RedBelgrano.Controllers
                 .ToListAsync();
 
             return Ok(netoPorMes);
+        }
+
+        public async Task<IActionResult> ObtenerCrecimientoDeReserva()
+        {
+            //mismo procedimiento que en la funcion ObtenerBalanceDeMeses()
+            var netoPorMes = await db.Transacciones
+                //.Where(t => t.fecha.Year == DateTime.Now.Year)
+                .Select(t => new 
+                {
+                    Año = t.fecha.Year,
+                    Mes = t.fecha.Month,
+                    Monto = t.tipoTransaccion.nombre == "Gasto" ? -t.monto : t.monto
+                })
+                .GroupBy(t => new { t.Año, t.Mes })
+                .Select(g => new
+                {
+                    Año = g.Key.Año,
+                    Mes = g.Key.Mes,
+                    TotalNeto = g.Sum(t => t.Monto) 
+                })
+                .OrderBy(x => x.Año).ThenBy(x => x.Mes)
+                .ToListAsync();
+
+           
+
+            decimal acumulado = 0;
+            var saldoAcumulado = netoPorMes.Select(item =>
+            {
+                acumulado += item.TotalNeto;
+                return new
+                {
+                    Año = item.Año,
+                    Mes = item.Mes,
+                    Saldo = acumulado
+                };
+            }).ToList();
+
+            
+            return Ok(saldoAcumulado);
         }
 
         /// <summary>
