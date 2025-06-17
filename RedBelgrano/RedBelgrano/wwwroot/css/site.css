@@ -52,6 +52,11 @@ nav {
     padding: 0
 }
 
+.navlink-active {
+    color: rgba(255, 193, 7, 1);
+    text-decoration:underline;
+}
+
 li{
     a:hover{
          color: yellow !important
