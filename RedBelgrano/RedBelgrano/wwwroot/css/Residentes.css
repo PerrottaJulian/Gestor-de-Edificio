@@ -1,0 +1,86 @@
+﻿
+.titulo-pagina {
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 700;
+}
+
+.encabezado-container{
+    
+}
+
+.bt-añadir {
+    text-decoration: none;
+    background-color: rgb(117,170,219);
+    padding: 14px 22px 14px 22px;
+    border-radius: 8px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.5);
+    transition: box-shadow 0.3s ease, color 0.3s ease;
+}
+
+.bt-añadir:hover {
+    box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.6); /* más grande y difusa */
+    color: rgba(255, 193, 7, 1);
+}
+
+/*TABLA*/
+.head-tabla {
+    background-color: rgba(168,198,221,1);
+    color: black;
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 700;
+}
+
+
+.contenedor-tabla {
+    margin-top: 3vh;
+}
+
+table {
+    padding: 0px;
+    border-collapse: collapse;
+    overflow: hidden; /* a veces necesario */
+    border-radius: 14px !important;
+}
+
+table tbody {
+    background-color: white;
+}
+
+table thead th {
+    border-bottom: none !important;
+}
+
+table th {
+    padding: 2vh !important;
+}
+
+table td {
+    padding: 2.2vh 1.8vh 2.2vh 1.8vh !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 400;
+}
+
+table tbody tr:hover {
+    color: rgba(255, 193, 7, 1) !important
+}
+
+table td:first-child {
+    border-left: solid 0.5px rgba(0,0,0,0.1);
+}
+
+table td:last-child {
+    border-right: solid 0.5px rgba(0,0,0,0.1);
+}
+
+table th:first-child {
+    border-left: solid 0.5px rgba(0,0,0,0.1);
+}
+
+table th:last-child {
+    border-right: solid 0.5px rgba(0,0,0,0.1);
+}
+
+

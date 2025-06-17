@@ -17,59 +17,59 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = RedBelgrano
 build_property.RootNamespace = RedBelgrano
-build_property.ProjectDir = C:\Users\Admin\dev-home\SmartBuild-Space\RedBelgrano\RedBelgrano\
+build_property.ProjectDir = C:\Users\jperrotta\dev\Gestor-de-Edificio\RedBelgrano\RedBelgrano\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Admin\dev-home\SmartBuild-Space\RedBelgrano\RedBelgrano
+build_property.MSBuildProjectDirectory = C:\Users\jperrotta\dev\Gestor-de-Edificio\RedBelgrano\RedBelgrano
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Admin/dev-home/SmartBuild-Space/RedBelgrano/RedBelgrano/Views/Finanzas/Index.cshtml]
+[C:/Users/jperrotta/dev/Gestor-de-Edificio/RedBelgrano/RedBelgrano/Views/Finanzas/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmluYW56YXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/dev-home/SmartBuild-Space/RedBelgrano/RedBelgrano/Views/Home/Index.cshtml]
+[C:/Users/jperrotta/dev/Gestor-de-Edificio/RedBelgrano/RedBelgrano/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/dev-home/SmartBuild-Space/RedBelgrano/RedBelgrano/Views/Login/IniciarSesion.cshtml]
+[C:/Users/jperrotta/dev/Gestor-de-Edificio/RedBelgrano/RedBelgrano/Views/Login/IniciarSesion.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5pY2lhclNlc2lvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/dev-home/SmartBuild-Space/RedBelgrano/RedBelgrano/Views/Residentes/Detalle.cshtml]
+[C:/Users/jperrotta/dev/Gestor-de-Edificio/RedBelgrano/RedBelgrano/Views/Residentes/Detalle.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzaWRlbnRlc1xEZXRhbGxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/dev-home/SmartBuild-Space/RedBelgrano/RedBelgrano/Views/Residentes/Index.cshtml]
+[C:/Users/jperrotta/dev/Gestor-de-Edificio/RedBelgrano/RedBelgrano/Views/Residentes/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzaWRlbnRlc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/dev-home/SmartBuild-Space/RedBelgrano/RedBelgrano/Views/Residentes/Modificar.cshtml]
+[C:/Users/jperrotta/dev/Gestor-de-Edificio/RedBelgrano/RedBelgrano/Views/Residentes/Modificar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzaWRlbnRlc1xNb2RpZmljYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/dev-home/SmartBuild-Space/RedBelgrano/RedBelgrano/Views/Residentes/Nuevo.cshtml]
+[C:/Users/jperrotta/dev/Gestor-de-Edificio/RedBelgrano/RedBelgrano/Views/Residentes/Nuevo.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzaWRlbnRlc1xOdWV2by5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/dev-home/SmartBuild-Space/RedBelgrano/RedBelgrano/Views/Shared/Error.cshtml]
+[C:/Users/jperrotta/dev/Gestor-de-Edificio/RedBelgrano/RedBelgrano/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/dev-home/SmartBuild-Space/RedBelgrano/RedBelgrano/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/jperrotta/dev/Gestor-de-Edificio/RedBelgrano/RedBelgrano/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/dev-home/SmartBuild-Space/RedBelgrano/RedBelgrano/Views/_ViewImports.cshtml]
+[C:/Users/jperrotta/dev/Gestor-de-Edificio/RedBelgrano/RedBelgrano/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/dev-home/SmartBuild-Space/RedBelgrano/RedBelgrano/Views/_ViewStart.cshtml]
+[C:/Users/jperrotta/dev/Gestor-de-Edificio/RedBelgrano/RedBelgrano/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/dev-home/SmartBuild-Space/RedBelgrano/RedBelgrano/Views/Shared/_Layout.cshtml]
+[C:/Users/jperrotta/dev/Gestor-de-Edificio/RedBelgrano/RedBelgrano/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-9de1sitamj

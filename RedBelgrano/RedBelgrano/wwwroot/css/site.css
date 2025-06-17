@@ -41,8 +41,19 @@ nav {
     text-decoration:none;
     margin-right: 1vw
 }
+
+.nav-titulo:hover{
+    color: yellow
+}
+
 .nav-logo {
     height:  8vh; /* esto iguala la altura al texto */
     width: auto;
     padding: 0
+}
+
+li{
+    a:hover{
+         color: yellow !important
+     }
 }
