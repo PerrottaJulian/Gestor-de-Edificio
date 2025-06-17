@@ -11,8 +11,21 @@
     <link rel="stylesheet" href="~/RedBelgrano.styles.css" asp-append-version="true" />
     <!--Enlace para Poppins-->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap" rel="stylesheet">
-
+    <!--Enlace para Open Sans-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap" rel="stylesheet">
+    <!--Enlace para Montserrat-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:wght@500;700;800&family=Work+Sans:wght@700&display=swap" rel="stylesheet">
+    <!--Enlace para Roboto-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:wght@500;700;800&family=Roboto:ital,wght@0,100..900;1,100..900&family=Work+Sans:wght@100..900&display=swap" rel="stylesheet">
+        
 </head>
+
 <body>
     @{
         var currentController = ViewContext.RouteData.Values["controller"].ToString();
@@ -22,35 +35,41 @@
         
         @if(ViewBag.seeNavbar != false)
         {
-            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow ">
+                <span> <img src="~/images/Logo-Nav.png" alt="Logo" class="nav-logo p" /></span>
+
 
                 <div class="container-fluid">
 
-                    <a class="navbar-brand " asp-area="" asp-controller="Home" asp-action="Index">RedBelgrano</a>
+
+                    <a class="nav-titulo fs-4" asp-area="" asp-controller="Home" asp-action="Index">
+                        Red Belgrano
+                    </a>
+
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
-                    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                        <ul class="navbar-nav flex-grow-1  ">
+                    <div class="mi-navbar navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                        <ul class="navbar-nav flex-grow-1">
                             <!--Lista de navegacion-->
 
                             <li class="nav-item ">
                                 <!--Residentes-->
-                                <a class="nav-link @(currentController == "Residentes" ? "text-warning" : "text-dark")" asp-area="" asp-controller="Residentes" asp-action="Index">Residentes</a>
+                                <a class="nav-link @(currentController == "Residentes" ? "navlink-active" : "text-light")" asp-area="" asp-controller="Residentes" asp-action="Index">Residentes</a>
                             </li>
 
                             <li class="nav-item"> <!--Finanzas-->
-                                <a class="nav-link @(currentController == "Finanzas" ? "text-warning" : "text-dark")" asp-area="" asp-controller="Finanzas" asp-action="Inicio">Finanzas</a>
+                                <a class="nav-link @(currentController == "Finanzas" ? "navlink-active" : "text-light")" asp-area="" asp-controller="Finanzas" asp-action="Index">Finanzas</a>
                             </li>
 
                             <li class="nav-item"> <!--Ticket-->
-                                <a class="nav-link @(currentController == "Ticket" ? "text-warning" : "text-dark")" asp-area="" asp-controller="Ticket" asp-action="Index">Ticket</a>
+                                <a class="nav-link @(currentController == "Ticket" ? "navlink-active" : "text-light")" asp-area="" asp-controller="Ticket" asp-action="Index">Ticket</a>
                             </li>
 
                             <li class="nav-item"> <!--Comunidad-->
-                                <a class="nav-link @(currentController == "Comunidad" ? "text-warning" : "text-dark")" asp-area="" asp-controller="Comunidad" asp-action="Index">Comunidad</a>
+                                <a class="nav-link @(currentController == "Comunidad" ? "navlink-active" : "text-light")" asp-area="" asp-controller="Comunidad" asp-action="Index">Comunidad</a>
                             </li>
                         </ul>
 
@@ -79,7 +98,7 @@
 
     </header>
 
-    <div class="container">
+    <div class="m-4">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
@@ -93,8 +112,6 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

@@ -1,28 +1,36 @@
 ﻿@model List<Residente>
 <!--RESIDENTEEEESSSSSS-->
-<a class="btn btn-dark" asp-controller="Residentes" asp-action="Nuevo" >Añadir Residente</a>
 
-<style>
-    caption {
-        caption-side: top;
-        text-align: center;
-        font-weight: bold;
-        font-size: 1.2em;
-        padding: 0.5em;
-        color: black;
-        border-right: solid #dee2e6 1px;
-        border-left: solid #dee2e6 1px;
-        border-top: solid #dee2e6 1px;
-    }
-</style>
+<head>
+    <link rel="stylesheet" href="~/css/Residentes.css" asp-append-version="true" />
 
-<div class="table-responsive">
-    <table class="table table-bordered table-striped"> 
+</head>
 
-        <caption> RESIDENTES </caption>
-        <thead>
 
-            <tr>
+<!--ROW de encabezado-->
+<div class="row encabezado-container">
+
+    <div class="col-6 align-content-center">
+        <h2 class="titulo-pagina">Listado de residentes</h2>
+    </div>
+    
+    <div class="col-6 align-content-center text-end pe-4 ">
+        <a class="bt-añadir" asp-controller="Residentes" asp-action="Nuevo"> + Añadir Residente</a>
+
+    </div>
+
+</div>
+
+<!--ROW de tabla-->
+<div class="row contenedor-tabla">
+
+    <div class="table-responsive">
+    
+    <table class="table"> 
+
+        <thead class="head-tabla">
+
+            <tr class="">
                 <th>Nombre</th>
                 <th>DNI</th>
                 <th>Email</th>
@@ -67,4 +75,6 @@
         </tbody>
     
     </table>
+    </div>
+
 </div>

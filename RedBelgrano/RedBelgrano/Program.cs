@@ -18,7 +18,8 @@ else
 }
 
 builder.Services.AddDbContext<AppDBContext>(options =>
-    options.UseSqlServer(connection));
+    options.UseSqlServer(connection)
+    ) ;
 
 builder.Services.AddControllersWithViews();
 

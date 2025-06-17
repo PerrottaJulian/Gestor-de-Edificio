@@ -1,0 +1,194 @@
+﻿
+/*ENCABEZADO INDEX*/
+.titulo-pagina {
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 700;
+}
+
+.encabezado-container{
+    
+}
+
+.bt-añadir {
+    text-decoration: none;
+    background-color: rgb(117,170,219);
+    padding: 14px 22px 14px 22px;
+    border-radius: 8px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.5);
+    transition: box-shadow 0.3s ease, color 0.3s ease;
+}
+
+.bt-añadir:hover {
+    box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.6); /* más grande y difusa */
+    color: rgba(255, 193, 7, 1);
+}
+
+/*TABLA*/
+.head-tabla {
+    background-color: rgba(168,198,221,1);
+    color: black;
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 700;
+}
+
+
+.contenedor-tabla {
+    margin-top: 3vh;
+}
+
+table {
+    padding: 0px;
+    border-collapse: collapse;
+    overflow: hidden; /* a veces necesario */
+    border-radius: 14px !important;
+}
+
+table tbody {
+    background-color: white;
+}
+
+table thead th {
+    border-bottom: none !important;
+}
+
+table th {
+    padding: 2vh !important;
+}
+
+table td {
+    padding: 2.2vh 1.8vh 2.2vh 1.8vh !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 400;
+}
+
+table tbody tr:hover {
+    color: rgba(255, 193, 7, 1) !important
+}
+
+table td:first-child {
+    border-left: solid 0.5px rgba(0,0,0,0.1);
+}
+
+table td:last-child {
+    border-right: solid 0.5px rgba(0,0,0,0.1);
+}
+
+table th:first-child {
+    border-left: solid 0.5px rgba(0,0,0,0.1);
+}
+
+table th:last-child {
+    border-right: solid 0.5px rgba(0,0,0,0.1);
+}
+
+/*FORM AÑADIR*/
+
+
+.form-añadir /* contenedor general */ {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.form-header /* encabezado */ {
+    background-color: #75AADB;
+    border-radius: 10px 10px 0 0;
+    padding: 12px 22px 8px 22px;
+}
+
+.titulo-form /*estilizado de la fuente del titulo*/{
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 800;
+    color: white;
+}
+
+
+.form-body /* cuerpo */ {
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+}
+
+
+.form-line /* filas del cuerpo */ {
+    display: flex;
+    gap: 2vw;
+    flex-wrap: wrap;
+}
+
+
+.line-3 .input-group /* dependiendo de la cantidad de inputs que tienen */ {
+    flex: 1 1 30%;
+}
+
+.line-2 .input-group {
+flex: 1 1 45%;
+}
+
+
+.input-group /* Contenedor de cada input: incluye input, label y validacion */ {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+}
+
+
+.input-group label /* labels */ {
+    margin-bottom: 6px;
+    font-weight: 600;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    font-size: 0.9rem;
+}
+
+
+.input-group input, /* inputs */
+.input-group select {
+    padding: 10px;
+    border-radius: 8px !important;
+    border: 1px solid #ccc;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+
+}
+
+
+.input-group span.text-danger /* validaciones */ {
+    margin-top: 4px;
+    font-size: 0.8rem;
+    color: #dc3545;
+}
+
+
+.form-select /* selects */ {
+    appearance: none;
+    background-color: white;
+    border: 1px solid #ccc;
+}
+
+.submit-button {
+    background-color: #75AADB !important;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 1.1rem;
+}
+
+.submit-button:hover {
+    background-color: #0072BB !important;
+    border: none
+}
+
+@media (max-width: 768px) /* estilo responsive */ {
+    .line-3 .input-group,
+    .line-2 .input-group {
+        flex: 1 1 100%;
+    }
+}
+    
