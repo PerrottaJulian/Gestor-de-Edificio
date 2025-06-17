@@ -1,18 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\jperrotta\\dev\\Gestor-de-Edificio\\RedBelgrano\\",
+  "WorkspaceRootPath": "C:\\Users\\Admin\\dev-home\\SmartBuild-Space\\RedBelgrano\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|c:\\users\\jperrotta\\dev\\gestor-de-edificio\\redbelgrano\\redbelgrano\\controllers\\errorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|solutionrelative:redbelgrano\\controllers\\errorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|c:\\users\\jperrotta\\dev\\gestor-de-edificio\\redbelgrano\\redbelgrano\\views\\finanzas\\graficos.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|solutionrelative:redbelgrano\\views\\finanzas\\graficos.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|c:\\users\\jperrotta\\dev\\gestor-de-edificio\\redbelgrano\\redbelgrano\\controllers\\finanzascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|c:\\users\\admin\\dev-home\\smartbuild-space\\redbelgrano\\redbelgrano\\controllers\\finanzascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|solutionrelative:redbelgrano\\controllers\\finanzascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|c:\\users\\admin\\dev-home\\smartbuild-space\\redbelgrano\\redbelgrano\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|solutionrelative:redbelgrano\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|c:\\users\\admin\\dev-home\\smartbuild-space\\redbelgrano\\redbelgrano\\controllers\\errorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|solutionrelative:redbelgrano\\controllers\\errorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,33 +22,20 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "FinanzasController.cs",
-              "DocumentMoniker": "C:\\Users\\jperrotta\\dev\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Controllers\\FinanzasController.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\dev-home\\SmartBuild-Space\\RedBelgrano\\RedBelgrano\\Controllers\\FinanzasController.cs",
               "RelativeDocumentMoniker": "RedBelgrano\\Controllers\\FinanzasController.cs",
-              "ToolTip": "C:\\Users\\jperrotta\\dev\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Controllers\\FinanzasController.cs",
+              "ToolTip": "C:\\Users\\Admin\\dev-home\\SmartBuild-Space\\RedBelgrano\\RedBelgrano\\Controllers\\FinanzasController.cs",
               "RelativeToolTip": "RedBelgrano\\Controllers\\FinanzasController.cs",
-              "ViewState": "AQIAALwAAAAAAAAAAADwv+oAAAASAAAA",
+              "ViewState": "AQIAAFgAAAAAAAAAAAAcwGsAAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-11T12:59:50.162Z",
               "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ErrorController.cs",
-              "DocumentMoniker": "C:\\Users\\jperrotta\\dev\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Controllers\\ErrorController.cs",
-              "RelativeDocumentMoniker": "RedBelgrano\\Controllers\\ErrorController.cs",
-              "ToolTip": "C:\\Users\\jperrotta\\dev\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Controllers\\ErrorController.cs",
-              "RelativeToolTip": "RedBelgrano\\Controllers\\ErrorController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-17T16:57:20.478Z",
               "EditorCaption": ""
             },
             {
@@ -70,14 +57,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Graficos.cshtml",
-              "DocumentMoniker": "C:\\Users\\jperrotta\\dev\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Views\\Finanzas\\Graficos.cshtml",
-              "RelativeDocumentMoniker": "RedBelgrano\\Views\\Finanzas\\Graficos.cshtml",
-              "ToolTip": "C:\\Users\\jperrotta\\dev\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Views\\Finanzas\\Graficos.cshtml",
-              "RelativeToolTip": "RedBelgrano\\Views\\Finanzas\\Graficos.cshtml",
-              "ViewState": "AQIAAHcAAAAAAAAAAAAAAIsAAAAoAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-13T14:53:54.206Z",
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\dev-home\\SmartBuild-Space\\RedBelgrano\\RedBelgrano\\Program.cs",
+              "RelativeDocumentMoniker": "RedBelgrano\\Program.cs",
+              "ToolTip": "C:\\Users\\Admin\\dev-home\\SmartBuild-Space\\RedBelgrano\\RedBelgrano\\Program.cs",
+              "RelativeToolTip": "RedBelgrano\\Program.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAB4AAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T21:08:14.63Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ErrorController.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\dev-home\\SmartBuild-Space\\RedBelgrano\\RedBelgrano\\Controllers\\ErrorController.cs",
+              "RelativeDocumentMoniker": "RedBelgrano\\Controllers\\ErrorController.cs",
+              "ToolTip": "C:\\Users\\Admin\\dev-home\\SmartBuild-Space\\RedBelgrano\\RedBelgrano\\Controllers\\ErrorController.cs",
+              "RelativeToolTip": "RedBelgrano\\Controllers\\ErrorController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T16:57:20.478Z",
               "EditorCaption": ""
             }
           ]
@@ -88,11 +88,11 @@
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             }
           ]
         },

@@ -28,6 +28,7 @@ builder.Services
     .AddCookie(options =>
     {
         options.LoginPath = "/Login/IniciarSesion";
+        options.AccessDeniedPath = "/Error/AccesoDenegado";
         options.ExpireTimeSpan = TimeSpan.FromMinutes(10);
     } );
 

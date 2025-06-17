@@ -105,6 +105,7 @@ namespace RedBelgrano.Controllers
         }
 
         //VISTA DETALLE DE TRANSACCION
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Detalle(int id)
         {
             Transaccion? transaccion = await db.Transacciones
