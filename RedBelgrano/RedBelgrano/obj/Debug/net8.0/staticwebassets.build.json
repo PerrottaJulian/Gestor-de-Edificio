@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "8p4RWeNgjp29oINOox2lrM3X9bhShJwe/fq6ZylL/1M=",
+  "Hash": "ptPDnU49N2r8xpFrlpeCZcZHsuo+zT0FKY59Vtz6q5E=",
   "Source": "RedBelgrano",
   "BasePath": "_content/RedBelgrano",
   "Mode": "Default",
@@ -93,6 +93,25 @@
       "OriginalItemSpec": "wwwroot\\css\\Login.css"
     },
     {
+      "Identity": "C:\\Users\\Admin\\dev-home\\SmartBuild-Space\\RedBelgrano\\RedBelgrano\\wwwroot\\css\\Residentes.css",
+      "SourceId": "RedBelgrano",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\dev-home\\SmartBuild-Space\\RedBelgrano\\RedBelgrano\\wwwroot\\",
+      "BasePath": "_content/RedBelgrano",
+      "RelativePath": "css/Residentes.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Residentes.css"
+    },
+    {
       "Identity": "C:\\Users\\Admin\\dev-home\\SmartBuild-Space\\RedBelgrano\\RedBelgrano\\wwwroot\\css\\site.css",
       "SourceId": "RedBelgrano",
       "SourceType": "Discovered",
@@ -167,6 +186,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\logo2.png"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\dev-home\\SmartBuild-Space\\RedBelgrano\\RedBelgrano\\wwwroot\\images\\Logo-Nav.png",
+      "SourceId": "RedBelgrano",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\dev-home\\SmartBuild-Space\\RedBelgrano\\RedBelgrano\\wwwroot\\",
+      "BasePath": "_content/RedBelgrano",
+      "RelativePath": "images/Logo-Nav.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Logo-Nav.png"
     },
     {
       "Identity": "C:\\Users\\Admin\\dev-home\\SmartBuild-Space\\RedBelgrano\\RedBelgrano\\wwwroot\\images\\Main_Logo.png",
