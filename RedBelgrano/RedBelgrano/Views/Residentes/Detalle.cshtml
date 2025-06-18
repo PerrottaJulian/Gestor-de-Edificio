@@ -60,9 +60,3 @@
 </div>
 <!--AGREGAR CONFIRMACION PARA DAR DE BAJA-->
 
-<form asp-controller="Residentes" asp-action="DarDeBaja" method="post">
-    <input type="hidden" name="id" value="@Model.residenteId" />
-    <button onclick="return confirm('Seguro que quiere eliminar a @Model.nombre @Model.apellido?')" type="submit" class="btn btn-danger">Eliminar</button>
-
-    <a href="@Url.Action("Modificar", "Residentes", new { id = Model.residenteId })" class="btn btn-secondary">Modificar</a>
-</form>
