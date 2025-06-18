@@ -8,7 +8,7 @@ using RedBelgrano.Models;
 
 namespace RedBelgrano.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class ResidentesController : Controller
     {
         public AppDBContext db;
@@ -62,11 +62,6 @@ namespace RedBelgrano.Controllers
             if (dniExiste) 
             {
                 ModelState.AddModelError("dni", "Ya existe usuario con este DNI");
-
-                //ViewBag.Tipos = await ObtenerTipos();
-                //ViewBag.Estados = await ObtenerEstados();
-
-                //return View(nuevo_residente);
 
             }
 

@@ -85,8 +85,6 @@ table th:last-child {
 }
 
 /*FORM AÑADIR*/
-
-
 .form-añadir /* contenedor general */ {
     background-color: white;
     border-radius: 10px;
@@ -191,4 +189,110 @@ flex: 1 1 45%;
         flex: 1 1 100%;
     }
 }
-    
+
+/*VISTA DE DETALLE*/
+
+.detalle-container /* CONTENEDOR GENERAL */ {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 700px;
+    margin: 40px auto;
+    overflow: hidden;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+.detalle-header {
+    background-color: #75AADB;
+    padding: 16px 24px;
+    border-radius: 10px 10px 0 0;
+}
+
+.titulo-detalle {
+    margin: 0;
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+
+.detalle-body {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+
+.detalle-linea /* Cada fila */ {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 8px;
+}
+
+
+.detalle-label {
+    font-weight: 600;
+    color: #333;
+}
+
+.detalle-dato {
+    color: #555;
+}
+
+
+.detalle-botones /*BOTONES*/ {
+    margin-top: 32px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+}
+
+.detalle-boton {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.detalle-boton:hover {
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.detalle-boton-rojo {
+    background-color: #e84848;
+    color: white;
+}
+
+.detalle-boton-rojo:hover {
+    background-color: #c73737;
+}
+
+.detalle-boton-gris {
+    background-color: #6c757d;
+    color: white;
+}
+
+.detalle-boton-gris:hover {
+    background-color: #5a6268;
+    color: white !important
+}
+
+@media (max-width: 576px) {
+    .detalle-linea {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .detalle-label {
+        margin-bottom: 4px;
+    }
+}
