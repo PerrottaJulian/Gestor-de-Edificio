@@ -8,4 +8,15 @@
 @model Exception
 
 <h1 class="text-danger">Ocurrió un error inesperado</h1>
-<p>@Model.Message</p>
+
+@if (Model != null)
+{
+    <p><strong>Mensaje:</strong> @Model.Message</p>
+    <p><strong>Origen:</strong> @Model.Source</p>
+    <p><strong>StackTrace:</strong></p>
+    <pre>@Model.StackTrace</pre>
+}
+else
+{
+    <p>No se encontró información del error.</p>
+}

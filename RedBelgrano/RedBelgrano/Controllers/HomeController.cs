@@ -65,7 +65,7 @@ namespace RedBelgrano.Controllers
             }
             catch (Exception ex)
             {
-                TempData["MensajeError"] = "Ocurrio una excepcion: "+ ex;
+                RedirectToAction("Index","Error", ex);
             }
             
         }

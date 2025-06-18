@@ -1,12 +1,28 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Diagnostics;
+using Microsoft.AspNetCore.Mvc;
 
 namespace RedBelgrano.Controllers
 {
     public class ErrorController : Controller
     {
-        public IActionResult Index(Exception ex)
+        [Route("Error")]
+        public IActionResult Index()
         {
-            return View(ex);
+            var exception = HttpContext.Features.Get<IExceptionHandlerPathFeature>()?.Error;
+
+            if (exception is InvalidOperationException && exception.Message.Contains("The view"))
+            {
+                // Error de vista no encontrada
+                return View("PageNotFound");
+            }
+
+            // Otro error
+            return View(exception);
+        }
+        public IActionResult PageNotFound()
+        {
+            
+            return View();
         }
         public IActionResult AccesoDenegado()
         {

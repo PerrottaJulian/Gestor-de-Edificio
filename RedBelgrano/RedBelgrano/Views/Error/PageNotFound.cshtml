@@ -1,0 +1,188 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+<style>
+    .page-container {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-color: #f8fafc; /* slate-50 */
+    }
+
+    .main-content {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      padding: 4rem 1rem;
+    }
+
+    .card-wrapper {
+      max-width: 42rem;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .card {
+      border: 1px solid #e2e8f0; /* slate-200 */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      background-color: white;
+    }
+
+    .card-content {
+      padding-top: 3rem;
+      padding-bottom: 2rem;
+    }
+
+    .icon-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .icon-circle {
+      width: 5rem;
+      height: 5rem;
+      background-color: #fee2e2; /* red-100 */
+      border-radius: 9999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .icon-error {
+      font-size: 2.5rem;
+      color: #dc2626; /* red-600 */
+    }
+
+    .error-title {
+      font-size: 1.875rem;
+      font-weight: bold;
+      color: #1e293b; /* slate-800 */
+      margin-bottom: 1rem;
+    }
+
+    .error-message {
+      font-size: 1.125rem;
+      color: #475569; /* slate-600 */
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .button-group {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+   
+
+    .btn {
+      padding: 0.5rem 1rem;
+      font-weight: 500;
+      border-radius: 0.375rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .btn-primary {
+      background-color: #0072BB;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background-color: #005a95;
+    }
+
+    .btn-outline {
+      border: 1px solid #cbd5e1; /* slate-300 */
+      color: #475569; /* slate-600 */
+      background-color: transparent;
+    }
+
+    .btn-outline:hover {
+      background-color: #f1f5f9; /* slate-50 */
+    }
+
+    .error-footer {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    .error-footer p {
+      font-size: 0.875rem;
+      color: #64748b; /* slate-500 */
+    }
+
+    .footer {
+      background-color: #f1f5f9; /* slate-100 */
+      padding: 1.5rem 0;
+      border-top: 1px solid #e2e8f0; /* slate-200 */
+      text-align: center;
+    }
+
+    .footer-container {
+      font-size: 0.875rem;
+      color: #64748b; /* slate-500 */
+    }
+</style>
+
+<div class="page-container">
+    <header>
+        <!-- Asegurate de reemplazar esto por tu componente de navegación -->
+        <div class="main-nav">
+            <!-- Navegación principal: Juan Díaz, /error -->
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="card-wrapper">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="icon-wrapper">
+                            <div class="icon-circle">
+                                <span class="icon-error">!</span>
+                            </div>
+                        </div>
+
+                        <h1 class="error-title">Pagina en Desarrollo <!-- reemplazar con errorCode --></h1>
+
+                        <div class="button-group">
+                            <a href="/Home/Index" class="btn btn-primary">
+                                <span class="icon-home">🏠</span>
+                                Volver al Inicio
+                            </a>
+                            <button class="btn btn-outline" onclick="window.history.back()">
+                                Página Anterior
+                            </button>
+                        </div>
+
+                        <div class="error-footer">
+                            <p>Si el problema persiste, contacte al administrador del sistema.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <p>© <script>document.write(new Date().getFullYear())</script> Red Belgrano. Sistema de Gestión de Edificios.</p>
+        </div>
+    </footer>
+</div>
