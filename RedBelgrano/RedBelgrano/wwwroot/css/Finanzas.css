@@ -1,0 +1,336 @@
+﻿
+
+.contenedor-tarjetas {
+    display: grid;
+    grid-template-columns: 1fr; /* Por defecto, una columna */
+    gap: 20px;
+    justify-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.tarjeta /* tarjetas individuales */ {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px  rgba(0,0,0,0.2);
+    padding: 20px;
+    width: 100%;
+    max-width: 300px;
+    height: 150px;
+    box-sizing: border-box;
+    /*text-align: center;*/
+    /*font-weight: bold;*/
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta:hover {
+    box-shadow: 0 0 10px 6px rgba(255, 216, 0, 0.35);
+    transform: scale(1.05);
+}
+
+.tarjeta-titulo {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    color: rgba(108,117,125,0.9);
+    font-size: 1.1rem;
+}
+
+.tarjeta-cuerpo {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700;
+    /*color: rgba(26, 35, 126, 1);*/
+    font-size: 2rem;
+    margin-top: 18px
+}
+
+.reserva{
+    border-left: solid darkblue
+}
+.balance {
+    border-left: solid goldenrod;
+}
+.ingresos {
+    border-left: solid forestgreen
+}
+.gastos{
+    border-left: solid red
+}
+
+.data-azul {
+    color: rgba(26, 35, 126, 1);
+}
+.data-rojo {
+    color: red;
+    text-shadow:0px 0px 4px red
+}
+.data-verde {
+    color: forestgreen
+}
+
+
+@media (min-width: 768px) /* Media query para pantallas mayores a 768px */ {
+    .contenedor-tarjetas {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas (2 tarjetas por fila) */
+        gap: 50px;
+    }
+}
+
+/*Ultima transccion*/
+
+.ut-contenedor {
+    background-color: white;
+    border: solid 2px rgba(108,117,125,0.3);
+    border-radius: 16px;
+    padding: 20px;
+
+    width:75%
+}
+
+.ut-contenedor h6 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 650;
+    color: rgba(26, 35, 126, 1);
+    font-size: 1.2rem;
+}
+
+.ultima-transaccion-card {
+    border: 1px solid rgba(108,117,125,0.2);
+    border-radius: 12px;
+    padding: 16px;
+    margin-top: 12px;
+    transition: transform 0.2s ease;
+    cursor: pointer;
+    background-color: #f9f9f9;
+}
+
+.ultima-transaccion-card:hover {
+    background-color: #f1f5ff;
+}
+
+.ultima-transaccion-item {
+    margin-bottom: 8px;
+    display: flex;
+    gap: 10px;
+}
+
+.ultima-transaccion-label {
+    font-weight: 600;
+    color: #2c3e50;
+    min-width: 70px;
+}
+
+.ultima-transaccion-valor {
+    color: #333;
+    flex: 1;
+}
+
+.detalle-recortado {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 300px;
+}
+
+.monto-ingreso {
+    color: #2e7d32; /* Verde fuerte */
+    font-weight: bold;
+}
+
+.monto-egreso {
+    color: #c62828; /* Rojo fuerte */
+    font-weight: bold;
+}
+
+
+
+/*LISTA DE TRANSACCIONES*/
+
+.titulo-pagina {
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 700;
+}
+
+.contenedor-encabezado {
+}
+
+
+/*TABLA*/
+.contenedor-tabla {
+    /*margin-top: 3vh;*/
+}
+
+.head-tabla {
+    background-color: rgba(168,198,221,1);
+    color: black;
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 700;
+}
+
+table {
+    padding: 0px;
+    border-collapse: collapse;
+    overflow: hidden; /* a veces necesario */
+    border-radius: 14px !important;
+}
+
+
+table tbody {
+    /*background-color: white;*/
+}
+
+table thead th {
+    border-bottom: none !important;
+}
+
+table th {
+    padding: 2vh !important;
+}
+
+table td {
+    padding: 2.2vh 1.8vh 2.2vh 1.8vh !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 400;
+}
+
+table tbody tr:hover {
+    color: rgba(255, 193, 7, 1) !important
+}
+
+table td:first-child {
+    border-left: solid 0.5px rgba(0,0,0,0.1);
+}
+
+table td:last-child {
+    border-right: solid 0.5px rgba(0,0,0,0.1);
+}
+
+table th:first-child {
+    border-left: solid 0.5px rgba(0,0,0,0.1);
+}
+
+table th:last-child {
+    border-right: solid 0.5px rgba(0,0,0,0.1);
+}
+
+.paginacion-tabla {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    margin-bottom: 1vh;
+}
+
+.paginacion-tabla .page-item {
+    margin: 0 2px;
+}
+
+.paginacion-tabla .page-link {
+    border: none;
+    background-color: transparent;
+    color: rgba(0, 0, 0, 0.6);
+    transition: color 0.2s ease;
+    padding: 0.4rem 0.6rem;
+    border-radius: 6px;
+}
+
+.paginacion-tabla .page-link:hover {
+    color: rgba(255, 193, 7, 1); /* amarillo hover como la tabla */
+    background-color: rgba(168,198,221,0.3); /* mismo color sutil que el thead */
+}
+
+.paginacion-tabla .active .page-link {
+    font-weight: 600;
+    color: black;
+    background-color: rgba(168,198,221,0.5);
+    border-radius: 6px;
+}
+
+/*FORMULARIO NUEVA TRANSACCION*/
+.form-añadir /* contenedor general */ {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.form-body /* cuerpo */ {
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+}
+
+
+
+.form-line /* filas del cuerpo */ {
+    display: flex;
+    gap: 2vw;
+    flex-wrap: wrap;
+}
+
+.input-container /* Contenedor de cada input: incluye input, label y validacion */ {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+}
+
+
+.line-3 .input-container /* dependiendo de la cantidad de inputs que tienen */ {
+    flex: 1 1 30%;
+}
+
+
+.line-2 .input-container {
+    flex: 1 1 45%;
+}
+
+.line-1 .input-container {
+    flex: 1 1 60%;
+}
+
+
+
+.input-container label /* labels */ {
+    margin-bottom: 6px;
+    font-weight: 600;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    font-size: 0.9rem;
+}
+
+
+.input-container input, /* inputs */
+.input-container select {
+    padding: 10px;
+    /*border-radius: 8px !important;*/
+    border: 1px solid #ccc;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+}
+
+
+.input-container span.text-danger /* validaciones */ {
+    margin-top: 4px;
+    font-size: 0.8rem;
+    color: #dc3545;
+}
+
+
+.form-select /* selects */ {
+    appearance: none;
+    background-color: white;
+    border: 1px solid #ccc;
+}
+
+.submit-button {
+    background-color: #75AADB !important;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 1.1rem;
+}
+
+.submit-button:hover {
+    background-color: #0072BB !important;
+    border: none
+}

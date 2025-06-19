@@ -1,58 +1,73 @@
-﻿@model List<Transaccion>;
+﻿@model RedBelgrano.DataViewModel.ListaTransaccionesVM
 @{
     Layout = "~/Views/Shared/_Finanzas.cshtml";
 }
 
-<style>
-    caption {
-        caption-side: top;
-        text-align: center;
-        font-weight: bold;
-        font-size: 1.2em;
-        padding: 0.5em;
-        color: black;
-        border-right: solid #dee2e6 1px;
-        border-left: solid #dee2e6 1px;
-        border-top: solid #dee2e6 1px;
-    }
-</style>
+<head>
+    <link rel="stylesheet" href="~/css/Finanzas.css" asp-append-version="true" />
 
-<div class="">
-    <table class="table table-bordered table-striped">
+</head>
 
-        <caption> Transacciones </caption>
-        <thead>
 
-            <tr>
-                <th>ID</th>
-                <th>Tipo</th>
-                <th>Monto</th>
-                <th>Ingresada Por</th>
-                <th>Detalle</th>
-                <th>Categoria</th>
-                <th>Fecha</th>
 
-            </tr>
-        </thead>
+<div class="container">
 
-        <tbody>
+    <div class="row contenedor-encabezado">
+        <div class="col-6 align-content-center">
+            <h2 class="titulo-pagina">Transacciones</h2>
+        </div>
 
-            @foreach (Transaccion transaccion in Model)
-            {
-                <tr onclick="location.href='@Url.Action("Detalle", "Finanzas", new { id = transaccion.transaccionId })'" style="cursor:pointer;">
 
-                    <td>@transaccion.transaccionId</td>
-                    <td>@transaccion.tipoTransaccion.nombre</td>
-                    <td>$@transaccion.monto</td>
-                    <td>@transaccion.administrador.nombre</td>
-                    <td style="max-width: 200px; white-space: nowrap; text-overflow:ellipsis;overflow: hidden;">@transaccion.detalle</td>
-                    <td>@transaccion.categoria.nombre</td>
-                    <td>@transaccion.fecha</td>
+        </div>
+    <div class="row contenedor-tabla">
+
+         <!-- PAGINACIÓN -->
+        <div class="paginacion-tabla mb-2 d-flex justify-content-end">
+            <ul class="pagination pagination-sm mb-0">
+                @for (int i = 1; i <= Model.TotalPaginas; i++)
+                {
+                    <li class="page-item @(i == Model.PaginaActual ? "active" : "")">
+                        <a class="page-link" href="@Url.Action("Transacciones", new { page = i })">@i</a>
+                    </li>
+                }
+            </ul>
+        </div> 
+        <table class="table">
+            <thead class="head-tabla">
+
+                <tr>
+                    @* <th>ID</th> *@
+                    <th>Tipo</th>
+                    <th>Monto</th>
+                    @* <th>Ingresada Por</th> *@
+                    <th>Detalle</th>
+                    <th>Categoria</th>
+                    <th>Fecha</th>
 
                 </tr>
-            }
+            </thead>
 
-        </tbody>
+            <tbody>
 
-    </table>
+                @foreach (Transaccion transaccion in Model.Transacciones)
+                {
+                    <tr onclick="location.href='@Url.Action("Detalle", "Finanzas", new { id = transaccion.transaccionId })'" style="cursor:pointer;">
+
+                        @* <td>@transaccion.transaccionId</td> *@
+                        <td>@transaccion.tipoTransaccion.nombre</td>
+                        <td>$@transaccion.monto</td>
+                        @* <td>@transaccion.administrador.nombre</td> *@
+                        <td style="max-width: 200px; white-space: nowrap; text-overflow:ellipsis;overflow: hidden;">@transaccion.detalle</td>
+                        <td>@transaccion.categoria.nombre</td>
+                        <td>@transaccion.fecha</td>
+
+                    </tr>
+                }
+
+            </tbody>
+
+        </table>
+
+    
+    </div>
 </div>

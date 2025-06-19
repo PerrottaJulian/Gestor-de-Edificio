@@ -3,41 +3,67 @@
     Layout = "~/Views/Shared/_Finanzas.cshtml";
 }
 
+<head>
+    <link rel="stylesheet" href="~/css/Finanzas.css" asp-append-version="true" />
+
+</head>
+
+<main class="container ">
+
+    <form asp-action="AñadirTransaccion" method="post" class="form-añadir" >
 
 
-<form asp-action="AñadirTransaccion" method="post">
-    <div>
-        <label asp-for="monto" class="form-label"></label>
-        <div class="input-group">
-            <span class="input-group-text">$</span>
-            <input prefix="$" asp-for="monto" class="form-control" type="number" step="0.01" min="0" />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        
+        <div class="form-body">
+
+            <div class="form-line line-1">
+                <div class="input-container">
+                    <label asp-for="monto" class=""></label>
+                    <div class="input-group">
+                        <span class="input-group-text border-end-0 rounded-start">$</span>
+                        <input prefix="$" asp-for="monto" class="border-start-0 rounded-end" type="number" step="0.01" min="0" />
+                    </div>
+
+                    <span asp-validation-for="monto" class="text-danger"></span>
+                </div>
+
+            </div>
+
+            <div class="form-line line-2">
+                <div class="input-container">
+                    <label asp-for="tipoId"></label>
+                    <select asp-for="tipoId" asp-items="ViewBag.Tipos" class="form-select"> </select>
+                    <span asp-validation-for="tipoId" class="text-danger"></span>
+                </div>
+
+                <div class="input-container">
+                    <label asp-for="categoriaId"></label>
+                    <select asp-for="categoriaId" asp-items="ViewBag.Categorias" class="form-select"> </select>
+                    <span asp-validation-for="categoriaId" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="input-container">
+                <label asp-for="detalle"></label>
+                <textarea rows="5" cols="40" asp-for="detalle" class="form-control"></textarea>
+                <span asp-validation-for="detalle" class="text-danger"></span>
+
+            </div>
+
+
         </div>
+       
+        <div class="row justify-content-center">
+            <div class="submit-container mt-2 mb-4 col-4">
+                <button class="btn btn-primary form-control submit-button" type="submit">Añadir</button>
+            </div>
 
-        <span asp-validation-for="monto" class="text-danger"></span>
+        </div>
+    </form>
 
-    </div>
+</main>
 
-    <div>
-        <label asp-for="tipoId"></label>
-        <select asp-for="tipoId" asp-items="ViewBag.Tipos" class="form-select"> </select>
-        <span asp-validation-for="tipoId" class="text-danger"></span>
-    </div>
-
-    <div>
-        <label asp-for="categoriaId"></label>
-        <select asp-for="categoriaId" asp-items="ViewBag.Categorias" class="form-select"> </select>
-        <span asp-validation-for="categoriaId" class="text-danger"></span>
-    </div>
-
-    <div>
-        <label asp-for="detalle"></label>
-        <textarea rows="5" cols="40" asp-for="detalle" class="form-control"></textarea>
-        <span asp-validation-for="detalle" class="text-danger"></span>
-
-    </div>
-
-    <button type="submit" class="btn btn-primary">Añadir</button>
-</form>
 
 
 @section Scripts {

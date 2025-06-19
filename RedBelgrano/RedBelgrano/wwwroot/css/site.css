@@ -92,14 +92,14 @@ nav li a:hover {
 
 
 .side-navbar ul li a:hover {
-    color: #343a40; /* gris más oscuro al pasar el mouse */
+    color: #343a40;
     background-color: rgba(117, 170, 219, 0.2);
     border-radius: 25px;
 }
 
 .sidelink-active {
-    background-color: rgba(117, 170, 219, 0.2) !important; /* azul muy difuminado */
-    color: #144fed !important; /* azul fuerte y profundo */
+    background-color: rgba(117, 170, 219, 0.2) !important;
+    color: #144fed !important; 
     font-weight: 600 !important;
     border-radius: 25px !important;
     border-right: solid 3px #144fed !important
