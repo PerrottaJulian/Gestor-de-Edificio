@@ -9,46 +9,63 @@
 
 @model RedBelgrano.DataViewModel.InicioTransaccionesVM;
 
-<h1> FINANZAS</h1>
+<head>
+    <link rel="stylesheet" href="~/css/Finanzas.css" asp-append-version="true" />
+</head>
 
-<br/>
+<div class="mt-4 mb-4 ">
 
-<h6> Reservas: $@Model.Reserva </h6>
-<h6> Balance Del Mes: $@Model.BalanceMes.Total </h6>
-<h6> Ingresos Del Mes: $@Model.IngresosMes.Total </h6>
-<h6> Gastos Del Mes: $@Model.GastosMes.Total </h6>
+    <div class="contenedor-tarjetas">
 
-<div>
-    <h6> Ultima Transaccion: </h6>
-    <table class="table table-bordered">
+        <div class="tarjeta reserva">
+            <div class="tarjeta-titulo">Reservas</div>
+            <div class="tarjeta-cuerpo @(Model.Reserva >= 0? "data-azul":"data-rojo")">$@Model.Reserva</div>
+        </div>
 
-        <thead>
+        <div class="tarjeta balance">
+            <div class="tarjeta-titulo">Balance Del Mes</div>
+            <div class=" tarjeta-cuerpo @(Model.BalanceMes.Total >= 0? "data-azul":"data-rojo") " >$@Model.BalanceMes.Total</div>
+        </div>
 
-            <tr>
-                <th>ID</th>
-                
-                <th>Monto</th>
-                
-                <th>Detalle</th>
-                
-                <th>Fecha</th>
+        <div class="tarjeta ingresos">
+            <div class="tarjeta-titulo">Ingresos Del Mes</div>
+            <div class="tarjeta-cuerpo @(Model.IngresosMes.Total >= 0? "data-azul":"data-rojo")">$@Model.IngresosMes.Total</div>
+        </div>
 
-            </tr>
-        </thead>
+        <div class="tarjeta gastos">
+            <div class="tarjeta-titulo">Gastos Del Mes</div>
+            <div class="tarjeta-cuerpo @(Model.GastosMes.Total >= 0? "data-azul":"data-rojo")">$@Model.GastosMes.Total</div>
+        </div>
 
-        <tbody>
+    </div>
+</div>
 
-            <tr onclick="location.href='@Url.Action("Detalle", "Finanzas", new { id = @Model.UltimaTransaccion?.transaccionId })'" style="cursor:pointer;">
 
-                <td>@Model.UltimaTransaccion.transaccionId</td>
-                <td>$@Model.UltimaTransaccion.monto</td>
-                <td style="max-width: 200px; white-space: nowrap; text-overflow:ellipsis;overflow: hidden;">@Model.UltimaTransaccion.detalle</td>
-                <td>@Model.UltimaTransaccion.fecha</td>
+<div class="ut-contenedor mt-4 ">
+    <h6> Ultima Transaccion </h6>
 
-            </tr>
-            
-        </tbody>
-    </table>
+    <div class="transaccion-card" onclick="location.href='@Url.Action("Detalle", "Finanzas", new { id = @Model.UltimaTransaccion?.transaccionId })'">
+        <div class="transaccion-item">
+            <span class="transaccion-label">ID:</span>
+            <span class="transaccion-valor">@Model.UltimaTransaccion.transaccionId</span>
+        </div>
+
+        <div class="transaccion-item">
+            <span class="transaccion-label">Monto:</span>
+            <span class="transaccion-valor">$@Model.UltimaTransaccion.monto</span>
+        </div>
+
+        <div class="transaccion-item">
+            <span class="transaccion-label">Detalle:</span>
+            <span class="transaccion-valor detalle-recortado">@Model.UltimaTransaccion.detalle</span>
+        </div>
+
+        <div class="transaccion-item">
+            <span class="transaccion-label">Fecha:</span>
+            <span class="transaccion-valor">@Model.UltimaTransaccion.fecha</span>
+        </div>
+    </div>
+
 </div>
 
 

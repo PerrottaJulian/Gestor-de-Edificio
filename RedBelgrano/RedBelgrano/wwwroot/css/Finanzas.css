@@ -1,0 +1,124 @@
+﻿
+
+.contenedor-tarjetas {
+    display: grid;
+    grid-template-columns: 1fr; /* Por defecto, una columna */
+    gap: 20px;
+    justify-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.tarjeta /* tarjetas individuales */ {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px  rgba(0,0,0,0.2);
+    padding: 20px;
+    width: 100%;
+    max-width: 300px;
+    height: 150px;
+    box-sizing: border-box;
+    /*text-align: center;*/
+    /*font-weight: bold;*/
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta:hover {
+    box-shadow: 0 0 10px 6px rgba(255, 216, 0, 0.35);
+    transform: scale(1.05);
+}
+
+.tarjeta-titulo {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    color: rgba(108,117,125,0.9);
+    font-size: 1.1rem;
+}
+
+.tarjeta-cuerpo {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700;
+    /*color: rgba(26, 35, 126, 1);*/
+    font-size: 2rem;
+    margin-top: 18px
+}
+
+
+.data-azul {
+    color: rgba(26, 35, 126, 1);
+}
+.data-rojo {
+    color: red;
+    text-shadow:0px 0px 4px red
+}
+.data-verde {
+    color: forestgreen
+}
+
+
+@media (min-width: 768px) /* Media query para pantallas mayores a 768px */ {
+    .contenedor-tarjetas {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas (2 tarjetas por fila) */
+        gap: 50px;
+    }
+}
+
+/*Ultima transccion*/
+
+.ut-contenedor {
+    background-color: white;
+    border: solid 2px rgba(108,117,125,0.3);
+    border-radius: 16px;
+    padding: 20px
+}
+
+.ut-contenedor h6 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 650;
+    color: rgba(26, 35, 126, 1);
+    font-size: 1.2rem;
+}
+
+/* Tarjeta de transacción */
+.transaccion-card {
+    border: 1px solid rgba(108,117,125,0.2);
+    border-radius: 12px;
+    padding: 16px;
+    margin-top: 12px;
+    transition: transform 0.2s ease;
+    cursor: pointer;
+    background-color: #f9f9f9;
+}
+
+    .transaccion-card:hover {
+        transform: scale(1.02);
+        background-color: #f1f5ff;
+    }
+
+/* Fila de datos */
+.transaccion-item {
+    margin-bottom: 8px;
+    display: flex;
+    gap: 10px;
+}
+
+/* Etiqueta e información */
+.transaccion-label {
+    font-weight: 600;
+    color: #2c3e50;
+    min-width: 70px;
+}
+
+.transaccion-valor {
+    color: #333;
+    flex: 1;
+}
+
+/* Recorte elegante si el detalle es muy largo */
+.detalle-recortado {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 300px;
+}
