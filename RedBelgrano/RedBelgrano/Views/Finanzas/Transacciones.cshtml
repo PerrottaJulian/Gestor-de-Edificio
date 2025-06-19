@@ -8,62 +8,66 @@
 
 </head>
 
-<div class="row contenedor-encabezado">
-    <div class="col-6 align-content-center">
-        <h2 class="titulo-pagina">Transacciones</h2>
-    </div>
 
 
-</div>
+<div class="container">
 
-<div class="row contenedor-tabla">
+    <div class="row contenedor-encabezado">
+        <div class="col-6 align-content-center">
+            <h2 class="titulo-pagina">Transacciones</h2>
+        </div>
 
-     <!-- PAGINACIÓN -->
-    <div class="paginacion-tabla mb-2 d-flex justify-content-end">
-        <ul class="pagination pagination-sm mb-0">
-            @for (int i = 1; i <= Model.TotalPaginas; i++)
-            {
-                <li class="page-item @(i == Model.PaginaActual ? "active" : "")">
-                    <a class="page-link" href="@Url.Action("Transacciones", new { page = i })">@i</a>
-                </li>
-            }
-        </ul>
-    </div> 
-    <table class="table">
-        <thead class="head-tabla">
 
-            <tr>
-                @* <th>ID</th> *@
-                <th>Tipo</th>
-                <th>Monto</th>
-                @* <th>Ingresada Por</th> *@
-                <th>Detalle</th>
-                <th>Categoria</th>
-                <th>Fecha</th>
+        </div>
+    <div class="row contenedor-tabla">
 
-            </tr>
-        </thead>
+         <!-- PAGINACIÓN -->
+        <div class="paginacion-tabla mb-2 d-flex justify-content-end">
+            <ul class="pagination pagination-sm mb-0">
+                @for (int i = 1; i <= Model.TotalPaginas; i++)
+                {
+                    <li class="page-item @(i == Model.PaginaActual ? "active" : "")">
+                        <a class="page-link" href="@Url.Action("Transacciones", new { page = i })">@i</a>
+                    </li>
+                }
+            </ul>
+        </div> 
+        <table class="table">
+            <thead class="head-tabla">
 
-        <tbody>
-
-            @foreach (Transaccion transaccion in Model.Transacciones)
-            {
-                <tr onclick="location.href='@Url.Action("Detalle", "Finanzas", new { id = transaccion.transaccionId })'" style="cursor:pointer;">
-
-                    @* <td>@transaccion.transaccionId</td> *@
-                    <td>@transaccion.tipoTransaccion.nombre</td>
-                    <td>$@transaccion.monto</td>
-                    @* <td>@transaccion.administrador.nombre</td> *@
-                    <td style="max-width: 200px; white-space: nowrap; text-overflow:ellipsis;overflow: hidden;">@transaccion.detalle</td>
-                    <td>@transaccion.categoria.nombre</td>
-                    <td>@transaccion.fecha</td>
+                <tr>
+                    @* <th>ID</th> *@
+                    <th>Tipo</th>
+                    <th>Monto</th>
+                    @* <th>Ingresada Por</th> *@
+                    <th>Detalle</th>
+                    <th>Categoria</th>
+                    <th>Fecha</th>
 
                 </tr>
-            }
+            </thead>
 
-        </tbody>
+            <tbody>
 
-    </table>
+                @foreach (Transaccion transaccion in Model.Transacciones)
+                {
+                    <tr onclick="location.href='@Url.Action("Detalle", "Finanzas", new { id = transaccion.transaccionId })'" style="cursor:pointer;">
+
+                        @* <td>@transaccion.transaccionId</td> *@
+                        <td>@transaccion.tipoTransaccion.nombre</td>
+                        <td>$@transaccion.monto</td>
+                        @* <td>@transaccion.administrador.nombre</td> *@
+                        <td style="max-width: 200px; white-space: nowrap; text-overflow:ellipsis;overflow: hidden;">@transaccion.detalle</td>
+                        <td>@transaccion.categoria.nombre</td>
+                        <td>@transaccion.fecha</td>
+
+                    </tr>
+                }
+
+            </tbody>
+
+        </table>
 
     
+    </div>
 </div>

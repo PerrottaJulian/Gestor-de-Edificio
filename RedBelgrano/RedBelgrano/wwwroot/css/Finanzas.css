@@ -157,7 +157,7 @@
 
 /*TABLA*/
 .contenedor-tabla {
-    margin-top: 3vh;
+    /*margin-top: 3vh;*/
 }
 
 .head-tabla {
@@ -232,14 +232,105 @@ table th:last-child {
     border-radius: 6px;
 }
 
-    .paginacion-tabla .page-link:hover {
-        color: rgba(255, 193, 7, 1); /* amarillo hover como la tabla */
-        background-color: rgba(168,198,221,0.3); /* mismo color sutil que el thead */
-    }
+.paginacion-tabla .page-link:hover {
+    color: rgba(255, 193, 7, 1); /* amarillo hover como la tabla */
+    background-color: rgba(168,198,221,0.3); /* mismo color sutil que el thead */
+}
 
 .paginacion-tabla .active .page-link {
     font-weight: 600;
     color: black;
     background-color: rgba(168,198,221,0.5);
     border-radius: 6px;
+}
+
+/*FORMULARIO NUEVA TRANSACCION*/
+.form-añadir /* contenedor general */ {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.form-body /* cuerpo */ {
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+}
+
+
+
+.form-line /* filas del cuerpo */ {
+    display: flex;
+    gap: 2vw;
+    flex-wrap: wrap;
+}
+
+.input-container /* Contenedor de cada input: incluye input, label y validacion */ {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+}
+
+
+.line-3 .input-container /* dependiendo de la cantidad de inputs que tienen */ {
+    flex: 1 1 30%;
+}
+
+
+.line-2 .input-container {
+    flex: 1 1 45%;
+}
+
+.line-1 .input-container {
+    flex: 1 1 60%;
+}
+
+
+
+.input-container label /* labels */ {
+    margin-bottom: 6px;
+    font-weight: 600;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    font-size: 0.9rem;
+}
+
+
+.input-container input, /* inputs */
+.input-container select {
+    padding: 10px;
+    /*border-radius: 8px !important;*/
+    border: 1px solid #ccc;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+}
+
+
+.input-container span.text-danger /* validaciones */ {
+    margin-top: 4px;
+    font-size: 0.8rem;
+    color: #dc3545;
+}
+
+
+.form-select /* selects */ {
+    appearance: none;
+    background-color: white;
+    border: 1px solid #ccc;
+}
+
+.submit-button {
+    background-color: #75AADB !important;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 1.1rem;
+}
+
+.submit-button:hover {
+    background-color: #0072BB !important;
+    border: none
 }
