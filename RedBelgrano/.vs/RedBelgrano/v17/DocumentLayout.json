@@ -39,8 +39,7 @@
               "ViewState": "AQIAAAMAAAAAAAAAAAAAABgAAABbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-06-19T13:55:27.007Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -67,8 +66,7 @@
               "ViewState": "AQIAADYAAAAAAAAAAAAAAFsAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-06-19T13:55:39.907Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Bookmark",
@@ -96,8 +94,7 @@
               "RelativeToolTip": "RedBelgrano\\wwwroot\\css\\Residentes.css",
               "ViewState": "AQIAAJMAAAAAAAAAAAAAAKwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-06-19T13:55:21.463Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-19T13:55:21.463Z"
             }
           ]
         },
