@@ -35,12 +35,19 @@
                 <th>DNI</th>
                 <th>Email</th>
                 <th>Telefono</th>
+                
                 <th>Tipo</th>
-                <th>Estado</th>
+                @if (User.IsInRole("Administrador"))
+                {
+                    <th>Estado</th>
+                }
                 <th>Piso</th>
                 <th>Departamento</th>
-                <th>FechaIngreso</th>
-            
+                @if (User.IsInRole("Administrador"))
+                {
+                    <th>FechaIngreso</th>
+                }
+    
             </tr>
         </thead>
 
@@ -57,15 +64,21 @@
                         <td>@residente.email</td>
                         <td>@residente.telefono</td>
                         <td>@residente.tipoResidente?.tipo</td>
-                        <td>@residente.estadoResidente?.estado</td>
+                        @if (User.IsInRole("Administrador"))
+                        {
+                            <td>@residente.estadoResidente?.estado</td>
+                        } 
                         <td>@residente.piso</td>
                         <td>@residente.departamento</td>
-                        <td>@residente.fechaIngreso</td>
+                        @if (User.IsInRole("Administrador"))
+                        {
+                            <td>@residente.fechaIngreso</td>
+                        }
 
-                        @if(residente.fechaBaja != null)
+                        @* @if(residente.fechaBaja != null)
                         {
                             <td>@residente.fechaBaja</td>
-                        }
+                        } *@
                         <!--Poner boton de Eliminar en la vista Detalle-->
                     </tr>
                 }

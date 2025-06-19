@@ -59,10 +59,13 @@
                                 <!--Residentes-->
                                 <a class="nav-link @(currentController == "Residentes" ? "navlink-active" : "text-light")" asp-area="" asp-controller="Residentes" asp-action="Index">Residentes</a>
                             </li>
-
-                            <li class="nav-item"> <!--Finanzas-->
-                                <a class="nav-link @(currentController == "Finanzas" ? "navlink-active" : "text-light")" asp-area="" asp-controller="Finanzas" asp-action="Inicio">Finanzas</a>
-                            </li>
+                            @if (User.IsInRole("Administrador"))
+                            {
+                                <li class="nav-item"><!--Finanzas-->
+                                    <a class="nav-link @(currentController == "Finanzas" ? "navlink-active" : "text-light")" asp-area="" asp-controller="Finanzas" asp-action="Inicio">Finanzas</a>
+                                </li>
+                            }
+                            
 
                             <li class="nav-item"> <!--Ticket-->
                                 <a class="nav-link @(currentController == "Ticket" ? "navlink-active" : "text-light")" asp-area="" asp-controller="Ticket" asp-action="Index">Ticket</a>

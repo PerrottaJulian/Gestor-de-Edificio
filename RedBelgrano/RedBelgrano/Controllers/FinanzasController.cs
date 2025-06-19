@@ -11,7 +11,7 @@ using System.Text.RegularExpressions;
 
 namespace RedBelgrano.Controllers
 {
-    //[Authorize]
+    [Authorize(Roles = "Administrador")]
     public class FinanzasController : Controller
     {
         private AppDBContext db;

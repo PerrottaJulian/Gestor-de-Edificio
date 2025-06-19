@@ -8,7 +8,7 @@ using RedBelgrano.Models;
 
 namespace RedBelgrano.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class ResidentesController : Controller
     {
         public AppDBContext db;
@@ -37,6 +37,7 @@ namespace RedBelgrano.Controllers
         }
 
         //Nuevo
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Nuevo()
         {
             try
@@ -54,6 +55,7 @@ namespace RedBelgrano.Controllers
             
         }
 
+        [Authorize(Roles = "Administrador")]
         [HttpPost]
         public async Task<IActionResult> Nuevo(AñadirResidenteVM nuevo_residente)
         {
@@ -105,6 +107,7 @@ namespace RedBelgrano.Controllers
 
         }
 
+        [Authorize(Roles = "Administrador")]
         //Detalle
         public async Task<IActionResult> Detalle(int id)
         {
@@ -122,6 +125,7 @@ namespace RedBelgrano.Controllers
         }
 
         //Dar de baja
+        [Authorize(Roles = "Administrador")]
         [HttpPost]
         public async Task<IActionResult> DarDeBaja(int id) //poner boton en la vista Detalle
          {
@@ -144,6 +148,7 @@ namespace RedBelgrano.Controllers
         }
 
         // Modificar
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Modificar(int id)
         {
             Residente? residente = null;
@@ -168,6 +173,7 @@ namespace RedBelgrano.Controllers
             return View(residente);
         }
 
+        [Authorize(Roles = "Administrador")]
         [HttpPost]
         public async Task<IActionResult> Modificar(Residente residente)
         {
