@@ -40,34 +40,36 @@
     </div>
 </div>
 
+<div class="d-flex justify-content-center">
+    <div class="ut-contenedor mt-4 ">
+        <h6> Ultima Transaccion </h6>
 
-<div class="ut-contenedor mt-4 ">
-    <h6> Ultima Transaccion </h6>
+        <div class="ultima-transaccion-card" onclick="location.href='@Url.Action("Detalle", "Finanzas", new { id = @Model.UltimaTransaccion?.transaccionId })'">
+            <div class="ultima-transaccion-item">
+                <span class="ultima-transaccion-label">ID:</span>
+                <span class="ultima-transaccion-valor">@Model.UltimaTransaccion.transaccionId</span>
+            </div>
 
-    <div class="transaccion-card" onclick="location.href='@Url.Action("Detalle", "Finanzas", new { id = @Model.UltimaTransaccion?.transaccionId })'">
-        <div class="transaccion-item">
-            <span class="transaccion-label">ID:</span>
-            <span class="transaccion-valor">@Model.UltimaTransaccion.transaccionId</span>
+            <div class="ultima-transaccion-item">
+                <span class="ultima-transaccion-label">Monto:</span>
+                <span class="transaccion-valor @(Model.UltimaTransaccion.tipoTransaccion.nombre == "ingreso" ? "monto-ingreso" : "monto-egreso")">
+                    @(Model.UltimaTransaccion.tipoTransaccion.nombre == "ingreso" ? "$" + Model.UltimaTransaccion.monto.ToString("N2") : "-$" + Model.UltimaTransaccion.monto.ToString("N2"))
+                </span>
+            </div>
+
+            <div class="ultima-transaccion-item">
+                <span class="ultima-transaccion-label">Detalle:</span>
+                <span class="ultima-transaccion-valor detalle-recortado">@Model.UltimaTransaccion.detalle</span>
+            </div>
+
+            <div class="ultima-transaccion-item">
+                <span class="ultima-transaccion-label">Fecha:</span>
+                <span class="ultima-transaccion-valor">@Model.UltimaTransaccion.fecha</span>
+            </div>
         </div>
 
-        <div class="transaccion-item">
-            <span class="transaccion-label">Monto:</span>
-            <span class="transaccion-valor">$@Model.UltimaTransaccion.monto</span>
-        </div>
-
-        <div class="transaccion-item">
-            <span class="transaccion-label">Detalle:</span>
-            <span class="transaccion-valor detalle-recortado">@Model.UltimaTransaccion.detalle</span>
-        </div>
-
-        <div class="transaccion-item">
-            <span class="transaccion-label">Fecha:</span>
-            <span class="transaccion-valor">@Model.UltimaTransaccion.fecha</span>
-        </div>
     </div>
-
 </div>
-
 
 
 

@@ -39,16 +39,37 @@ namespace RedBelgrano.Controllers
         }
 
         //VISTA DE LISTADO
-        public async Task<IActionResult> Transacciones()
+        public async Task<IActionResult> Transacciones(int page = 1)
         {
-            List<Transaccion> transacciones = await db.Transacciones
+            /*List<Transaccion> transacciones = await db.Transacciones
                                     .Include(t => t.tipoTransaccion)
                                     .Include(t => t.administrador)
                                     .Include(t => t.categoria)
                                     .OrderByDescending(t => t.fecha)
                                     .ToListAsync();
 
-            return View(transacciones);
+            return View(transacciones);*/
+            int pageSize = 10;
+
+            var transacciones = db.Transacciones
+                .Include(t => t.tipoTransaccion)
+                .Include(t => t.categoria)
+                .OrderByDescending(t => t.fecha); // opcional, para ordenar
+
+            var totalTransacciones = await transacciones.CountAsync();
+            var transaccionesPagina = await transacciones
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
+
+            var model = new ListaTransaccionesVM
+            {
+                Transacciones = transaccionesPagina,
+                PaginaActual = page,
+                TotalPaginas = (int)Math.Ceiling(totalTransacciones / (double)pageSize)
+            };
+
+            return View(model);
         }
 
         //VISTA DE NUEVA TRANSACCION (FORMULARIO)
@@ -342,6 +363,7 @@ namespace RedBelgrano.Controllers
         public async Task<Transaccion?> ObtenerUltima()
         {
             Transaccion? ultima = await db.Transacciones
+                .Include(t => t.tipoTransaccion)
                 .OrderByDescending(t => t.fecha)
                 .FirstOrDefaultAsync();
 
