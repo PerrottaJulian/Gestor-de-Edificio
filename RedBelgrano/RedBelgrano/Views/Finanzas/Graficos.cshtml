@@ -6,6 +6,14 @@
     Layout = "~/Views/Shared/_Finanzas.cshtml";
 }
 
+<style>
+    .card-header{
+        font-family: "Montserrat", sans-serif;
+        font-weight: 600;
+        color: darkblue
+    }
+</style>
+
 <div class="row mt-2">
 
     <div class="col-6 mb-3">
@@ -76,7 +84,14 @@
                         datasets: [{
                             label: 'Cantidad',
                             data: valores,
-                            backgroundColor: 'rgb(0,0,0)',
+                            backgroundColor: function(context) {
+                                const value = context.dataset.data[context.dataIndex];
+                                return value < 0 ? 'rgba(255, 50, 85, 0.7)' : 'rgba(37, 99, 235, 0.7)';
+                            },
+                            borderColor: function(context) {
+                                const value = context.dataset.data[context.dataIndex];
+                                return value < 0 ? 'rgba(255, 99, 132, 1)' : 'rgba(37, 99, 235, 1)';
+                            },
                             borderWidth: 1
                         }]
                     };
@@ -87,11 +102,25 @@
                         options: {
                             scales: {
                                 y: {
-                                    beginAtZero: true
+                                    beginAtZero: true,
+                                    ticks: {
+                                        callback: function (value) {
+                                            return '$' + value.toLocaleString('es-AR');
+                                        }
+                                    },
+                                    grid: {
+                                        color: function (context) {
+                                            // Destacar la línea del eje x (donde y == 0)
+                                            return context.tick.value === 0 ? 'black' : 'rgba(0, 0, 0, 0.1)';
+                                        },
+                                        lineWidth: function (context) {
+                                            return context.tick.value === 0 ? 2 : 1;
+                                        }
+                                    }
                                 }
                             }
                         }
-                    }
+                    };
 
                     const canvasBalancePorMes = document.getElementById("chartBalancePorMes")
                     const chartBalancePorMes = new Chart(canvasBalancePorMes, config)
@@ -137,7 +166,7 @@
                     };
 
                     const config = {
-                        type: 'polarArea',
+                        type: 'pie',
                         data: data,
                         options: {}
                     };
@@ -171,22 +200,22 @@
                             label: 'Cantidades',
                             data: valores,
                             backgroundColor: [
-                                'rgb(255, 99, 132)',    // rojo
-                                'rgb(54, 162, 235)',    // azul
-                                'rgb(255, 205, 86)',    // amarillo
-                                'rgb(75, 192, 192)',    // verde agua
-                                'rgb(153, 102, 255)',   // violeta
-                                'rgb(255, 159, 64)',    // naranja
-                                'rgb(201, 203, 207)',   // gris claro
-                                'rgb(0, 200, 83)',      // verde
-                                'rgb(255, 112, 67)'     // coral
+                                'rgb(99, 255, 222)',     // cian pastel
+                                'rgb(235, 127, 54)',     // naranja terroso
+                                'rgb(86, 136, 255)',     // azul medio
+                                'rgb(192, 75, 75)',      // rojo viejo
+                                'rgb(102, 255, 153)',    // verde lima pastel
+                                'rgb(64, 160, 255)',     // celeste saturado
+                                'rgb(48, 52, 55)',       // gris oscuro frío
+                                'rgb(200, 0, 117)',      // rosa oscuro vibrante
+                                'rgb(67, 210, 255)'      // celeste brillante
                             ],
                             hoverOffset: 4
                         }]
                     };
 
                     const config = {
-                        type: 'doughnut',
+                        type: 'pie',
                         data: data,
                     };
 
@@ -218,15 +247,29 @@
                         datasets: [{
                             label: 'Saldo',
                             data: valores,
-                            fill: false,
-                            borderColor: 'rgb(75, 192, 192)',
-                            tension: 0.1
+                            fill: true,
+                            backgroundColor: "rgba(56, 189, 248, 0.2)",
+                            borderColor: "rgba(56, 189, 248, 1)",
+                            borderWidth: 2,
+                            tension: 0.25
                         }]
                     };
 
                     const config = {
                         type: 'line',
                         data: data,
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                    ticks: {
+                                        callback: function (value) {
+                                            return '$' + value.toLocaleString('es-AR');
+                                        }
+                                    },
+                                }
+                            }
+                        }
                     };
 
                     const canvasCrecimientoReserva = document.getElementById("chartCrecimientoReserva")
