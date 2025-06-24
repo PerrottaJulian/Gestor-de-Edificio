@@ -1,5 +1,3 @@
----
-
 ## ℹ️ Sobre este Proyecto
 
 > Este desarrollo es parte de la cursada de la materia **"Técnicas Avanzadas de Programación"** de la carrera **"Licenciatura en Informática"** de la **Universidad Metropolitana Para la Educación y el Trabajo (UMET)**.  
