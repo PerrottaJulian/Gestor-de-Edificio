@@ -3,7 +3,7 @@ Todo lo propuesto a continuacion es en base a un contexto ficticio propuesto tam
 Previo al desarrollo de codigo se realizo un analisis funcional y no funcional completo de todas las partes del proyecto. Yo mismo hice la funcion completa de un equipo completo, incluyendo Proyect Manager, Scrum Master, Diseñador y Programador Full-Stack
 El total de tiempo implementado en este sistema es de actualmente un cuatrimestre completo.
 
----------------------------------------------------------------------------------------- RED BELGRANO ----------------------------------------------------------------------------------------
+------------------------------- RED BELGRANO ------------------------------
 
 ![Gestor de Edificio Web](https://github.com/user-attachments/assets/a77150df-8d62-4327-a432-08004a367689)
 
