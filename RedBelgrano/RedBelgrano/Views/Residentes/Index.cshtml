@@ -32,10 +32,12 @@
 
             <tr class="">
                 <th>Nombre</th>
-                <th>DNI</th>
+                @if (User.IsInRole("Administrador"))
+                {
+                    <th>DNI</th>
+                }
                 <th>Email</th>
                 <th>Telefono</th>
-                
                 <th>Tipo</th>
                 @if (User.IsInRole("Administrador"))
                 {
@@ -60,7 +62,11 @@
 
                     <tr onclick="location.href='@Url.Action("Detalle", "Residentes", new { id = residente.residenteId })'" style="cursor:pointer;" >
                         <td>@residente.nombre</td>
-                        <td>@residente.dni</td>
+                        @if (User.IsInRole("Administrador"))
+                        {
+                            <td>@residente.dni</td>
+
+                        }
                         <td>@residente.email</td>
                         <td>@residente.telefono</td>
                         <td>@residente.tipoResidente?.tipo</td>
