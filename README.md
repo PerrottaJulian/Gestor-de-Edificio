@@ -21,7 +21,6 @@
 - [Análisis de la Entrevista](#análisis-de-la-entrevista)
 - [Partes del Sistema](#partes-del-sistema)
 - [Stack Tecnológico](#stack-tecnológico)
-- [🔝 Volver arriba](#-red-belgrano)
 
 ---
 
