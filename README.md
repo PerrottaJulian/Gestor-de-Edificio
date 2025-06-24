@@ -4,7 +4,7 @@
 
 > Este desarrollo es parte de la cursada de la materia **"Técnicas Avanzadas de Programación"** de la carrera **"Licenciatura en Informática"** de la **Universidad Metropolitana Para la Educación y el Trabajo (UMET)**.  
 > Todo lo propuesto a continuación es en base a un **contexto ficticio propuesto también por mi persona**, pero el sistema busca ser **100% funcional**.  
-> Previo al desarrollo de código se realizó un **análisis funcional y no funcional completo** de todas las partes del proyecto.  
+> Previo al desarrollo de código se realizó un **análisis funcional y no funcional completo** de todas las partes del proyecto**.  
 > Yo mismo hice la función completa de un equipo completo, incluyendo **Project Manager, Scrum Master, Diseñador y Programador Full-Stack**.  
 > El total de tiempo implementado en este sistema es de actualmente **un cuatrimestre completo**.
 
