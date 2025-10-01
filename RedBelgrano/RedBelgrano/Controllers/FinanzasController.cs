@@ -28,12 +28,14 @@ namespace RedBelgrano.Controllers
 
             InicioTransaccionesVM vm = new InicioTransaccionesVM()
             {
-                Reserva =  ObtenerReservasTotales(),
-                BalanceMes = await ObtenerBalanceMesActual(),
-                IngresosMes = await ObtenerIngresosMesActual(),
-                GastosMes = await ObtenerGastosMesActual(),
+                Reserva = ObtenerReservasTotales(),
+                BalanceMes = await ObtenerBalanceMesActual() ?? new RegistroMensualVM(),
+                IngresosMes = await ObtenerIngresosMesActual() ?? new RegistroMensualVM(),
+                GastosMes = await ObtenerGastosMesActual() ?? new RegistroMensualVM(),
                 UltimaTransaccion = await ObtenerUltima(),
+                //hola
             };
+
 
             return View(vm);
         }

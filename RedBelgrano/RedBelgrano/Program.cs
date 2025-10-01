@@ -10,11 +10,11 @@ var connection = String.Empty;
 if (builder.Environment.IsDevelopment())
 {
     builder.Configuration.AddEnvironmentVariables().AddJsonFile("appsettings.Development.json");
-    connection = builder.Configuration.GetConnectionString("AzureDbConection");
+    connection = builder.Configuration.GetConnectionString("DbCon");
 }
 else
 {
-    connection = Environment.GetEnvironmentVariable("AzureDbConection");
+    connection = Environment.GetEnvironmentVariable("DbCon");
 }
 
 builder.Services.AddDbContext<AppDBContext>(options =>
