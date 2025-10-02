@@ -14,10 +14,12 @@
         <h2 class="titulo-pagina">Listado de residentes</h2>
     </div>
     
-    <div class="col-6 align-content-center text-end pe-4 ">
-        <a class="bt-añadir" asp-controller="Residentes" asp-action="Nuevo"> + Añadir Residente</a>
-
-    </div>
+    @if(User.IsInRole("Administrador") )
+    {
+        <div class="col-6 align-content-center text-end pe-4 ">
+            <a class="bt-añadir" asp-controller="Residentes" asp-action="Nuevo"> + Añadir Residente</a>
+        </div>
+    }
 
 </div>
 
@@ -59,34 +61,59 @@
             {
                 @if(residente.fechaBaja == null)
                 {
-
-                    <tr onclick="location.href='@Url.Action("Detalle", "Residentes", new { id = residente.residenteId })'" style="cursor:pointer;" >
-                        <td>@residente.nombre</td>
-                        @if (User.IsInRole("Administrador"))
-                        {
+                    @if(User.IsInRole("Administrador"))
+                    {
+                            
+                        
+                        <tr onclick="location.href='@Url.Action("Detalle", "Residentes", new { id = residente.residenteId })'" style="cursor:pointer;" >
+                            <td>@residente.nombre</td>
+                            
                             <td>@residente.dni</td>
 
-                        }
-                        <td>@residente.email</td>
-                        <td>@residente.telefono</td>
-                        <td>@residente.tipoResidente?.tipo</td>
-                        @if (User.IsInRole("Administrador"))
-                        {
+                            <td>@residente.email</td>
+                            
+                            <td>@residente.telefono</td>
+                            
+                            <td>@residente.tipoResidente?.tipo</td>
+                            
                             <td>@residente.estadoResidente?.estado</td>
-                        } 
-                        <td>@residente.piso</td>
-                        <td>@residente.departamento</td>
-                        @if (User.IsInRole("Administrador"))
-                        {
-                            <td>@residente.fechaIngreso</td>
-                        }
+                            
+                            <td>@residente.piso</td>
 
-                        @* @if(residente.fechaBaja != null)
-                        {
-                            <td>@residente.fechaBaja</td>
-                        } *@
-                        <!--Poner boton de Eliminar en la vista Detalle-->
-                    </tr>
+                            <td>@residente.departamento</td>
+                         
+                            <td>@residente.fechaIngreso</td>
+                            
+
+                            @* @if(residente.fechaBaja != null)
+                            {
+                                <td>@residente.fechaBaja</td>
+                            } *@
+                        </tr>
+
+                    }
+
+                    @if ( !User.IsInRole("Administrador")  )
+                    {
+
+                        <tr>
+
+                            <td>@residente.nombre</td>
+                            
+                            <td>@residente.email</td>
+
+                            <td>@residente.telefono</td>
+
+                            <td>@residente.tipoResidente?.tipo</td>
+                           
+                            <td>@residente.piso</td>
+
+                            <td>@residente.departamento</td>
+                           
+                        </tr>
+
+                    }
+
                 }
 
             }

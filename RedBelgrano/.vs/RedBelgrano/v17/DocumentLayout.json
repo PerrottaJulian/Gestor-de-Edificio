@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\Admin\\dev-home\\Gestor-de-Edificio\\RedBelgrano\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|c:\\users\\admin\\dev-home\\gestor-de-edificio\\redbelgrano\\redbelgrano\\views\\residentes\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|solutionrelative:redbelgrano\\views\\residentes\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|c:\\users\\admin\\dev-home\\gestor-de-edificio\\redbelgrano\\redbelgrano\\controllers\\residentescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|solutionrelative:redbelgrano\\controllers\\residentescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|c:\\users\\admin\\dev-home\\gestor-de-edificio\\redbelgrano\\redbelgrano\\controllers\\finanzascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|solutionrelative:redbelgrano\\controllers\\finanzascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -17,10 +25,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|c:\\users\\admin\\dev-home\\gestor-de-edificio\\redbelgrano\\redbelgrano\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|solutionrelative:redbelgrano\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|c:\\users\\admin\\dev-home\\gestor-de-edificio\\redbelgrano\\redbelgrano\\views\\residentes\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|solutionrelative:redbelgrano\\views\\residentes\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,11 +34,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Admin\\dev-home\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "RedBelgrano\\Views\\Home\\Index.cshtml",
@@ -43,8 +47,7 @@
               "ViewState": "AQIAABUAAAAAAAAAAAAAADgAAACAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-06-24T12:11:23.057Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Bookmark",
@@ -64,20 +67,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
+              "Title": "ResidentesController.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\dev-home\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Controllers\\ResidentesController.cs",
+              "RelativeDocumentMoniker": "RedBelgrano\\Controllers\\ResidentesController.cs",
+              "ToolTip": "C:\\Users\\Admin\\dev-home\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Controllers\\ResidentesController.cs",
+              "RelativeToolTip": "RedBelgrano\\Controllers\\ResidentesController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAIMAAAA6AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-02T00:15:45.006Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "FinanzasController.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\dev-home\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Controllers\\FinanzasController.cs",
               "RelativeDocumentMoniker": "RedBelgrano\\Controllers\\FinanzasController.cs",
               "ToolTip": "C:\\Users\\Admin\\dev-home\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Controllers\\FinanzasController.cs",
               "RelativeToolTip": "RedBelgrano\\Controllers\\FinanzasController.cs",
-              "ViewState": "AQIAAA4AAAAAAAAAAAAxwCUAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-01T02:14:21.127Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\dev-home\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Program.cs",
               "RelativeDocumentMoniker": "RedBelgrano\\Program.cs",
@@ -85,12 +101,11 @@
               "RelativeToolTip": "RedBelgrano\\Program.cs",
               "ViewState": "AQIAACEAAAAAAAAAAAAAABUAAAAHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-01T02:12:51.516Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-01T02:12:51.516Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\Admin\\dev-home\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\appsettings.json",
               "RelativeDocumentMoniker": "RedBelgrano\\appsettings.json",
@@ -98,18 +113,17 @@
               "RelativeToolTip": "RedBelgrano\\appsettings.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-10-01T02:11:52.982Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-01T02:11:52.982Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Admin\\dev-home\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Views\\Residentes\\Index.cshtml",
               "RelativeDocumentMoniker": "RedBelgrano\\Views\\Residentes\\Index.cshtml",
               "ToolTip": "C:\\Users\\Admin\\dev-home\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Views\\Residentes\\Index.cshtml",
               "RelativeToolTip": "RedBelgrano\\Views\\Residentes\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAC8AAAA0AAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-06-24T12:30:24.437Z",
               "EditorCaption": ""
