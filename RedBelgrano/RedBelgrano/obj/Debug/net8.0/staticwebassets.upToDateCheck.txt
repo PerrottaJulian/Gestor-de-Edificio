@@ -1,6 +1,7 @@
 wwwroot\css\Finanzas.css
 wwwroot\css\Home.css
 wwwroot\css\Login.css
+wwwroot\css\Perfil.css
 wwwroot\css\Residentes.css
 wwwroot\css\site.css
 wwwroot\favicon.ico

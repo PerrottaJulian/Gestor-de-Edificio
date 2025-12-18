@@ -1,0 +1,56 @@
+﻿@model RedBelgrano.DataViewModel.CambiarClaveVM
+@{
+    ViewData["Title"] = "Cambiar contraseña";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/Perfil.css" asp-append-version="true" />
+
+</head>
+
+<div class="perfil-wrapper">
+
+    <!-- TÍTULO EXTERNO -->
+    <h1 class="perfil-page-title">Cambiar contraseña</h1>
+
+    <!-- TARJETA PRINCIPAL -->
+    <div class="perfil-main-card">
+
+
+        <form asp-action="CambiarClave" method="post">
+            @Html.AntiForgeryToken()
+
+            <div class="perfil-info-grid">
+
+                <div class="perfil-info-item">
+                    <label>Contraseña actual</label>
+                    <input asp-for="ClaveActual" type="password" />
+                    <span asp-validation-for="ClaveActual" class="text-danger"></span>
+                </div>
+
+                <div class="perfil-info-item">
+                    <label>Nueva contraseña</label>
+                    <input asp-for="NuevaClave" type="password" />
+                    <span asp-validation-for="NuevaClave" class="text-danger field-validation-error"></span>
+                </div>
+
+                <div class="perfil-info-item">
+                    <label>Confirmar nueva contraseña</label>
+                    <input asp-for="ConfirmarClave" type="password" />
+                    <span asp-validation-for="ConfirmarClave" class="text-danger field-validation-error"></span>
+                </div>
+
+            </div>
+
+            <!-- ACCIONES -->
+            <div class="perfil-actions">
+                <button type="submit" class="perfil-btn">Guardar cambios</button>
+                <a asp-action="Index" class="perfil-btn secundario">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

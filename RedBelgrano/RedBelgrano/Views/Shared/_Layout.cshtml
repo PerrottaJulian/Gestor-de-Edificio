@@ -82,9 +82,9 @@
                                 <div class="d-flex flex-column align-items-end justify-content-center" style="height: 100%;">
                                     @if(User.Identity.Name != null)
                                     {
-                                        <span class="nav-link px-2 pt-0 pb-1 text-secondary">
+                                        <a class="nav-link px-2 pt-0 pb-1 text-secondary" asp-controller="Perfil" asp-action="Index" >
                                             @User.Identity.Name
-                                        </span>
+                                        </a>
                                     }
                                     <a class="nav-link px-2 pt-0 pb-0 text-dark" asp-area="" asp-controller="Home" asp-action="CerrarSesion">
                                         Cerrar Sesión

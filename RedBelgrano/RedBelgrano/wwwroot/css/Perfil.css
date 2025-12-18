@@ -1,0 +1,273 @@
+﻿
+/* CONTENEDOR GENERAL */
+.perfil-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4vh 0;
+}
+
+/* TÍTULO DE PÁGINA */
+.perfil-page-title {
+    width: 75%;
+    max-width: 1100px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    color: #75AADB;
+    margin-bottom: 16px;
+}
+
+/* TARJETA PRINCIPAL */
+.perfil-main-card {
+    width: 80%;
+    max-width: 1100px;
+    background-color: white;
+    border-radius: 14px;
+    padding: 28px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+
+
+}
+
+
+/* NOMBRE DESTACADO */
+
+.perfil-name-block {
+    display: flex;
+    gap: 14px;
+}
+
+.perfil-name-block h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    margin: 0;
+    color: #222;
+}
+
+/* BADGE TIPO USUARIO */
+.perfil-user-type {
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.tipo-admin {
+    background-color: #ffe08a;
+    color: #7a5b00;
+}
+
+.tipo-normal {
+    background-color: #e3ecf5;
+    color: #375a7f;
+}
+
+/* GRID DE INFO */
+.perfil-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+}
+
+.perfil-info-item {
+    display: flex;
+    flex-direction: column;
+
+    justify-content:center;
+
+}
+
+.perfil-info-item label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #6669;
+    margin-bottom: 4px;
+}
+
+.perfil-info-item span {
+    font-size: 1rem;
+}
+
+/* SEPARADOR */
+.perfil-divider {
+    border: none;
+    border-top: 1px solid #ddd;
+}
+
+/* TÍTULO DE SECCIÓN */
+.perfil-section-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: -10px;
+}
+
+/* ESTADOS */
+.perfil-estado {
+    font-weight: 700;
+}
+
+.estado-activo {
+    color: #2e8b57;
+}
+
+.estado-inactivo {
+    color: #c0392b;
+}
+
+/* ACCIONES */
+.perfil-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top :16px;
+    gap: 12px
+}
+
+.perfil-btn {
+    padding: 8px 16px;
+    background-color: #75AADB;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: x-small;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.95rem;
+    transition: background-color 0.25s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.perfil-btn:hover {
+    background-color: #0072BB;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* Botón secundario */
+.perfil-btn.secundario {
+    background-color: #ccc;
+    color: #333;
+}
+
+.perfil-btn.secundario:hover {
+    background-color: #b5b5b5;
+}
+
+
+
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .perfil-page-title,
+    .perfil-main-card {
+        width: 92%;
+    }
+}
+
+
+/*.perfil-container{
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.perfil-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,.1);
+    overflow: hidden;
+
+    max-width: 75dvw
+}
+
+.perfil-header {
+    background-color: #75AADB;
+    padding: 18px 24px;
+}
+
+.perfil-titulo {
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    margin: 0;
+}
+
+.perfil-subtitulo {
+    color: #eaf3fb;
+    font-size: 0.9rem;
+}
+
+.perfil-body {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.perfil-section-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    margin-bottom: 14px;
+    color: #333;
+}
+
+.perfil-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+}
+
+.perfil-item {
+    display: flex;
+    flex-direction: column;
+}
+
+    .perfil-item label {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: #555;
+        margin-bottom: 4px;
+    }
+
+    .perfil-item span {
+        font-size: 1rem;
+        color: #222;
+    }
+
+    .perfil-item input {
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+    }
+
+.perfil-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.perfil-btn {
+    padding: 10px 18px;
+    background-color: #75AADB;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+    .perfil-btn:hover {
+        background-color: #0072BB;
+    }
+
+    .perfil-btn.secundario {
+        background-color: #ccc;
+        color: #333;
+    }
+
+.perfil-msg-ok {
+    color: green;
+    font-weight: 600;
+}
+*/
