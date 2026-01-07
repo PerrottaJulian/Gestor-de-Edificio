@@ -1,3 +1,9 @@
-﻿
+﻿@using System.Security.Claims
+
+@{
+    var usuarioId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+}
 
 <h1>COMUNIDAD</h1>
+
+<h3> @usuarioId  </h3>

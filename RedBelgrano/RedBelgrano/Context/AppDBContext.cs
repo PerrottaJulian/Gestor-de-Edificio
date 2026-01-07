@@ -101,7 +101,8 @@ namespace RedBelgrano.Context
                       .IsRequired();
 
                 t.Property(p => p.FechaCreacion)
-                      .IsRequired();
+                      .IsRequired()
+                      .HasDefaultValueSql("GETDATE()");
 
                 t.Property(p => p.Habilitado)
                       .IsRequired();
