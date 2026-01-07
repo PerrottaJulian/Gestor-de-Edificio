@@ -24,6 +24,10 @@ namespace RedBelgrano.Context
         public DbSet<TipoTransaccion> TipoTransaccion { get; set; }
         public DbSet<CategoriaTransaccion> CategoriaTransaccion { get; set; }
 
+        //Publicaciones
+        public DbSet<Publicacion> Publicaciones { get; set; }
+        public DbSet<CategoriaPublicacion> CategoriaPublicacion { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -78,7 +82,64 @@ namespace RedBelgrano.Context
                 t.HasOne(t => t.tipoTransaccion).WithMany(tt => tt.Transacciones).HasForeignKey(t => t.tipoId);
 
             });
-            
+
+            // =========================
+            // Publicacion
+            // =========================
+            modelBuilder.Entity<Publicacion>(t =>
+            {
+                t.ToTable("Publicaciones");
+
+                t.HasKey(p => p.PublicacionId);
+                t.Property(p => p.PublicacionId).UseIdentityColumn().ValueGeneratedOnAdd();
+
+                t.Property(p => p.Titulo)
+                      .IsRequired()
+                      .HasMaxLength(150);
+
+                t.Property(p => p.Contenido)
+                      .IsRequired();
+
+                t.Property(p => p.FechaCreacion)
+                      .IsRequired();
+
+                t.Property(p => p.Habilitado)
+                      .IsRequired();
+
+                t.Property(p => p.UsuarioId)
+                      .IsRequired();
+
+                // Relación Publicacion -> CategoriaPublicacion
+                t.HasOne(p => p.CategoriaPublicacion)
+                      .WithMany(c => c.Publicaciones)
+                      .HasForeignKey(p => p.CategoriaPublicacionId)
+                      .OnDelete(DeleteBehavior.Restrict);
+
+                // Relación Publicacion -> Usuario
+                t.HasOne(p => p.Usuario)
+                      .WithMany(u => u.Publicaciones)
+                      .HasForeignKey(p => p.UsuarioId)
+                      .OnDelete(DeleteBehavior.Restrict);
+            });
+
+            //// =========================
+            //// CategoriaPublicacion
+            //// =========================
+            //modelBuilder.Entity<CategoriaPublicacion>(entity =>
+            //{
+            //    entity.ToTable("CategoriasPublicacion");
+
+            //    entity.HasKey(c => c.Id);
+
+            //    entity.Property(c => c.Nombre)
+            //          .IsRequired()
+            //          .HasMaxLength(50);
+
+            //    // Índice único para evitar categorías duplicadas
+            //    entity.HasIndex(c => c.Nombre)
+            //          .IsUnique();
+            //});
+
 
             modelBuilder.Entity<Usuario>().ToTable("Usuario");
             modelBuilder.Entity<Residente>().ToTable("Residente");

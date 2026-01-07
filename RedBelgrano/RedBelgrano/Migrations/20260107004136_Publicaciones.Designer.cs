@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RedBelgrano.Context;
 
@@ -11,9 +12,11 @@ using RedBelgrano.Context;
 namespace RedBelgrano.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    partial class AppDBContextModelSnapshot : ModelSnapshot
+    [Migration("20260107004136_Publicaciones")]
+    partial class Publicaciones
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -36,7 +39,7 @@ namespace RedBelgrano.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("CategoriaPublicacion");
+                    b.ToTable("CategoriasPublicacion");
                 });
 
             modelBuilder.Entity("RedBelgrano.Models.EnumModels.CategoriaTransaccion", b =>

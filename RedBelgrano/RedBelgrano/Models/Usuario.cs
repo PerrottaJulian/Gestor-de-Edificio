@@ -36,6 +36,7 @@ namespace RedBelgrano.Models
 
         //colecciones de un usuario (luego tendria mas)
         public ICollection<Transaccion> Transacciones { get; set; }
+        public ICollection<Publicacion> Publicaciones { get; set; }
 
 
         private string EncriptarClave(string clave)
