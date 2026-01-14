@@ -1,9 +1,39 @@
-﻿@using System.Security.Claims
+﻿@model RedBelgrano.DataViewModel.CrearPublicacionViewModel
 
-@{
-    var usuarioId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-}
+<h1>Nueva publicación</h1>
 
-<h1>COMUNIDAD</h1>
+<form asp-action="Index" method="post">
+    @Html.AntiForgeryToken()
 
-<h3> @usuarioId  </h3>
+    <div>
+        <label>Título</label><br />
+        <input asp-for="Titulo" />
+        <br />
+        <span asp-validation-for="Titulo"></span>
+    </div>
+
+    <br />
+
+    <div>
+        <label>Categoría</label><br />
+        <select asp-for="CategoriaPublicacionId"
+                asp-items="ViewBag.Categorias">
+            <option value="">Seleccione una categoría</option>
+        </select>
+        <br />
+        <span asp-validation-for="CategoriaPublicacionId"></span>
+    </div>
+
+    <br />
+
+    <div>
+        <label>Contenido</label><br />
+        <textarea asp-for="Contenido" rows="5"></textarea>
+        <br />
+        <span asp-validation-for="Contenido"></span>
+    </div>
+
+    <br />
+
+    <button type="submit">Publicar</button>
+</form>

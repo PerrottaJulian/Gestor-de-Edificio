@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using RedBelgrano.Context;
 using RedBelgrano.DataViewModel;
@@ -20,86 +21,107 @@ namespace RedBelgrano.Controllers
             db = context;
         }
 
+        //[HttpGet]
+        //public async Task<IActionResult> Index()
+        //{
+        //    var publicaciones = await db.Publicaciones
+        //        .Where(p => p.Habilitado)
+        //        .Include(p => p.CategoriaPublicacion)
+        //        .Include(p => p.Usuario)
+        //        .OrderByDescending(p => p.FechaCreacion)
+        //        .Select(p => new PublicacionListadoViewModel
+        //        {
+        //            Id = p.PublicacionId,
+        //            Titulo = p.Titulo,
+        //            Contenido = p.Contenido,
+        //            Categoria = p.CategoriaPublicacion.Nombre,
+        //            Autor = p.Usuario.nombre,
+        //            FechaCreacion = p.FechaCreacion
+        //        })
+        //        .ToListAsync();
+
+        //    var model = new ComunidadIndexViewModel
+        //    {
+        //        Publicaciones = publicaciones,
+        //        NuevaPublicacion = new CrearPublicacionViewModel()
+        //    };
+
+        //    ViewBag.Categorias = await db.CategoriaPublicacion
+        //        .OrderBy(c => c.Nombre)
+        //        .ToListAsync();
+
+        //    return View(model);
+        //}
+
         public async Task<IActionResult> Index()
         {
-            var publicaciones = await db.Publicaciones
-                .Where(p => p.Habilitado)
-                .Include(p => p.CategoriaPublicacion)
-                .Include(p => p.Usuario)
-                .OrderByDescending(p => p.FechaCreacion)
-                .Select(p => new PublicacionListadoViewModel
-                {
-                    Id = p.PublicacionId,
-                    Titulo = p.Titulo,
-                    Contenido = p.Contenido,
-                    Categoria = p.CategoriaPublicacion.Nombre,
-                    Autor = p.Usuario.nombre,
-                    FechaCreacion = p.FechaCreacion
-                })
-                .ToListAsync();
+            ViewBag.Categorias = await ObtenerCategorias();
 
-            var model = new ComunidadIndexViewModel
-            {
-                Publicaciones = publicaciones,
-                NuevaPublicacion = new CrearPublicacionViewModel()
-            };
 
-            ViewBag.Categorias = await db.CategoriaPublicacion
-                .OrderBy(c => c.Nombre)
-                .ToListAsync();
-
-            return View(model);
+            return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Crear(ComunidadIndexViewModel model)
+        public async Task<IActionResult> Index(CrearPublicacionViewModel model)
         {
             if (!ModelState.IsValid)
             {
-                model.Publicaciones = await ObtenerPublicaciones();
-                ViewBag.Categorias = await db.CategoriaPublicacion
-                    .ToListAsync();
+                ViewBag.Categorias = await ObtenerCategorias();
 
-                return View("Index", model);
+                return View(model);
             }
 
             var publicacion = new Publicacion
             {
-                Titulo = model.NuevaPublicacion.Titulo,
-                Contenido = model.NuevaPublicacion.Contenido,
-                CategoriaPublicacionId = model.NuevaPublicacion.CategoriaPublicacionId,
+                Titulo = model.Titulo,
+                Contenido = model.Contenido,
+                CategoriaPublicacionId = model.CategoriaPublicacionId,
                 FechaCreacion = DateTime.UtcNow,
                 Habilitado = true,
-                UsuarioId = int.Parse( User.FindFirstValue(ClaimTypes.NameIdentifier) )
+                UsuarioId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier))
             };
 
             db.Publicaciones.Add(publicacion);
             await db.SaveChangesAsync();
 
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Index");
         }
 
-        private async Task<List<PublicacionListadoViewModel>> ObtenerPublicaciones()
+
+        //[HttpPost]
+        //public async Task<IActionResult> Crear(ComunidadIndexViewModel model)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        model.Publicaciones = await ObtenerPublicaciones();
+        //        ViewBag.Categorias = await db.CategoriaPublicacion
+        //            .ToListAsync();
+
+        //        return View("Index", model);
+        //    }
+
+        //    var publicacion = new Publicacion
+        //    {
+        //        Titulo = model.NuevaPublicacion.Titulo,
+        //        Contenido = model.NuevaPublicacion.Contenido,
+        //        CategoriaPublicacionId = model.NuevaPublicacion.CategoriaPublicacionId,
+        //        FechaCreacion = DateTime.UtcNow,
+        //        Habilitado = true,
+        //        UsuarioId = int.Parse( User.FindFirstValue(ClaimTypes.NameIdentifier) )
+        //    };
+
+        //    db.Publicaciones.Add(publicacion);
+        //    await db.SaveChangesAsync();
+
+        //    return RedirectToAction("Index");
+        //}
+
+        private async Task<SelectList> ObtenerCategorias()
         {
-            return await db.Publicaciones
-                .Where(p => p.Habilitado)
-                .Include(p => p.CategoriaPublicacion)
-                .Include(p => p.Usuario)
-                .OrderByDescending(p => p.FechaCreacion)
-                .Select(p => new PublicacionListadoViewModel
-                {
-                    Id = p.PublicacionId,
-                    Titulo = p.Titulo,
-                    Contenido = p.Contenido,
-                    Categoria = p.CategoriaPublicacion.Nombre,
-                    Autor = p.Usuario.nombre,
-                    FechaCreacion = p.FechaCreacion
-                })
-                .ToListAsync();
+            var categorias = await db.CategoriaPublicacion.ToListAsync();
+            return new SelectList(categorias, "Id", "Nombre");
         }
-
-
 
     }
 }
