@@ -1,39 +1,161 @@
 ﻿@model RedBelgrano.DataViewModel.CrearPublicacionViewModel
 
-<h1>Nueva publicación</h1>
+@{
+    ViewData["Title"] = "Publicaciones";
+    var publicaciones = ViewBag.Publicaciones as IEnumerable<Publicacion>;
+}
 
-<form asp-action="Index" method="post">
-    @Html.AntiForgeryToken()
+<h1 class="mb-4">Publicaciones</h1>
 
-    <div>
-        <label>Título</label><br />
-        <input asp-for="Titulo" />
-        <br />
-        <span asp-validation-for="Titulo"></span>
-    </div>
+<div class="mb-3">
+    <button id="btnMostrarFormulario" class="btn btn-primary me-2">
+        Nueva publicación
+    </button>
+    <button id="btnMostrarListado" class="btn btn-secondary">
+        Ver publicaciones
+    </button>
+</div>
 
-    <br />
+<!-- ================= FORMULARIO ================= -->
+<div id="seccionFormulario" class="@(ViewBag.VistaActiva == "list" ? "d-none" : "")">
 
-    <div>
-        <label>Categoría</label><br />
-        <select asp-for="CategoriaPublicacionId"
-                asp-items="ViewBag.Categorias">
-            <option value="">Seleccione una categoría</option>
-        </select>
-        <br />
-        <span asp-validation-for="CategoriaPublicacionId"></span>
-    </div>
+    <form asp-action="Index" method="post" novalidate>
+        @Html.AntiForgeryToken()
 
-    <br />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-    <div>
-        <label>Contenido</label><br />
-        <textarea asp-for="Contenido" rows="5"></textarea>
-        <br />
-        <span asp-validation-for="Contenido"></span>
-    </div>
+        <div class="mb-3">
+            <label asp-for="Titulo" class="form-label"></label>
+            <input asp-for="Titulo" class="form-control" />
+            <span asp-validation-for="Titulo" class="text-danger"></span>
+        </div>
 
-    <br />
+        <div class="mb-3">
+            <label asp-for="CategoriaPublicacionId" class="form-label"></label>
+            <select asp-for="CategoriaPublicacionId"
+                    asp-items="ViewBag.Categorias"
+                    class="form-select">
+                <option value="0">Seleccione una categoría</option>
+            </select>
+            <span asp-validation-for="CategoriaPublicacionId" class="text-danger"></span>
+        </div>
 
-    <button type="submit">Publicar</button>
-</form>
+        <div class="mb-3">
+            <label asp-for="Contenido" class="form-label"></label>
+            <textarea asp-for="Contenido" rows="5" class="form-control"></textarea>
+            <span asp-validation-for="Contenido" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-success">
+            Publicar
+        </button>
+    </form>
+</div>
+
+<!-- ================= LISTADO ================= -->
+<div id="seccionListado" class="@(ViewBag.VistaActiva == "list" ? "" : "d-none")">
+
+    <form method="get" asp-action="Index" class="mb-3">
+
+        <input type="hidden" name="view" value="list" />
+
+        <div class="row g-2 align-items-end">
+
+            <div class="col-md-4">
+                <label class="form-label">Filtrar por categoría</label>
+                <select name="categoriaId" class="form-select">
+                    <option value="">Todas</option>
+                    @foreach (var cat in (SelectList)ViewBag.Categorias)
+                    {
+                        <option value="@cat.Value"
+                                selected="@(ViewBag.CategoriaSeleccionada?.ToString() == cat.Value)">
+                            @cat.Text
+                        </option>
+                    }
+                </select>
+            </div>
+
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-primary w-100">
+                    Filtrar
+                </button>
+            </div>
+
+        </div>
+    </form>
+
+    @if (publicaciones == null || !publicaciones.Any())
+    {
+        <div class="alert alert-info">
+            No hay publicaciones disponibles.
+        </div>
+    }
+    else
+    {
+
+        foreach (var pub in publicaciones)
+        {
+            <div class="card mb-3">
+                <div class="card-body">
+
+                    <h5 class="card-title">
+                        @pub.Titulo
+                    </h5>
+
+                    <h6 class="card-subtitle mb-2 text-muted">
+                        @pub.CategoriaPublicacion?.Nombre ·
+                        @pub.FechaCreacion.ToString("dd/MM/yyyy HH:mm")
+                    </h6>
+
+                    <p class="card-text">
+                        @pub.Contenido
+                    </p>
+
+                    @if (!pub.Habilitado)
+                    {
+                        <span class="badge bg-secondary">
+                            No habilitada
+                        </span>
+                    }
+                </div>
+            </div>
+        }
+        @if (ViewBag.TotalPaginas > 1)
+        {
+            <nav>
+                <ul class="pagination">
+
+                    @for (int i = 1; i <= ViewBag.TotalPaginas; i++)
+                    {
+                        <li class="page-item @(i == ViewBag.PaginaActual ? "active" : "")">
+                            <a class="page-link"
+                               asp-action="Index"
+                               asp-route-page="@i"
+                               asp-route-categoriaId="@ViewBag.CategoriaSeleccionada">
+                                @i
+                            </a>
+                        </li>
+                    }
+
+                </ul>
+            </nav>
+        }
+    }
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        const btnFormulario = document.getElementById('btnMostrarFormulario');
+        const btnListado = document.getElementById('btnMostrarListado');
+
+        btnFormulario.addEventListener('click', () => {
+            window.location.href = '@Url.Action("Index")';
+        });
+
+        btnListado.addEventListener('click', () => {
+            window.location.href = '@Url.Action("Index", new { view = "list" })';
+        });
+    </script>
+}

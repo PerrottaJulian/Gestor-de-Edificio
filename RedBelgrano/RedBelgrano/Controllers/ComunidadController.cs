@@ -7,121 +7,90 @@ using RedBelgrano.DataViewModel;
 using RedBelgrano.Models;
 using System.Security.Claims;
 
-namespace RedBelgrano.Controllers
+[Authorize]
+public class ComunidadController : Controller
 {
+    private readonly AppDBContext db;
+    private const int PAGE_SIZE = 10;
 
-    [Authorize]
-    public class ComunidadController : Controller
+    public ComunidadController(AppDBContext context)
     {
+        db = context;
+    }
 
-        private readonly AppDBContext db;
+    // ===================== GET =====================
+    public async Task<IActionResult> Index(int? categoriaId, int page = 1, string view = "form")
+    {
+        ViewBag.Categorias = await ObtenerCategorias();
+        ViewBag.CategoriaSeleccionada = categoriaId;
 
-        public ComunidadController(AppDBContext context)
+        var query = db.Publicaciones
+            .Include(p => p.CategoriaPublicacion)
+            .Include(p => p.Usuario)
+            .Where(p => p.Habilitado)
+            .AsQueryable();
+
+        // Filtro por categoría
+        if (categoriaId.HasValue && categoriaId.Value > 0)
         {
-            db = context;
+            query = query.Where(p => p.CategoriaPublicacionId == categoriaId.Value);
         }
 
-        //[HttpGet]
-        //public async Task<IActionResult> Index()
-        //{
-        //    var publicaciones = await db.Publicaciones
-        //        .Where(p => p.Habilitado)
-        //        .Include(p => p.CategoriaPublicacion)
-        //        .Include(p => p.Usuario)
-        //        .OrderByDescending(p => p.FechaCreacion)
-        //        .Select(p => new PublicacionListadoViewModel
-        //        {
-        //            Id = p.PublicacionId,
-        //            Titulo = p.Titulo,
-        //            Contenido = p.Contenido,
-        //            Categoria = p.CategoriaPublicacion.Nombre,
-        //            Autor = p.Usuario.nombre,
-        //            FechaCreacion = p.FechaCreacion
-        //        })
-        //        .ToListAsync();
+        var totalPublicaciones = await query.CountAsync();
 
-        //    var model = new ComunidadIndexViewModel
-        //    {
-        //        Publicaciones = publicaciones,
-        //        NuevaPublicacion = new CrearPublicacionViewModel()
-        //    };
+        var publicaciones = await query
+            .OrderByDescending(p => p.FechaCreacion)
+            .Skip((page - 1) * PAGE_SIZE)
+            .Take(PAGE_SIZE)
+            .ToListAsync();
 
-        //    ViewBag.Categorias = await db.CategoriaPublicacion
-        //        .OrderBy(c => c.Nombre)
-        //        .ToListAsync();
+        ViewBag.Publicaciones = publicaciones;
+        ViewBag.PaginaActual = page;
+        ViewBag.TotalPaginas = (int)Math.Ceiling(totalPublicaciones / (double)PAGE_SIZE);
+        ViewBag.VistaActiva = view;
 
-        //    return View(model);
-        //}
+        return View();
+    }
 
-        public async Task<IActionResult> Index()
+    // ===================== POST =====================
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Index(CrearPublicacionViewModel model)
+    {
+        if (!ModelState.IsValid)
         {
             ViewBag.Categorias = await ObtenerCategorias();
+            ViewBag.Publicaciones = new List<Publicacion>();
+            ViewBag.PaginaActual = 1;
+            ViewBag.TotalPaginas = 1;
 
-
-            return View();
+            return View(model);
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Index(CrearPublicacionViewModel model)
+        var publicacion = new Publicacion
         {
-            if (!ModelState.IsValid)
-            {
-                ViewBag.Categorias = await ObtenerCategorias();
+            Titulo = model.Titulo,
+            Contenido = model.Contenido,
+            CategoriaPublicacionId = model.CategoriaPublicacionId,
+            FechaCreacion = DateTime.UtcNow,
+            Habilitado = true,
+            UsuarioId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!)
+        };
 
-                return View(model);
-            }
+        db.Publicaciones.Add(publicacion);
+        await db.SaveChangesAsync();
 
-            var publicacion = new Publicacion
-            {
-                Titulo = model.Titulo,
-                Contenido = model.Contenido,
-                CategoriaPublicacionId = model.CategoriaPublicacionId,
-                FechaCreacion = DateTime.UtcNow,
-                Habilitado = true,
-                UsuarioId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier))
-            };
+        return RedirectToAction(nameof(Index));
+    }
 
-            db.Publicaciones.Add(publicacion);
-            await db.SaveChangesAsync();
+    // ===================== HELPERS =====================
+    private async Task<SelectList> ObtenerCategorias()
+    {
+        var categorias = await db.CategoriaPublicacion
+            .OrderBy(c => c.Nombre)
+            .ToListAsync();
 
-            return RedirectToAction("Index");
-        }
-
-
-        //[HttpPost]
-        //public async Task<IActionResult> Crear(ComunidadIndexViewModel model)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        model.Publicaciones = await ObtenerPublicaciones();
-        //        ViewBag.Categorias = await db.CategoriaPublicacion
-        //            .ToListAsync();
-
-        //        return View("Index", model);
-        //    }
-
-        //    var publicacion = new Publicacion
-        //    {
-        //        Titulo = model.NuevaPublicacion.Titulo,
-        //        Contenido = model.NuevaPublicacion.Contenido,
-        //        CategoriaPublicacionId = model.NuevaPublicacion.CategoriaPublicacionId,
-        //        FechaCreacion = DateTime.UtcNow,
-        //        Habilitado = true,
-        //        UsuarioId = int.Parse( User.FindFirstValue(ClaimTypes.NameIdentifier) )
-        //    };
-
-        //    db.Publicaciones.Add(publicacion);
-        //    await db.SaveChangesAsync();
-
-        //    return RedirectToAction("Index");
-        //}
-
-        private async Task<SelectList> ObtenerCategorias()
-        {
-            var categorias = await db.CategoriaPublicacion.ToListAsync();
-            return new SelectList(categorias, "Id", "Nombre");
-        }
-
+        return new SelectList(categorias, "Id", "Nombre");
     }
 }
+
