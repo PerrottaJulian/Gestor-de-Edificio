@@ -1,1 +1,147 @@
-﻿
+﻿/* ============================
+   SECCIÓN PUBLICACIONES
+   ============================ */
+
+.publicaciones-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* ---------- TÍTULO ---------- */
+
+.publicaciones-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    color: #333;
+}
+
+/* ---------- BOTONES SUPERIORES ---------- */
+
+.publicaciones-actions {
+    display: flex;
+    gap: 10px;
+}
+
+    .publicaciones-actions .btn {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 400;
+    }
+
+/* ---------- FORMULARIO PUBLICACIÓN ---------- */
+
+.publicacion-form {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.publicacion-form-body {
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.publicacion-form label {
+    margin-bottom: 6px;
+    font-weight: 600;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    font-size: 0.9rem;
+}
+
+.publicacion-form input,
+.publicacion-form textarea,
+.publicacion-form select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+}
+
+.publicacion-form textarea {
+    resize: vertical;
+}
+
+.publicacion-form .btn-success {
+    align-self: flex-start;
+    background-color: #75AADB !important;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.05rem;
+}
+
+    .publicacion-form .btn-success:hover {
+        background-color: #0072BB !important;
+    }
+
+/* ---------- FILTROS ---------- */
+
+.publicaciones-filtros {
+    background-color: white;
+    padding: 18px;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+    .publicaciones-filtros label {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 600;
+        font-size: 0.85rem;
+        color: #333;
+    }
+
+/* ---------- TARJETAS DE PUBLICACIÓN ---------- */
+
+.publicacion-card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+    .publicacion-card .card-body {
+        padding: 20px;
+    }
+
+    .publicacion-card .card-title {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+        font-size: 1.2rem;
+        color: #222;
+    }
+
+    .publicacion-card .card-subtitle {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.85rem;
+        color: #666;
+    }
+
+    .publicacion-card .card-text {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.95rem;
+        color: #333;
+        margin-top: 12px;
+        line-height: 1.5;
+    }
+
+/* ---------- PAGINACIÓN ---------- */
+
+.pagination .page-link {
+    font-family: 'Montserrat', sans-serif;
+    color: #0072BB;
+}
+
+.pagination .active .page-link {
+    background-color: #75AADB;
+    border-color: #75AADB;
+    color: white;
+}
+
+/* ---------- ALERTAS ---------- */
+
+.alert {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+}

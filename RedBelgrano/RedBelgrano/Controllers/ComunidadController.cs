@@ -19,10 +19,12 @@ public class ComunidadController : Controller
     }
 
     // ===================== GET =====================
-    public async Task<IActionResult> Index(int? categoriaId, int page = 1, string view = "form")
+    public async Task<IActionResult> Index( int? categoriaId, string? tipoUsuario, int page = 1, string view = "form")
     {
         ViewBag.Categorias = await ObtenerCategorias();
         ViewBag.CategoriaSeleccionada = categoriaId;
+        ViewBag.TipoUsuarioSeleccionado = tipoUsuario;
+        ViewBag.VistaActiva = view;
 
         var query = db.Publicaciones
             .Include(p => p.CategoriaPublicacion)
@@ -36,6 +38,14 @@ public class ComunidadController : Controller
             query = query.Where(p => p.CategoriaPublicacionId == categoriaId.Value);
         }
 
+        // Filtro por tipo de usuario
+        if (!string.IsNullOrEmpty(tipoUsuario))
+        {
+            query = query.Where(p => p.Usuario.tipo == tipoUsuario);
+        }
+
+        const int PAGE_SIZE = 10;
+
         var totalPublicaciones = await query.CountAsync();
 
         var publicaciones = await query
@@ -46,11 +56,12 @@ public class ComunidadController : Controller
 
         ViewBag.Publicaciones = publicaciones;
         ViewBag.PaginaActual = page;
-        ViewBag.TotalPaginas = (int)Math.Ceiling(totalPublicaciones / (double)PAGE_SIZE);
-        ViewBag.VistaActiva = view;
+        ViewBag.TotalPaginas =
+            (int)Math.Ceiling(totalPublicaciones / (double)PAGE_SIZE);
 
         return View();
     }
+
 
     // ===================== POST =====================
     [HttpPost]
