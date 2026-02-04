@@ -12,19 +12,34 @@
 
 <div class="publicaciones-container">
 
-    <h1 class="mb-4 publicaciones-title">Publicaciones</h1>
+    <h1 class=" publicaciones-title">Comunidad</h1>
 
-    <div class="mb-3 publicaciones-actions">
-        <button id="btnMostrarFormulario" class="btn btn-primary">
-            Nueva publicación
+    @* <div class="mb-3 publicaciones-actions">
+        <div class="btn-group" role="group" aria-label="Toggle publicaciones">
+            <button id="btnMostrarFormulario"
+                    type="button"
+                    class="btn btn-outline-primary active-toggle">
+                Nueva publicación
+            </button>
+
+            <button id="btnMostrarListado"
+                    type="button"
+                    class="btn btn-outline-primary">
+                Ver publicaciones
+            </button>
+        </div>
+    </div> *@
+    <div class="toggle-container">
+        <button class="toggle-btn active" data-target="seccionFormulario">
+            Vista A
         </button>
-        <button id="btnMostrarListado" class="btn btn-secondary">
-            Ver publicaciones
+        <button class="toggle-btn" data-target="seccionListado">
+            Vista B
         </button>
     </div>
 
     <!-- ================= FORMULARIO ================= -->
-    <div id="seccionFormulario" class="@(ViewBag.VistaActiva == "list" ? "d-none" : "")">
+    <div id="seccionFormulario" class="toggle-view active">
 
         <form asp-action="Index" method="post" novalidate class="publicacion-form">
             @Html.AntiForgeryToken()
@@ -64,7 +79,7 @@
     </div>
 
     <!-- ================= LISTADO ================= -->
-    <div id="seccionListado" class="@(ViewBag.VistaActiva == "list" ? "" : "d-none")">
+    <div id="seccionListado" class="toggle-view">
 
         <form method="get" asp-action="Index" class="mb-4 publicaciones-filtros">
             <input type="hidden" name="view" value="list" />
@@ -169,16 +184,55 @@
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 
-    <script>
+    @* <script>
         const btnFormulario = document.getElementById('btnMostrarFormulario');
         const btnListado = document.getElementById('btnMostrarListado');
 
+        function activarBoton(botonActivo, botonInactivo) {
+            botonActivo.classList.add("active-toggle");
+            botonInactivo.classList.remove("active-toggle");
+        }
+
         btnFormulario.addEventListener('click', () => {
+            formulario.style.display = "block";
+            listado.style.display = "none";
+            activarBoton(btnFormulario, btnListado);
             window.location.href = '@Url.Action("Index")';
+
         });
 
         btnListado.addEventListener('click', () => {
+            formulario.style.display = "none";
+            listado.style.display = "block";
+            activarBoton(btnListado, btnFormulario);
             window.location.href = '@Url.Action("Index", new { view = "list" })';
+
+        });
+
+    </script> *@
+
+    <script>
+        document.querySelectorAll('.toggle-btn').forEach(button => {
+            button.addEventListener('click', function () {
+
+                // Botones
+                document.querySelectorAll('.toggle-btn')
+                    .forEach(btn => btn.classList.remove('active'));
+
+                this.classList.add('active');
+
+                // Vistas
+                document.querySelectorAll('.toggle-view')
+                    .forEach(view => view.classList.remove('active'));
+
+                const targetId = this.dataset.target;
+                const targetView = document.getElementById(targetId);
+
+                if (targetView) {
+                    targetView.classList.add('active');
+                }
+            });
         });
     </script>
+
 }
