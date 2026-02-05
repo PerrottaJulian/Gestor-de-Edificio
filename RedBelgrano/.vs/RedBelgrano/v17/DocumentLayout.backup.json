@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Admin\\dev-home\\Gestor-de-Edificio\\RedBelgrano\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|c:\\users\\admin\\dev-home\\gestor-de-edificio\\redbelgrano\\redbelgrano\\wwwroot\\css\\comunidad.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|solutionrelative:redbelgrano\\wwwroot\\css\\comunidad.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|c:\\users\\admin\\dev-home\\gestor-de-edificio\\redbelgrano\\redbelgrano\\views\\comunidad\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|solutionrelative:redbelgrano\\views\\comunidad\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|c:\\users\\admin\\dev-home\\gestor-de-edificio\\redbelgrano\\redbelgrano\\controllers\\comunidadcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|solutionrelative:redbelgrano\\controllers\\comunidadcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|c:\\users\\admin\\dev-home\\gestor-de-edificio\\redbelgrano\\redbelgrano\\wwwroot\\css\\comunidad.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|solutionrelative:redbelgrano\\wwwroot\\css\\comunidad.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,21 +22,20 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "ComunidadController.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\dev-home\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Controllers\\ComunidadController.cs",
               "RelativeDocumentMoniker": "RedBelgrano\\Controllers\\ComunidadController.cs",
               "ToolTip": "C:\\Users\\Admin\\dev-home\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Controllers\\ComunidadController.cs",
               "RelativeToolTip": "RedBelgrano\\Controllers\\ComunidadController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAiwF8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAADQAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-07T03:39:46.226Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Bookmark",
@@ -56,26 +55,25 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Admin\\dev-home\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Views\\Comunidad\\Index.cshtml",
               "RelativeDocumentMoniker": "RedBelgrano\\Views\\Comunidad\\Index.cshtml",
               "ToolTip": "C:\\Users\\Admin\\dev-home\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Views\\Comunidad\\Index.cshtml",
               "RelativeToolTip": "RedBelgrano\\Views\\Comunidad\\Index.cshtml",
-              "ViewState": "AgIAAM4AAAAAAAAAAAAiwOkAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAACAAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-01-07T04:05:05.857Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-07T04:05:05.857Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Comunidad.css",
               "DocumentMoniker": "C:\\Users\\Admin\\dev-home\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\wwwroot\\css\\Comunidad.css",
               "RelativeDocumentMoniker": "RedBelgrano\\wwwroot\\css\\Comunidad.css",
-              "ToolTip": "C:\\Users\\Admin\\dev-home\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\wwwroot\\css\\Comunidad.css",
-              "RelativeToolTip": "RedBelgrano\\wwwroot\\css\\Comunidad.css",
-              "ViewState": "AgIAADAAAAAAAAAAAAAiwD8AAAALAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\Admin\\dev-home\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\wwwroot\\css\\Comunidad.css*",
+              "RelativeToolTip": "RedBelgrano\\wwwroot\\css\\Comunidad.css*",
+              "ViewState": "AgIAABIAAAAAAAAAAAAiwCIAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
               "WhenOpened": "2026-02-03T00:06:12.637Z",
               "EditorCaption": ""

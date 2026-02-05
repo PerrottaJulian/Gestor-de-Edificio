@@ -1,4 +1,3 @@
-wwwroot\css\Comunidad.css
 wwwroot\css\Finanzas.css
 wwwroot\css\Home.css
 wwwroot\css\Login.css
@@ -68,3 +67,4 @@ wwwroot\lib\jquery\dist\jquery.js
 wwwroot\lib\jquery\dist\jquery.min.js
 wwwroot\lib\jquery\dist\jquery.min.map
 wwwroot\lib\jquery\LICENSE.txt
+wwwroot\css\Comunidad.css
