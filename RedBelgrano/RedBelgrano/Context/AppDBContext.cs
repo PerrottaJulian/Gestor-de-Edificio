@@ -28,6 +28,11 @@ namespace RedBelgrano.Context
         public DbSet<Publicacion> Publicaciones { get; set; }
         public DbSet<CategoriaPublicacion> CategoriaPublicacion { get; set; }
 
+        // Tickets
+        public DbSet<Ticket> Tickets { get; set; }
+        public DbSet<EstadoTicket> EstadoTicket { get; set; }
+        public DbSet<CategoriaTicket> CategoriaTicket { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -123,27 +128,76 @@ namespace RedBelgrano.Context
                       .OnDelete(DeleteBehavior.Restrict);
             });
 
-            //// =========================
-            //// CategoriaPublicacion
-            //// =========================
-            //modelBuilder.Entity<CategoriaPublicacion>(entity =>
-            //{
-            //    entity.ToTable("CategoriasPublicacion");
+            // ======================
+            // Ticket
+            // ======================
+            modelBuilder.Entity<Ticket>(entity =>
+            {
+                entity.HasKey(t => t.Id);
+                entity.Property(t => t.Id).ValueGeneratedOnAdd();
 
-            //    entity.HasKey(c => c.Id);
+                entity.Property(t => t.Titulo)
+                    .IsRequired()
+                    .HasMaxLength(150);
 
-            //    entity.Property(c => c.Nombre)
-            //          .IsRequired()
-            //          .HasMaxLength(50);
+                entity.Property(t => t.Contenido)
+                    .IsRequired()
+                    .HasMaxLength(1000);
 
-            //    // Índice único para evitar categorías duplicadas
-            //    entity.HasIndex(c => c.Nombre)
-            //          .IsUnique();
-            //});
+                entity.Property(t => t.FechaCreacion)
+                    .IsRequired();
+
+                // Relación con Usuario (Emisor)
+                entity.HasOne(t => t.Emisor)
+                    .WithMany(u => u.Tickets)
+                    .HasForeignKey(t => t.EmisorId)
+                    .OnDelete(DeleteBehavior.Restrict);
+
+                // Relación con EstadoTicket
+                entity.HasOne(t => t.EstadoTicket)
+                    .WithMany(e => e.Tickets)
+                    .HasForeignKey(t => t.EstadoTicketId)
+                    .OnDelete(DeleteBehavior.Restrict);
+
+                // Relación con CategoriaTicket
+                entity.HasOne(t => t.CategoriaTicket)
+                    .WithMany(c => c.Tickets)
+                    .HasForeignKey(t => t.CategoriaTicketId)
+                    .OnDelete(DeleteBehavior.Restrict);
+            });
+
+            // ======================
+            // EstadoTicket
+            // ======================
+            modelBuilder.Entity<EstadoTicket>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+                entity.Property(t => t.Id).ValueGeneratedOnAdd();
 
 
-            modelBuilder.Entity<Usuario>().ToTable("Usuario");
-            modelBuilder.Entity<Residente>().ToTable("Residente");
+                entity.Property(e => e.Nombre)
+                    .IsRequired()
+                    .HasMaxLength(50);
+            });
+
+            // ======================
+            // CategoriaTicket
+            // ======================
+            modelBuilder.Entity<CategoriaTicket>(entity =>
+            {
+                entity.HasKey(c => c.Id);
+                entity.Property(t => t.Id).ValueGeneratedOnAdd();
+
+
+                entity.Property(c => c.Nombre)
+                    .IsRequired()
+                    .HasMaxLength(50);
+            });
+
+
+
+            modelBuilder.Entity<Usuario>().ToTable("Usuarios");
+            modelBuilder.Entity<Residente>().ToTable("Residentes");
             modelBuilder.Entity<TipoResidente>().ToTable("TipoResidente").Metadata.SetIsTableExcludedFromMigrations(true);
             modelBuilder.Entity<EstadoResidente>().ToTable("EstadoResidente").Metadata.SetIsTableExcludedFromMigrations(true);
 

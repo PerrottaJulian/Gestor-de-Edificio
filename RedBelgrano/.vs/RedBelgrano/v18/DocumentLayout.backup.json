@@ -3,20 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Acer\\Develop\\Gestor-de-Edificio\\RedBelgrano\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|c:\\users\\acer\\develop\\gestor-de-edificio\\redbelgrano\\redbelgrano\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|solutionrelative:redbelgrano\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|c:\\users\\acer\\develop\\gestor-de-edificio\\redbelgrano\\redbelgrano\\views\\ticket\\crear.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|solutionrelative:redbelgrano\\views\\ticket\\crear.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|c:\\users\\acer\\develop\\gestor-de-edificio\\redbelgrano\\redbelgrano\\controllers\\comunidadcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|solutionrelative:redbelgrano\\controllers\\comunidadcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|c:\\users\\acer\\develop\\gestor-de-edificio\\redbelgrano\\redbelgrano\\dataviewmodel\\crearticketviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|solutionrelative:redbelgrano\\dataviewmodel\\crearticketviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|c:\\users\\acer\\develop\\gestor-de-edificio\\redbelgrano\\redbelgrano\\views\\comunidad\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|solutionrelative:redbelgrano\\views\\comunidad\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|c:\\users\\acer\\develop\\gestor-de-edificio\\redbelgrano\\redbelgrano\\wwwroot\\css\\comunidad.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|solutionrelative:redbelgrano\\wwwroot\\css\\comunidad.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|c:\\users\\acer\\develop\\gestor-de-edificio\\redbelgrano\\redbelgrano\\controllers\\ticketcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|solutionrelative:redbelgrano\\controllers\\ticketcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,8 +22,48 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TicketController.cs",
+              "DocumentMoniker": "C:\\Users\\Acer\\Develop\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Controllers\\TicketController.cs",
+              "RelativeDocumentMoniker": "RedBelgrano\\Controllers\\TicketController.cs",
+              "ToolTip": "C:\\Users\\Acer\\Develop\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Controllers\\TicketController.cs",
+              "RelativeToolTip": "RedBelgrano\\Controllers\\TicketController.cs",
+              "ViewState": "AgIAADgAAAAAAAAAAAAmwC8AAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-07T18:40:09.768Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Crear.cshtml",
+              "DocumentMoniker": "C:\\Users\\Acer\\Develop\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Views\\Ticket\\Crear.cshtml",
+              "RelativeDocumentMoniker": "RedBelgrano\\Views\\Ticket\\Crear.cshtml",
+              "ToolTip": "C:\\Users\\Acer\\Develop\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Views\\Ticket\\Crear.cshtml",
+              "RelativeToolTip": "RedBelgrano\\Views\\Ticket\\Crear.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-08T17:46:52.775Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CrearTicketViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Acer\\Develop\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\DataViewModel\\CrearTicketViewModel.cs",
+              "RelativeDocumentMoniker": "RedBelgrano\\DataViewModel\\CrearTicketViewModel.cs",
+              "ToolTip": "C:\\Users\\Acer\\Develop\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\DataViewModel\\CrearTicketViewModel.cs",
+              "RelativeToolTip": "RedBelgrano\\DataViewModel\\CrearTicketViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-08T17:46:44.911Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
@@ -43,55 +79,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{e506b91c-c606-466a-90a9-123d1d1e12b3}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\Acer\\Develop\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\appsettings.json",
-              "RelativeDocumentMoniker": "RedBelgrano\\appsettings.json",
-              "ToolTip": "C:\\Users\\Acer\\Develop\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\appsettings.json",
-              "RelativeToolTip": "RedBelgrano\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-02-07T12:52:44.129Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ComunidadController.cs",
-              "DocumentMoniker": "C:\\Users\\Acer\\Develop\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Controllers\\ComunidadController.cs",
-              "RelativeDocumentMoniker": "RedBelgrano\\Controllers\\ComunidadController.cs",
-              "ToolTip": "C:\\Users\\Acer\\Develop\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Controllers\\ComunidadController.cs",
-              "RelativeToolTip": "RedBelgrano\\Controllers\\ComunidadController.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAYwBgAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-06T22:21:33.462Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Acer\\Develop\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Views\\Comunidad\\Index.cshtml",
-              "RelativeDocumentMoniker": "RedBelgrano\\Views\\Comunidad\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Acer\\Develop\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Views\\Comunidad\\Index.cshtml",
-              "RelativeToolTip": "RedBelgrano\\Views\\Comunidad\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-02-06T22:21:33.8Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Comunidad.css",
-              "DocumentMoniker": "C:\\Users\\Acer\\Develop\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\wwwroot\\css\\Comunidad.css",
-              "RelativeDocumentMoniker": "RedBelgrano\\wwwroot\\css\\Comunidad.css",
-              "ToolTip": "C:\\Users\\Acer\\Develop\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\wwwroot\\css\\Comunidad.css",
-              "RelativeToolTip": "RedBelgrano\\wwwroot\\css\\Comunidad.css",
-              "ViewState": "AgIAAHsAAAAAAAAAAAAAAKMAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-02-06T22:21:33.814Z"
             }
           ]
         },

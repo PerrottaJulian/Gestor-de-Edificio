@@ -1,0 +1,35 @@
+﻿@model RedBelgrano.DataViewModel.CrearTicketViewModel
+
+<h2>Crear Ticket</h2>
+
+<form asp-action="Crear" method="post">
+    @Html.AntiForgeryToken()
+
+    <div>
+        <label>Título</label><br />
+        <input asp-for="Titulo" />
+        <span asp-validation-for="Titulo"></span>
+    </div>
+
+    <div>
+        <label>Categoría</label><br />
+        <select asp-for="CategoriaTicketId" asp-items="Model.Categorias">
+        </select>
+
+        <span asp-validation-for="CategoriaTicketId"></span>
+    </div>
+
+    <div>
+        <label>Contenido</label><br />
+        <textarea asp-for="Contenido"></textarea>
+        <span asp-validation-for="Contenido"></span>
+    </div>
+
+    <br />
+
+    <button type="submit">Enviar Ticket</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

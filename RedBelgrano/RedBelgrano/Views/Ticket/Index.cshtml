@@ -1,0 +1,67 @@
+﻿@model RedBelgrano.DataViewModel.FiltroTicketViewModel
+
+<h2>Listado de Tickets</h2>
+
+<form method="get">
+    <label>Estado</label>
+    <select asp-for="EstadoTicketId" asp-items="Model.Estados">
+        <option value="">Todos</option>
+    </select>
+
+    <label>Categoría</label>
+    <select asp-for="CategoriaTicketId" asp-items="Model.Categorias">
+        <option value="">Todas</option>
+    </select>
+
+    <button type="submit">Filtrar</button>
+</form>
+
+<hr />
+
+<table border="1" cellpadding="5">
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Categoría</th>
+            <th>Estado</th>
+            <th>Emisor</th>
+            <th>Fecha</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ticket in Model.Tickets)
+        {
+            <tr>
+                <td>@ticket.Titulo</td>
+                <td>@ticket.Categoria</td>
+                <td>@ticket.Estado</td>
+                <td>@ticket.Emisor</td>
+                <td>@ticket.FechaCreacion.ToString("dd/MM/yyyy HH:mm")</td>
+                <td>
+                    <form asp-action="CambiarEstado" method="post">
+                        @Html.AntiForgeryToken()
+
+                        <input type="hidden" name="ticketId" value="@ticket.Id" />
+
+                        <select name="nuevoEstadoId">
+                            @foreach (var estado in Model.Estados)
+                            {
+                                <option value="@estado.Value"
+                                        selected="@(estado.Text == ticket.Estado)">
+                                    @estado.Text
+                                </option>
+                            }
+                        </select>
+
+                        <button type="submit">Cambiar</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
