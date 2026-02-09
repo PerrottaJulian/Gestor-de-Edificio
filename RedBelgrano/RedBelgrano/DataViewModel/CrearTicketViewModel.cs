@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.ComponentModel.DataAnnotations;
 
 namespace RedBelgrano.DataViewModel
@@ -17,6 +18,7 @@ namespace RedBelgrano.DataViewModel
         public int CategoriaTicketId { get; set; }
 
         // Para el combo
+        [ValidateNever]
         public IEnumerable<SelectListItem> Categorias { get; set; }
     }
 }
