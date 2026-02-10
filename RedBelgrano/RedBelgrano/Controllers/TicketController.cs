@@ -40,6 +40,8 @@ namespace RedBelgrano.Controllers
         [Authorize(Roles = "Residente")]
         public IActionResult Crear()
         {
+            var emisorId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
+
             var vm = new CrearTicketViewModel
             {
                 Categorias = _context.CategoriaTicket
@@ -47,6 +49,21 @@ namespace RedBelgrano.Controllers
                     {
                         Value = c.Id.ToString(),
                         Text = c.Nombre
+                    })
+                    .ToList(),
+
+                MisTickets = _context.Tickets
+                    .Include(t => t.EstadoTicket)
+                    .Include(t => t.CategoriaTicket)
+                    .Where(t => t.EmisorId == emisorId)
+                    .OrderByDescending(t => t.FechaCreacion)
+                    .Select(t => new ListadoTicketsResidenteVM
+                    {
+                        Id = t.Id,
+                        Titulo = t.Titulo,
+                        Categoria = t.CategoriaTicket.Nombre,
+                        Estado = t.EstadoTicket.Nombre,
+                        FechaCreacion = t.FechaCreacion
                     })
                     .ToList()
             };
@@ -61,15 +78,7 @@ namespace RedBelgrano.Controllers
         {
             if (!ModelState.IsValid)
             {
-                vm.Categorias = _context.CategoriaTicket
-                    .Select(c => new SelectListItem
-                    {
-                        Value = c.Id.ToString(),
-                        Text = c.Nombre
-                    })
-                    .ToList();
-
-                return View(vm);
+                return Crear();
             }
 
             var emisorId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);

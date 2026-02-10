@@ -20,5 +20,9 @@ namespace RedBelgrano.DataViewModel
         // Para el combo
         [ValidateNever]
         public IEnumerable<SelectListItem> Categorias { get; set; }
+
+        // Listado del residente
+        [ValidateNever]
+        public List<ListadoTicketsResidenteVM> MisTickets { get; set; }
     }
 }

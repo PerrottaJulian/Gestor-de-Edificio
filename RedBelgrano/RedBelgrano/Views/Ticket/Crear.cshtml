@@ -30,6 +30,40 @@
     <button type="submit">Enviar Ticket</button>
 </form>
 
+<hr />
+
+<h3>Mis Tickets</h3>
+
+@if (Model.MisTickets != null && Model.MisTickets.Any())
+{
+    <table border="1" cellpadding="5">
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Categoría</th>
+                <th>Estado</th>
+                <th>Fecha</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var ticket in Model.MisTickets)
+            {
+                <tr>
+                    <td>@ticket.Titulo</td>
+                    <td>@ticket.Categoria</td>
+                    <td>@ticket.Estado</td>
+                    <td>@ticket.FechaCreacion.ToString("dd/MM/yyyy HH:mm")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No has creado tickets aún.</p>
+}
+
+
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }
