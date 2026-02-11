@@ -11,5 +11,11 @@ namespace RedBelgrano.DataViewModel
         public IEnumerable<SelectListItem> Categorias { get; set; }
 
         public List<ListaTicketsViewModel> Tickets { get; set; }
+        
+        // ---------- PAGINACIÓN ----------
+        public int PaginaActual { get; set; } = 1;
+        public int TotalPaginas { get; set; }
+        public int TotalRegistros { get; set; }
+        public int RegistrosPorPagina { get; set; } = 5; // puedes cambiarlo
     }
 }

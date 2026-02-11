@@ -1,50 +1,69 @@
 ﻿@model RedBelgrano.DataViewModel.FiltroTicketViewModel
+<link rel="stylesheet" href="~/css/Ticket.css" />
 
-<h2>Listado de Tickets</h2>
+<div class="tickets-container">
 
-<form method="get">
-    <label>Estado</label>
-    <select asp-for="EstadoTicketId" asp-items="Model.Estados">
-        <option value="">Todos</option>
-    </select>
+    <h1 class="tickets-title">Gestión de Tickets</h1>
 
-    <label>Categoría</label>
-    <select asp-for="CategoriaTicketId" asp-items="Model.Categorias">
-        <option value="">Todas</option>
-    </select>
+    <!-- FILTROS -->
+    <div class="filtros-block">
+        <form method="get" class="filtros-inline">
+            <div>
+                <label>Estado</label>
+                <select asp-for="EstadoTicketId"
+                        asp-items="Model.Estados"
+                        class="form-control">
+                    <option value="">Todos</option>
+                </select>
+            </div>
 
-    <button type="submit">Filtrar</button>
-</form>
+            <div>
+                <label>Categoría</label>
+                <select asp-for="CategoriaTicketId"
+                        asp-items="Model.Categorias"
+                        class="form-control">
+                    <option value="">Todas</option>
+                </select>
+            </div>
 
-<hr />
+            <div>
+                <button type="submit" class="btn-primary btn-small">
+                    Filtrar
+                </button>
+            </div>
+        </form>
+    </div>
 
-<table border="1" cellpadding="5">
-    <thead>
-        <tr>
-            <th>Título</th>
-            <th>Categoría</th>
-            <th>Estado</th>
-            <th>Emisor</th>
-            <th>Fecha</th>
-            <th>Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
+    <!-- LISTADO -->
+    @if (Model.Tickets != null && Model.Tickets.Any())
+    {
         @foreach (var ticket in Model.Tickets)
         {
-            <tr>
-                <td>@ticket.Titulo</td>
-                <td>@ticket.Categoria</td>
-                <td>@ticket.Estado</td>
-                <td>@ticket.Emisor</td>
-                <td>@ticket.FechaCreacion.ToString("dd/MM/yyyy HH:mm")</td>
-                <td>
+            <div class="ticket-item">
+
+                <div class="ticket-header">
+                    <div>
+                        <div class="ticket-title">
+                            @ticket.Titulo
+                        </div>
+                        <div class="ticket-meta">
+                            @ticket.Categoria · @ticket.Estado <br />
+                            @ticket.Emisor · @ticket.FechaCreacion.ToString("dd/MM/yyyy HH:mm")
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ticket-content">
+                    @ticket.Contenido
+                </div>
+
+                <div class="ticket-actions">
                     <form asp-action="CambiarEstado" method="post">
                         @Html.AntiForgeryToken()
 
                         <input type="hidden" name="ticketId" value="@ticket.Id" />
 
-                        <select name="nuevoEstadoId">
+                        <select name="nuevoEstadoId" class="estado-select">
                             @foreach (var estado in Model.Estados)
                             {
                                 <option value="@estado.Value"
@@ -54,14 +73,58 @@
                             }
                         </select>
 
-                        <button type="submit">Cambiar</button>
+                        <button type="submit" class="btn-primary btn-small">
+                            Cambiar
+                        </button>
                     </form>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+                </div>
 
-@section Scripts {
-    <partial name="_ValidationScriptsPartial" />
-}
+            </div>
+        }
+    }
+    else
+    {
+        <p>No hay tickets para mostrar.</p>
+    }
+
+    @if (Model.TotalPaginas > 1)
+    {
+        <div class="paginacion-container">
+
+            @if (Model.PaginaActual > 1)
+            {
+                <a class="btn-paginacion"
+                   asp-action="Index"
+                   asp-route-pagina="@(Model.PaginaActual - 1)"
+                   asp-route-EstadoTicketId="@Model.EstadoTicketId"
+                   asp-route-CategoriaTicketId="@Model.CategoriaTicketId">
+                    ← Anterior
+                </a>
+            }
+
+            @for (int i = 1; i <= Model.TotalPaginas; i++)
+            {
+                <a class="btn-paginacion @(i == Model.PaginaActual ? "activo" : "")"
+                   asp-action="Index"
+                   asp-route-pagina="@i"
+                   asp-route-EstadoTicketId="@Model.EstadoTicketId"
+                   asp-route-CategoriaTicketId="@Model.CategoriaTicketId">
+                    @i
+                </a>
+            }
+
+            @if (Model.PaginaActual < Model.TotalPaginas)
+            {
+                <a class="btn-paginacion"
+                   asp-action="Index"
+                   asp-route-pagina="@(Model.PaginaActual + 1)"
+                   asp-route-EstadoTicketId="@Model.EstadoTicketId"
+                   asp-route-CategoriaTicketId="@Model.CategoriaTicketId">
+                    Siguiente →
+                </a>
+            }
+
+        </div>
+    }
+
+</div>

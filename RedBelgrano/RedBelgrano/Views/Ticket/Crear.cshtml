@@ -1,68 +1,73 @@
 ﻿@model RedBelgrano.DataViewModel.CrearTicketViewModel
+<link rel="stylesheet" href="~/css/Ticket.css" />
 
-<h2>Crear Ticket</h2>
+<div class="tickets-container">
+    <h1 class="tickets-title">Nuevo Ticket</h1>
 
-<form asp-action="Crear" method="post">
-    @Html.AntiForgeryToken()
+    <div class="residente-layout">
 
-    <div>
-        <label>Título</label><br />
-        <input asp-for="Titulo" />
-        <span asp-validation-for="Titulo"></span>
-    </div>
+        <!-- FORMULARIO -->
+        <div class="form-block">
+            <form asp-action="Crear" method="post">
+                @Html.AntiForgeryToken()
 
-    <div>
-        <label>Categoría</label><br />
-        <select asp-for="CategoriaTicketId" asp-items="Model.Categorias">
-        </select>
+                <div class="form-group">
+                    <label>Título</label>
+                    <input asp-for="Titulo" class="form-control" />
+                    <span asp-validation-for="Titulo" class="validation-error"></span>
+                </div>
 
-        <span asp-validation-for="CategoriaTicketId"></span>
-    </div>
+                <div class="form-group">
+                    <label>Categoría</label>
+                    <select asp-for="CategoriaTicketId"
+                            asp-items="Model.Categorias"
+                            class="form-control">
+                        <option value="">-- Seleccionar --</option>
+                    </select>
+                    <span asp-validation-for="CategoriaTicketId" class="validation-error"></span>
+                </div>
 
-    <div>
-        <label>Contenido</label><br />
-        <textarea asp-for="Contenido"></textarea>
-        <span asp-validation-for="Contenido"></span>
-    </div>
+                <div class="form-group">
+                    <label>Detalle</label>
+                    <textarea asp-for="Contenido" class="form-control"></textarea>
+                    <span asp-validation-for="Contenido" class="validation-error"></span>
+                </div>
 
-    <br />
+                <button type="submit" class="btn-primary">
+                    Enviar Ticket
+                </button>
+            </form>
+        </div>
 
-    <button type="submit">Enviar Ticket</button>
-</form>
+        <!-- LISTADO COMPACTO -->
+        <div class="mis-tickets">
+            <h3>Mis Tickets</h3>
 
-<hr />
-
-<h3>Mis Tickets</h3>
-
-@if (Model.MisTickets != null && Model.MisTickets.Any())
-{
-    <table border="1" cellpadding="5">
-        <thead>
-            <tr>
-                <th>Título</th>
-                <th>Categoría</th>
-                <th>Estado</th>
-                <th>Fecha</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var ticket in Model.MisTickets)
+            @if (Model.MisTickets != null && Model.MisTickets.Any())
             {
-                <tr>
-                    <td>@ticket.Titulo</td>
-                    <td>@ticket.Categoria</td>
-                    <td>@ticket.Estado</td>
-                    <td>@ticket.FechaCreacion.ToString("dd/MM/yyyy HH:mm")</td>
-                </tr>
+                @foreach (var ticket in Model.MisTickets)
+                {
+                    <div class="ticket-mini">
+                        <div class="ticket-mini-title">
+                            @ticket.Titulo
+                        </div>
+                        <div class="ticket-mini-meta">
+                            @ticket.Categoria · @ticket.Estado <br />
+                            @ticket.FechaCreacion.ToString("dd/MM/yyyy HH:mm")
+                        </div>
+                    </div>
+                }
             }
-        </tbody>
-    </table>
-}
-else
-{
-    <p>No has creado tickets aún.</p>
-}
+            else
+            {
+                <p class="ticket-mini-meta">
+                    No has creado tickets aún.
+                </p>
+            }
+        </div>
 
+    </div>
+</div>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

@@ -57,6 +57,7 @@ namespace RedBelgrano.Controllers
                     .Include(t => t.CategoriaTicket)
                     .Where(t => t.EmisorId == emisorId)
                     .OrderByDescending(t => t.FechaCreacion)
+                    .Take(5)
                     .Select(t => new ListadoTicketsResidenteVM
                     {
                         Id = t.Id,
@@ -102,12 +103,14 @@ namespace RedBelgrano.Controllers
         // ------------- Acciones para ENCARGADO --------------
 
         //[Authorize(Roles = "Encargado,Administrador")]
-        public IActionResult Index(FiltroTicketViewModel filtro)
+        public IActionResult Index(FiltroTicketViewModel filtro, int pagina = 1)
         {
             if (User.IsInRole("Residente"))
             {
                 return RedirectToAction("Crear");
             }
+
+            int registrosPorPagina = 5;
 
             var query = _context.Tickets
                 .Include(t => t.Emisor)
@@ -115,11 +118,33 @@ namespace RedBelgrano.Controllers
                 .Include(t => t.CategoriaTicket)
                 .AsQueryable();
 
+            // ---------------- FILTROS ----------------
+
             if (filtro.EstadoTicketId.HasValue)
                 query = query.Where(t => t.EstadoTicketId == filtro.EstadoTicketId);
 
             if (filtro.CategoriaTicketId.HasValue)
                 query = query.Where(t => t.CategoriaTicketId == filtro.CategoriaTicketId);
+
+            // ---------------- PAGINACIÓN ----------------
+
+            int totalRegistros = query.Count();
+
+            var ticketsPaginados = query
+                .OrderByDescending(t => t.FechaCreacion)
+                .Skip((pagina - 1) * registrosPorPagina)
+                .Take(registrosPorPagina)
+                .Select(t => new ListaTicketsViewModel
+                {
+                    Id = t.Id,
+                    Titulo = t.Titulo,
+                    Categoria = t.CategoriaTicket.Nombre,
+                    Contenido = t.Contenido,
+                    Estado = t.EstadoTicket.Nombre,
+                    Emisor = t.Emisor.nombre,
+                    FechaCreacion = t.FechaCreacion
+                })
+                .ToList();
 
             var vm = new FiltroTicketViewModel
             {
@@ -142,18 +167,12 @@ namespace RedBelgrano.Controllers
                     })
                     .ToList(),
 
-                Tickets = query
-                    .OrderByDescending(t => t.FechaCreacion)
-                    .Select(t => new ListaTicketsViewModel
-                    {
-                        Id = t.Id,
-                        Titulo = t.Titulo,
-                        Categoria = t.CategoriaTicket.Nombre,
-                        Estado = t.EstadoTicket.Nombre,
-                        Emisor = t.Emisor.nombre, // ajustá según tu Usuario
-                        FechaCreacion = t.FechaCreacion
-                    })
-                    .ToList()
+                Tickets = ticketsPaginados,
+
+                PaginaActual = pagina,
+                RegistrosPorPagina = registrosPorPagina,
+                TotalRegistros = totalRegistros,
+                TotalPaginas = (int)Math.Ceiling((double)totalRegistros / registrosPorPagina)
             };
 
             return View(vm);
