@@ -49,9 +49,9 @@ body {
     cursor: pointer;
 }
 
-    .btn-primary:hover {
-        background-color: var(--color-primary-hover);
-    }
+.btn-primary:hover {
+    background-color: var(--color-primary-hover);
+}
 
 .btn-small {
     padding: 5px 10px;
@@ -62,40 +62,113 @@ body {
    Formularios
    ================================= */
 
+/* ================= CONTENEDOR GENERAL ================= */
+
 .form-block {
-    background: var(--color-surface);
-    padding: 25px;
-    border: 1px solid var(--color-border);
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
+
+/* ================= HEADER ================= */
+
+.form-header {
+    background-color: #75AADB;
+    padding: 12px 22px 8px 22px;
+}
+
+.titulo-form {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    color: white;
+    margin: 0;
+}
+
+/* ================= BODY ================= */
+
+.form-body {
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* ================= CAMPOS ================= */
 
 .form-group {
-    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
 }
 
-    .form-group label {
-        display: block;
-        font-size: 14px;
-        margin-bottom: 6px;
-        font-weight: 500;
-    }
+.form-group label {
+    margin-bottom: 6px;
+    font-weight: 600;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    font-size: 0.9rem;
+}
+
+/* Inputs y Select */
 
 .form-control {
     width: 100%;
-    padding: 8px;
-    border: 1px solid var(--color-border);
-    font-size: 14px;
-    background: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    transition: border 0.2s ease, box-shadow 0.2s ease;
 }
+
+/* Focus coherente */
+
+.form-control:focus {
+    outline: none;
+    border: 1px solid #75AADB;
+    box-shadow: 0 0 0 2px rgba(117, 170, 219, 0.2);
+}
+
+/* Textarea */
 
 textarea.form-control {
     resize: vertical;
     min-height: 120px;
 }
 
+/* ================= VALIDACIONES ================= */
+
 .validation-error {
-    font-size: 12px;
-    color: var(--color-danger);
+    margin-top: 4px;
+    font-size: 0.8rem;
+    color: #dc3545;
 }
+
+/* ================= BOTÓN ================= */
+
+.submit-button {
+    margin-top: 10px;
+    background-color: #75AADB;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 1.1rem;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.05s ease;
+}
+
+.submit-button:hover {
+    background-color: #0072BB;
+}
+
+.submit-button:active {
+    transform: scale(0.98);
+}
+
+
 
 /* ================================
    Layout Residente
@@ -123,11 +196,11 @@ textarea.form-control {
     padding: 18px;
 }
 
-    .mis-tickets h3 {
-        font-size: 16px;
-        font-weight: 600;
-        margin-bottom: 12px;
-    }
+.mis-tickets h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
 
 .ticket-mini {
     border-bottom: 1px solid var(--color-border);
@@ -135,9 +208,9 @@ textarea.form-control {
     font-size: 13px;
 }
 
-    .ticket-mini:last-child {
-        border-bottom: none;
-    }
+.ticket-mini:last-child {
+    border-bottom: none;
+}
 
 .ticket-mini-title {
     font-weight: 500;
@@ -175,6 +248,15 @@ textarea.form-control {
     border: 1px solid var(--color-border);
     padding: 20px;
     margin-bottom: 20px;
+    border-radius: 10px;
+    border-left: solid 4px #75AADB;
+
+    transition: border-left-width 0.15s ease
+
+}
+
+.ticket-item:hover{
+    border-left-width: 8px
 }
 
 .ticket-header {
@@ -240,3 +322,79 @@ textarea.form-control {
     color: white;
     border-color: #4f46e5;
 }
+
+/* ==============================
+   BLOQUE DE FILTROS
+================================= */
+
+.filtros-block {
+    background: #f8fbff; /* leve tono azul grisáceo */
+    border: 1px solid var(--color-border);
+    /*border-left: 4px solid #75AADB;*/ /* énfasis lateral */
+    padding: 18px 20px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+.filtros-header h4 {
+    margin: 0 0 15px 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.filtros-inline {
+    display: flex;
+    gap: 25px;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+
+.filtro-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.filtro-item label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #555;
+}
+
+.filtro-control {
+    background-color: #ffffff;
+    border: 1px solid #dcdcdc;
+    padding: 6px 8px;
+    border-radius: 5px;
+    min-width: 180px;
+    transition: 0.2s ease;
+}
+
+.filtro-control:focus {
+    border-color: #75AADB;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(117,170,219,0.15);
+}
+
+.filtro-actions {
+    display: flex;
+    align-items: flex-end;
+}
+
+.btn-filtrar {
+    background-color: #75AADB;
+    border: none;
+    color: white;
+    padding: 7px 16px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    transition: 0.2s ease;
+    cursor: pointer;
+}
+
+    .btn-filtrar:hover {
+        background-color: #52a1e9;
+    }

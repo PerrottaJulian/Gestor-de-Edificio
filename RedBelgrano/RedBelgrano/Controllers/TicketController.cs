@@ -57,7 +57,7 @@ namespace RedBelgrano.Controllers
                     .Include(t => t.CategoriaTicket)
                     .Where(t => t.EmisorId == emisorId)
                     .OrderByDescending(t => t.FechaCreacion)
-                    .Take(5)
+                    .Take(6)
                     .Select(t => new ListadoTicketsResidenteVM
                     {
                         Id = t.Id,

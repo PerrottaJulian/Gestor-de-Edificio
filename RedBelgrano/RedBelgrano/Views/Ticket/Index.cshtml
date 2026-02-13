@@ -6,33 +6,39 @@
     <h1 class="tickets-title">Gestión de Tickets</h1>
 
     <!-- FILTROS -->
+    <!-- FILTROS -->
     <div class="filtros-block">
+
+        <div class="filtros-header">
+        </div>
+
         <form method="get" class="filtros-inline">
-            <div>
+            <div class="filtro-item">
                 <label>Estado</label>
                 <select asp-for="EstadoTicketId"
                         asp-items="Model.Estados"
-                        class="form-control">
+                        class="form-control filtro-control">
                     <option value="">Todos</option>
                 </select>
             </div>
 
-            <div>
+            <div class="filtro-item">
                 <label>Categoría</label>
                 <select asp-for="CategoriaTicketId"
                         asp-items="Model.Categorias"
-                        class="form-control">
+                        class="form-control filtro-control">
                     <option value="">Todas</option>
                 </select>
             </div>
 
-            <div>
-                <button type="submit" class="btn-primary btn-small">
+            <div class="filtro-actions">
+                <button type="submit" class="btn-filtrar">
                     Filtrar
                 </button>
             </div>
         </form>
     </div>
+
 
     <!-- LISTADO -->
     @if (Model.Tickets != null && Model.Tickets.Any())

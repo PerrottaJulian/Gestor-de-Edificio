@@ -2,40 +2,48 @@
 <link rel="stylesheet" href="~/css/Ticket.css" />
 
 <div class="tickets-container">
-    <h1 class="tickets-title">Nuevo Ticket</h1>
 
     <div class="residente-layout">
 
         <!-- FORMULARIO -->
         <div class="form-block">
+
+            <div class="form-header">
+                <h2 class="titulo-form">Crear Ticket</h2>
+            </div>
+
             <form asp-action="Crear" method="post">
                 @Html.AntiForgeryToken()
 
-                <div class="form-group">
-                    <label>Título</label>
-                    <input asp-for="Titulo" class="form-control" />
-                    <span asp-validation-for="Titulo" class="validation-error"></span>
-                </div>
+                <div class="form-body">
 
-                <div class="form-group">
-                    <label>Categoría</label>
-                    <select asp-for="CategoriaTicketId"
-                            asp-items="Model.Categorias"
-                            class="form-control">
-                        <option value="">-- Seleccionar --</option>
-                    </select>
-                    <span asp-validation-for="CategoriaTicketId" class="validation-error"></span>
-                </div>
+                    <div class="form-group">
+                        <label>Título</label>
+                        <input asp-for="Titulo" class="form-control" />
+                        <span asp-validation-for="Titulo" class="validation-error"></span>
+                    </div>
 
-                <div class="form-group">
-                    <label>Detalle</label>
-                    <textarea asp-for="Contenido" class="form-control"></textarea>
-                    <span asp-validation-for="Contenido" class="validation-error"></span>
-                </div>
+                    <div class="form-group">
+                        <label>Categoría</label>
+                        <select asp-for="CategoriaTicketId"
+                                asp-items="Model.Categorias"
+                                class="form-control">
+                            <option disabled value="">-- Seleccionar --</option>
+                        </select>
+                        <span asp-validation-for="CategoriaTicketId" class="validation-error"></span>
+                    </div>
 
-                <button type="submit" class="btn-primary">
-                    Enviar Ticket
-                </button>
+                    <div class="form-group">
+                        <label>Detalle</label>
+                        <textarea asp-for="Contenido" class="form-control"></textarea>
+                        <span asp-validation-for="Contenido" class="validation-error"></span>
+                    </div>
+
+                    <button type="submit" class="submit-button">
+                        Enviar Ticket
+                    </button>
+
+                </div>
             </form>
         </div>
 
