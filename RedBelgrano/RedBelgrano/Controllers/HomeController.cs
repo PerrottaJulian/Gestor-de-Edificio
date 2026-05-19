@@ -47,15 +47,15 @@ namespace RedBelgrano.Controllers
         {
             try
             {
-                if (!db.Usuarios.Any())
+                if (true)
                 {
                     Usuario usuario = new Usuario()
                     {
                         tipo = "Administrador",
-                        dni = 44563116,
+                        dni = 44563117,
                         nombre = "Julian Perrotta",
                         email = "perrotta.julian12@gmail.com",
-                        clave = "admin",
+                        clave = "admin12",
                 };
                     
 

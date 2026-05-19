@@ -224,6 +224,32 @@
                 }
             });
         });
-    </script>
 
+        // ===============================
+        // Mantener la vista activa al recargar
+        // ===============================
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const params = new URLSearchParams(window.location.search);
+            const view = params.get("view");
+
+            if (view === "list") {
+
+                // activar botón listado
+                document.querySelectorAll('.toggle-btn')
+                    .forEach(btn => btn.classList.remove('active'));
+
+                const listButton = document.querySelector('[data-target="seccionListado"]');
+                if (listButton) listButton.classList.add('active');
+
+                // activar vista listado
+                document.querySelectorAll('.toggle-view')
+                    .forEach(view => view.classList.remove('active'));
+
+                const listView = document.getElementById("seccionListado");
+                if (listView) listView.classList.add('active');
+            }
+
+        });
+    </script>
 }

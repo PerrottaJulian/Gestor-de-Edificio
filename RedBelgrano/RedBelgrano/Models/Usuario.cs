@@ -48,7 +48,15 @@ namespace RedBelgrano.Models
 
         public bool VerificarClave(string claveEntrante)
         {
-            return BCrypt.Net.BCrypt.EnhancedVerify(claveEntrante, clave);
+            try
+            {
+                return BCrypt.Net.BCrypt.EnhancedVerify(claveEntrante, clave);
+
+            }
+            catch(Exception ex)
+            {
+                return claveEntrante == clave;
+            }
         }
 
         public void cambiarClave(string NuevaClave)

@@ -3,16 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\Admin\\dev-home\\Gestor-de-Edificio\\RedBelgrano\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|c:\\users\\admin\\dev-home\\gestor-de-edificio\\redbelgrano\\redbelgrano\\views\\ticket\\crear.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|solutionrelative:redbelgrano\\views\\ticket\\crear.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|c:\\users\\admin\\dev-home\\gestor-de-edificio\\redbelgrano\\redbelgrano\\views\\comunidad\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|solutionrelative:redbelgrano\\views\\comunidad\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|c:\\users\\admin\\dev-home\\gestor-de-edificio\\redbelgrano\\redbelgrano\\wwwroot\\css\\ticket.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|solutionrelative:redbelgrano\\wwwroot\\css\\ticket.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|c:\\users\\admin\\dev-home\\gestor-de-edificio\\redbelgrano\\redbelgrano\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|solutionrelative:redbelgrano\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|c:\\users\\admin\\dev-home\\gestor-de-edificio\\redbelgrano\\redbelgrano\\controllers\\ticketcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|solutionrelative:redbelgrano\\controllers\\ticketcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|c:\\users\\admin\\dev-home\\gestor-de-edificio\\redbelgrano\\redbelgrano\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|solutionrelative:redbelgrano\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|c:\\users\\admin\\dev-home\\gestor-de-edificio\\redbelgrano\\redbelgrano\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|solutionrelative:redbelgrano\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|c:\\users\\admin\\dev-home\\gestor-de-edificio\\redbelgrano\\redbelgrano\\views\\finanzas\\transacciones.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|solutionrelative:redbelgrano\\views\\finanzas\\transacciones.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|c:\\users\\admin\\dev-home\\gestor-de-edificio\\redbelgrano\\redbelgrano\\controllers\\perfilcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4D22702-9E21-45A6-807C-9519C85A57EB}|RedBelgrano\\RedBelgrano.csproj|solutionrelative:redbelgrano\\controllers\\perfilcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,8 +34,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 5,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LoginController.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\dev-home\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Controllers\\LoginController.cs",
+              "RelativeDocumentMoniker": "RedBelgrano\\Controllers\\LoginController.cs",
+              "ToolTip": "C:\\Users\\Admin\\dev-home\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Controllers\\LoginController.cs",
+              "RelativeToolTip": "RedBelgrano\\Controllers\\LoginController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACsAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-04T01:17:48.517Z",
+              "IsPinned": true
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
@@ -42,43 +67,64 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "TicketController.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\dev-home\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Controllers\\TicketController.cs",
-              "RelativeDocumentMoniker": "RedBelgrano\\Controllers\\TicketController.cs",
-              "ToolTip": "C:\\Users\\Admin\\dev-home\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Controllers\\TicketController.cs",
-              "RelativeToolTip": "RedBelgrano\\Controllers\\TicketController.cs",
-              "ViewState": "AgIAAEUAAAAAAAAAAAAswKoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-09T22:12:11.679Z",
-              "IsPinned": true
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Ticket.css",
-              "DocumentMoniker": "C:\\Users\\Admin\\dev-home\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\wwwroot\\css\\Ticket.css",
-              "RelativeDocumentMoniker": "RedBelgrano\\wwwroot\\css\\Ticket.css",
-              "ToolTip": "C:\\Users\\Admin\\dev-home\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\wwwroot\\css\\Ticket.css",
-              "RelativeToolTip": "RedBelgrano\\wwwroot\\css\\Ticket.css",
-              "ViewState": "AgIAADQAAAAAAAAAAAAowKkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-02-11T11:51:12.767Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Crear.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\dev-home\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Views\\Ticket\\Crear.cshtml",
-              "RelativeDocumentMoniker": "RedBelgrano\\Views\\Ticket\\Crear.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\dev-home\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Views\\Ticket\\Crear.cshtml",
-              "RelativeToolTip": "RedBelgrano\\Views\\Ticket\\Crear.cshtml",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAYwDAAAAAOAAAAAAAAAA==",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\dev-home\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Views\\Comunidad\\Index.cshtml",
+              "RelativeDocumentMoniker": "RedBelgrano\\Views\\Comunidad\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\dev-home\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Views\\Comunidad\\Index.cshtml",
+              "RelativeToolTip": "RedBelgrano\\Views\\Comunidad\\Index.cshtml",
+              "ViewState": "AgIAAMkAAAAAAAAAAAAUwP0AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-02-11T11:58:25.004Z",
+              "WhenOpened": "2026-03-09T17:06:20.717Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\dev-home\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Models\\Usuario.cs",
+              "RelativeDocumentMoniker": "RedBelgrano\\Models\\Usuario.cs",
+              "ToolTip": "C:\\Users\\Admin\\dev-home\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Models\\Usuario.cs",
+              "RelativeToolTip": "RedBelgrano\\Models\\Usuario.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAApwDYAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-09T17:02:13.999Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Transacciones.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\dev-home\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Views\\Finanzas\\Transacciones.cshtml",
+              "RelativeDocumentMoniker": "RedBelgrano\\Views\\Finanzas\\Transacciones.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\dev-home\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Views\\Finanzas\\Transacciones.cshtml",
+              "RelativeToolTip": "RedBelgrano\\Views\\Finanzas\\Transacciones.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-06T00:10:46.638Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\dev-home\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "RedBelgrano\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\Admin\\dev-home\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "RedBelgrano\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAgwCQAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-06T00:06:25.733Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "PerfilController.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\dev-home\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Controllers\\PerfilController.cs",
+              "RelativeDocumentMoniker": "RedBelgrano\\Controllers\\PerfilController.cs",
+              "ToolTip": "C:\\Users\\Admin\\dev-home\\Gestor-de-Edificio\\RedBelgrano\\RedBelgrano\\Controllers\\PerfilController.cs",
+              "RelativeToolTip": "RedBelgrano\\Controllers\\PerfilController.cs",
+              "ViewState": "AgIAAEoAAAAAAAAAAAAwwEUAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-04T01:24:38.451Z"
             }
           ]
         },

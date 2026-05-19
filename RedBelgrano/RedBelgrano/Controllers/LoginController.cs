@@ -68,6 +68,12 @@ namespace RedBelgrano.Controllers
             if(!usuario_encontrado.VerificarClave(_usuario.clave))
             {
                 ViewData["Mensaje"] = "Contraseña Incorrecta";
+                Console.Clear();
+                string nuevaPassword = "admin12";
+                string hash = BCrypt.Net.BCrypt.HashPassword(nuevaPassword);
+
+                Console.WriteLine(hash);
+
                 return View();
             }
 

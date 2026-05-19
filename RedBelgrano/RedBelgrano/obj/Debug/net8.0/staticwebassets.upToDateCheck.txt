@@ -5,6 +5,7 @@ wwwroot\css\Login.css
 wwwroot\css\Perfil.css
 wwwroot\css\Residentes.css
 wwwroot\css\site.css
+wwwroot\css\Ticket.css
 wwwroot\favicon.ico
 wwwroot\images\Logo-Nav.png
 wwwroot\images\logo.png
@@ -68,4 +69,3 @@ wwwroot\lib\jquery\dist\jquery.js
 wwwroot\lib\jquery\dist\jquery.min.js
 wwwroot\lib\jquery\dist\jquery.min.map
 wwwroot\lib\jquery\LICENSE.txt
-wwwroot\css\Ticket.css
